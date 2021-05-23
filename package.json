@@ -1,7 +1,7 @@
 {
   "name": "fredysomy",
   "version": "1.0.0",
-  "description": "",
+  "description": "parent folder for proxpi",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm start --prefix backend\" \"npm start --prefix proxpi\"",
