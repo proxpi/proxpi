@@ -5,7 +5,7 @@ import {
   isAuthenticated,
   withAuthenticationRequired,
 } from "@auth0/auth0-react";
-import Loading from "../components/Loading";
+import Loading from "./Loading";
 
 function DashBoard() {
   const { user, getAccessTokenSilently } = useAuth0();
@@ -52,58 +52,92 @@ function DashBoard() {
   }, []);
   console.log(plan);
   return (
-    <div
-      style={{
-        margin: "2%",
-        display: "flex",
-        flexDirection: "row",
-        padding: "7px 7px",
-      }}
-      class="jumbotron"
-    >
+    <>
       <div
-        class="modal fade bd-example-modal-sm"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="mySmallModalLabel"
-        aria-hidden="true"
+        style={{
+          margin: "2%",
+          display: "flex",
+          flexDirection: "row",
+          padding: "7px 7px",
+        }}
+        class="jumbotron"
       >
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">Your Account is Active.</div>
+        <div
+          class="modal fade bd-example-modal-sm"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="mySmallModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">Your Account is Active.</div>
+          </div>
+        </div>
+        <div style={{ marginTop: "auto", marginBottom: "auto" }}>
+          <img
+            width="80px"
+            height="80px"
+            style={{ borderRadius: "50%", marginTop: "auto" }}
+            src={user.picture}
+          />
+        </div>
+        <div>
+          <h3 style={{ marginLeft: "10px" }}>{user.given_name}</h3>
+          <h6 style={{ marginLeft: "10px" }}>Plan : {plan.plan}</h6>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <h6 style={{ marginLeft: "10px" }}>Status:</h6>
+            {activate ? (
+              <h6
+                style={{ marginLeft: "4px", color: "#3d9fcf" }}
+                data-toggle="modal"
+                data-target=".bd-example-modal-sm"
+              >
+                Activated
+              </h6>
+            ) : (
+              <h6
+                style={{ marginLeft: "4px", color: "#ff4d4d" }}
+                onClick={ActivateUser}
+              >
+                Click to Activate
+              </h6>
+            )}
+          </div>
         </div>
       </div>
-      <div style={{ marginTop: "auto", marginBottom: "auto" }}>
-        <img
-          width="80px"
-          height="80px"
-          style={{ borderRadius: "50%", marginTop: "auto" }}
-          src={user.picture}
-        />
-      </div>
-      <div>
-        <h3 style={{ marginLeft: "10px" }}>{user.given_name}</h3>
-        <h6 style={{ marginLeft: "10px" }}>Plan : {plan.plan}</h6>
+      <h4 style={{ margin: "2%" }}>Your ProxPies</h4>
+      <div
+        style={{
+          margin: "2%",
+          display: "flex",
+          flexDirection: "row",
+          padding: "7px 7px",
+        }}
+        class="jumbotron"
+      >
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <h6 style={{ marginLeft: "10px" }}>Status:</h6>
-          {activate ? (
-            <h6
-              style={{ marginLeft: "4px", color: "#3d9fcf" }}
-              data-toggle="modal"
-              data-target=".bd-example-modal-sm"
-            >
-              Activated
-            </h6>
-          ) : (
-            <h6
-              style={{ marginLeft: "4px", color: "#ff4d4d" }}
-              onClick={ActivateUser}
-            >
-              Click to Activate
-            </h6>
-          )}
+          <div
+            style={{
+              width: "130px",
+              height: "130px",
+              backgroundColor: "cyan",
+              borderRadius: "5%",
+            }}
+          >
+            <i
+              style={{
+                display: "block",
+                textAlign: "center",
+                width: "100%",
+                height: "100%",
+                justifyContent: "center",
+              }}
+              class="fas fa-plus"
+            ></i>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 export default withAuthenticationRequired(DashBoard, {
