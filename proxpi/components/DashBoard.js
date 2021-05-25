@@ -61,7 +61,7 @@ function DashBoard() {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Create a new ProxPi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -69,19 +69,19 @@ function DashBoard() {
       <div class="modal-body">
       <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1">Name of ProxPi</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <small id="emailHelp" class="form-text text-muted">Try a unique one</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
+  <select class="custom-select" id="inputGroupSelect01">
+    <option selected>Choose the API request Method</option>
+    <option value="1">GET</option>
+    <option value="2">POST</option>
+    <option value="3">PUT</option>
+  </select>
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  
 </form>
 
       </div>
@@ -144,9 +144,10 @@ function DashBoard() {
           </div>
         </div>
       </div>
-      <div style={{display:"flex",flexDirection:"row"}}>
-      <h5 style={{ margin: "2%" }}>Your ProxPies</h5>
-      <button onClick={createNewProxpi} class="btn btn-outline-primary">Create New</button>
+      <div style={{display:"flex",flexDirection:"row",margin:"0.5%"}}>
+      <h5 style={{ marginLeft: "2%" ,marginTop:"5px",marginBottom:"5px"}}>Your ProxPies</h5>
+      <button style={{padding:"2px 4px",marginLeft:"2%"}}onClick={createNewProxpi} class="btn btn-outline-primary">Create New</button>
+
       </div>
       <div
         style={{
@@ -157,7 +158,7 @@ function DashBoard() {
         }}
         class="jumbotron"
       >
-        
+
       </div>
     </>
   );
