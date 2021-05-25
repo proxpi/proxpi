@@ -4,7 +4,9 @@ import DashBoard from "../components/DashBoard";
 import Main from "../components/Main";
 import NavBar from "../components/NavBar";
 import Pricing from "../components/Pricing";
+import axios from "axios"
 export default () => {
+  axios.defaults.baseURL = 'http://localhost:8080';
   return (
     <Router>
       <div>
