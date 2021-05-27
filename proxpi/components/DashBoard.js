@@ -6,6 +6,7 @@ import {
   withAuthenticationRequired,
 } from "@auth0/auth0-react";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 function DashBoard() {
   const { user, getAccessTokenSilently } = useAuth0();
@@ -57,59 +58,6 @@ function DashBoard() {
   console.log(plan);
   return (
     <>
-      <div id="mmodal" class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Create a new ProxPi</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Name of ProxPi</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                  />
-                  <small id="emailHelp" class="form-text text-muted">
-                    Try a unique one
-                  </small>
-                </div>
-                <div class="form-group">
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose the API request Method</option>
-                    <option value="1">GET</option>
-                    <option value="2">POST</option>
-                    <option value="3">PUT</option>
-                  </select>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
       <div
         style={{
           margin: "2%",
@@ -166,12 +114,13 @@ function DashBoard() {
         <h5 style={{ marginLeft: "2%", marginTop: "5px", marginBottom: "5px" }}>
           Your ProxPies
         </h5>
+
         <button
           style={{ padding: "2px 4px", marginLeft: "2%" }}
           onClick={createNewProxpi}
           class="btn btn-outline-primary"
         >
-          Create New
+          <Link to="dashboard/new">Create New</Link>
         </button>
       </div>
       <div

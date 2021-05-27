@@ -30,7 +30,7 @@ router.route("/activate").post(async (req, res) => {
     isActive: true,
     plan: "Free",
   });
-  console.log(itemAdded);
+
   res.send(itemAdded);
 });
 

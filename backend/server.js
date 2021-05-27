@@ -8,6 +8,7 @@ const deta = Deta(process.env.DETA_KEY);
 let db = deta.Base("plans");
 const cors = require("cors");
 const PlanRouter = require("./routes/plans");
+const CreateRouter = require("./routes/new");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -28,6 +29,7 @@ var jwtCheck = jwt({
 });
 app.use(jwtCheck);
 app.use("/plan", PlanRouter);
+app.use("/new", CreateRouter);
 app.listen(port, () => {
   console.log("ons");
 });
