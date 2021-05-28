@@ -1,0 +1,16 @@
+.proxpiview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+@media all and (max-width: 600px) {
+  .proxpiview {
+    display: flex;
+    margin: 2%;
+    justify-content: center;
+    width: 90%;
+  }
+  .proxpihold {
+    justify-content: center;
+  }
+}

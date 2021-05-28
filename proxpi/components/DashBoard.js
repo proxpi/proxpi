@@ -7,7 +7,8 @@ import {
 } from "@auth0/auth0-react";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
-
+import ProxpiView from "./sub_components/ProxpiView";
+import "../assets/dashboard.css";
 function DashBoard() {
   const { user, getAccessTokenSilently } = useAuth0();
   const [activate, setActivated] = useState(false);
@@ -124,14 +125,15 @@ function DashBoard() {
         </button>
       </div>
       <div
+        class="proxpihold"
         style={{
-          margin: "2%",
           display: "flex",
           flexDirection: "row",
-          padding: "7px 7px",
+          flexWrap: "wrap",
         }}
-        class="jumbotron"
-      ></div>
+      >
+        <ProxpiView />
+      </div>
     </>
   );
 }

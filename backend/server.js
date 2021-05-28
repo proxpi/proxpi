@@ -10,6 +10,7 @@ const cors = require("cors");
 const PlanRouter = require("./routes/plans");
 const CreateRouter = require("./routes/new");
 const bodyParser = require("body-parser");
+const ProxPiRouter = require("./routes/get");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -30,6 +31,7 @@ var jwtCheck = jwt({
 app.use(jwtCheck);
 app.use("/plan", PlanRouter);
 app.use("/new", CreateRouter);
+app.use("/get", ProxPiRouter);
 app.listen(port, () => {
   console.log("ons");
 });
