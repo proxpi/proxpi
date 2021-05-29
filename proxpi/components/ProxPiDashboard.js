@@ -63,6 +63,20 @@ function ProxPiDashboard() {
         <li class="nav-item">
           <a
             class="nav-link"
+            id="ban-tab"
+            data-toggle="tab"
+            href="#ban"
+            role="tab"
+            aria-controls="ban"
+            aria-selected="false"
+          >
+            {" "}
+            <i class="fas fa-ban"></i> Block
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
             id="settings-tab"
             data-toggle="tab"
             href="#settings"
@@ -107,6 +121,14 @@ function ProxPiDashboard() {
           aria-labelledby="access-tab"
         >
           KJSGKUfdfGSDKUSGD
+        </div>
+        <div
+          class="tab-pane fade"
+          id="ban"
+          role="tabpanel"
+          aria-labelledby="ban-tab"
+        >
+          HIIIIIIIIIII
         </div>
         <div
           class="tab-pane fade"
