@@ -6,16 +6,17 @@
   "scripts": {
     "start": "concurrently \"npm start --prefix backend\" \"npm start --prefix proxpi\"",
     "installdep_server": "cd backend && npm i",
-    "installdep_proxpi":"cd proxpi && npm i",
-    "clean_server":"cd backend && npx prettier --write .",
-    "clean_proxpi":"cd proxpi && npx prettier --write .",
-    "cleanall":"npm run clean_server && npm run clean_proxpi",
-    "installdep":"npm run installdep_server && npm run installdep_proxpi"
+    "installdep_proxpi": "cd proxpi && npm i",
+    "clean_server": "cd backend && npx prettier --write .",
+    "clean_proxpi": "cd proxpi && npx prettier --write .",
+    "cleanall": "npm run clean_server && npm run clean_proxpi",
+    "installdep": "npm run installdep_server && npm run installdep_proxpi"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^6.1.0"
+    "concurrently": "^6.1.0",
+    "crypto": "^1.0.1"
   }
 }

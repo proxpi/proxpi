@@ -121,7 +121,9 @@ function DashBoard() {
           onClick={createNewProxpi}
           class="btn btn-outline-primary"
         >
-          <Link to="dashboard/new">Create New</Link>
+          <Link style={{ textDecoration: "none" }} to="dashboard/new">
+            Create New
+          </Link>
         </button>
       </div>
       <div
@@ -130,6 +132,8 @@ function DashBoard() {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
+
+          padding: "0",
         }}
       >
         <ProxpiView />

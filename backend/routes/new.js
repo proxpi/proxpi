@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var crypto = require("crypto");
 require("dotenv").config();
 var router = require("express").Router();
 const { Deta } = require("deta");
@@ -16,7 +17,7 @@ router.route("/create").post(async (req, res) => {
   const createdProxpi = await db.put({
     email: req.body.email,
     method: req.body.body.method,
-    name: req.body.body.name,
+    name: req.body.body.name + crypto.randomBytes(2).toString("hex"),
     url: "",
     access: req.body.body.access,
     headers: {},
