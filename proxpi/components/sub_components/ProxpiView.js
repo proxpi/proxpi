@@ -43,7 +43,7 @@ function Main() {
                   <h5 class="card-title">{data.name}</h5>
                   <p>Method :{data.method}</p>
                   <p>Access :{data.access}</p>
-                  <Link to={`dashboard/${data.key}`}>
+                  <Link to={`dashboard/home/${data.key}`}>
                     <button class="btn btn-primary">DashBoard</button>
                   </Link>
                 </div>

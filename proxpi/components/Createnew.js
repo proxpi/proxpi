@@ -10,6 +10,7 @@ function Createnew() {
     name: "",
     method: "",
     access: "",
+    url: "",
   });
   const [error, setError] = useState(true);
   const [c_error, setC_error] = useState(false);
@@ -70,6 +71,20 @@ function Createnew() {
               placeholder="blah_blah_blah"
             />
             <label for="floatingInput">Name</label>
+          </div>
+          <hr />
+          <div class="form-floating">
+            <input
+              onChange={handlePut}
+              value={proxpi.url}
+              required
+              type="url"
+              name="url"
+              class="form-control"
+              id="floatingInputURL"
+              placeholder="https://example.com/api"
+            />
+            <label for="floatingInputURL">Your API endpoint to Proxy.</label>
           </div>
           <hr />
           <div class="form-group">

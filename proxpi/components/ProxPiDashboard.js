@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Home from "../components/dashboardComponents/Home";
+import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 function ProxPiDashboard() {
-  const URL_PARAM = window.location.pathname.split("/")[2];
+  const { user, getAccessTokenSilently } = useAuth0();
+  const [proxpiData, setProxpiData] = useState({});
+  const [analytics, setAnalytics] = useState({});
+  const [error, setError] = useState(false);
+  async function getProxpiUser() {
+    const tokenGPA = await getAccessTokenSilently();
+    //GPA means Get Proxpi analytics
+    await axios
+      .request({
+        method: "GET",
+        url: `/get/proxpianalytics/${window.location.pathname.split("/")[3]}`,
+        headers: {
+          Authorization: `Bearer ${tokenGPA}`,
+        },
+      })
+      .then((data) => {
+        if (!data.data.success == false) {
+          setError(ture);
+        } else {
+          setProxpiData(data.data.proxpidata);
+          setAnalytics(data.data.analyticsdata);
+        }
+      });
+  }
+  useEffect(() => {
+    getProxpiUser();
+  }, []);
   return (
     <div style={{ margin: "2.5%" }}>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -96,7 +125,7 @@ function ProxPiDashboard() {
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-          {URL_PARAM}
+          <Home Pdata={proxpiData} />
         </div>
         <div
           class="tab-pane fade"

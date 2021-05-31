@@ -6,6 +6,7 @@ var router = require("express").Router();
 const { Deta } = require("deta");
 const deta = Deta(process.env.DETA_KEY);
 let db = deta.Base("proxpi");
+let dbAnalytics = deta.Base("analytics");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,7 +19,7 @@ router.route("/create").post(async (req, res) => {
     email: req.body.email,
     method: req.body.body.method,
     name: req.body.body.name + crypto.randomBytes(2).toString("hex"),
-    url: "",
+    url: req.body.body.url,
     access: req.body.body.access,
     headers: {},
     body: {},
@@ -26,6 +27,12 @@ router.route("/create").post(async (req, res) => {
     site_access: [],
     blocked_site: [],
     blocked_ip: [],
+  });
+  await dbAnalytics.put({
+    proxpikey: createdProxpi.key,
+    daily: [],
+    geo: [],
+    status: [],
   });
   if (createdProxpi) {
     res.send({ statusb: true });

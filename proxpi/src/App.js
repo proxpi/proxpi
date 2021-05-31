@@ -7,6 +7,7 @@ import Pricing from "../components/Pricing";
 import Createnew from "../components/Createnew";
 import axios from "axios";
 import ProxPiDashboard from "../components/ProxPiDashboard";
+
 export default () => {
   axios.defaults.baseURL = "http://localhost:8080";
   return (
@@ -26,7 +27,8 @@ export default () => {
               <>
                 <Route path={`${url}/`} component={DashBoard} exact />
                 <Route path={`${url}/new`} component={Createnew} />
-                <Route path={`${url}/:id`} component={ProxPiDashboard} />
+
+                <Route path={`${url}/home/:id`} component={ProxPiDashboard} />
               </>
             )}
           />
