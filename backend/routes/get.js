@@ -5,7 +5,7 @@ var router = require("express").Router();
 const { Deta } = require("deta");
 const deta = Deta(process.env.DETA_KEY);
 let db = deta.Base("proxpi");
-let dbAnalytics = deta.Base("analytics");
+
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.set("trust proxy", true);
@@ -20,12 +20,9 @@ router.route("/proxpi").post(async (req, res) => {
 });
 router.route("/proxpianalytics/:id").get(async (req, res) => {
   const ProxpiData = await db.get(req.params.id);
-  const AnalyticsData = await dbAnalytics
-    .fetch({ proxpikey: req.params.id })
-    .next();
 
   if (req.user.aud[0] == ProxpiData.email) {
-    res.json({ proxpidata: ProxpiData, analyticsdata: AnalyticsData.value });
+    res.json({ proxpidata: ProxpiData });
   } else {
     res.json({ success: false });
   }

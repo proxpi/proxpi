@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Home from "../components/dashboardComponents/Home";
+import Settings from "../components/dashboardComponents/Settings";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 function ProxPiDashboard() {
   const { user, getAccessTokenSilently } = useAuth0();
   const [proxpiData, setProxpiData] = useState({});
-  const [analytics, setAnalytics] = useState({});
+
   const [error, setError] = useState(false);
   async function getProxpiUser() {
     const tokenGPA = await getAccessTokenSilently();
@@ -23,7 +24,6 @@ function ProxPiDashboard() {
           setError(ture);
         } else {
           setProxpiData(data.data.proxpidata);
-          setAnalytics(data.data.analyticsdata);
         }
       });
   }
@@ -165,7 +165,7 @@ function ProxPiDashboard() {
           role="tabpanel"
           aria-labelledby="settings-tab"
         >
-          KJSGKsdfsdfsdfUGSDKUSGD
+          <Settings data={proxpiData} />
         </div>
       </div>
     </div>

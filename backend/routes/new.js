@@ -27,13 +27,11 @@ router.route("/create").post(async (req, res) => {
     site_access: [],
     blocked_site: [],
     blocked_ip: [],
-  });
-  await dbAnalytics.put({
-    proxpikey: createdProxpi.key,
     daily: [],
     geo: [],
     status: [],
   });
+
   if (createdProxpi) {
     res.send({ statusb: true });
   } else {
