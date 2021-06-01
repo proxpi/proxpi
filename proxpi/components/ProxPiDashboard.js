@@ -125,7 +125,7 @@ function ProxPiDashboard() {
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-          <Home Pdata={proxpiData} />
+          <Home data={proxpiData} />
         </div>
         <div
           class="tab-pane fade"

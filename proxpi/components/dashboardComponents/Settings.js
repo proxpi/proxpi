@@ -1,4 +1,7 @@
 import React from "react";
+import AceEditor from "react-ace";
+import "brace/mode/json";
+import "brace/theme/monokai";
 function Settings(props) {
   return (
     <div style={{ margin: "2% 6%" }}>
@@ -89,55 +92,67 @@ function Settings(props) {
         </small>
         <hr />
         <p>Headers</p>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" />
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" />
-          </div>
-          <div class="col">
-            <button class="btn btn-md btn-primary">Add</button>
-          </div>
+
+        <div id="sdfswdf">
+          <AceEditor
+            mode="json"
+            theme="monokai"
+            name="editor"
+            maxLines={Infinity}
+            value={
+              JSON.stringify(props.data.header, undefined, 3) ||
+              JSON.stringify({ "Content-Type": "text/json" }, undefined, 3)
+            }
+            fontSize={14}
+            editorProps={{ $blockScrolling: true }}
+            setOptions={{ useWorker: false }}
+          />
         </div>
         <hr />
         <p>Body</p>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" />
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" />
-          </div>
-          <div class="col">
-            <button class="btn btn-md btn-primary">Add</button>
-          </div>
+
+        <div id="sdfswdf">
+          <AceEditor
+            mode="json"
+            theme="monokai"
+            name="editor"
+            maxLines={Infinity}
+            value={JSON.stringify(props.data.body || {}, undefined, 3)}
+            fontSize={14}
+            editorProps={{ $blockScrolling: true }}
+            setOptions={{ useWorker: false }}
+          />
         </div>
         <hr />
         <p>Params</p>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" />
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" />
-          </div>
-          <div class="col">
-            <button class="btn btn-md btn-primary">Add</button>
-          </div>
+
+        <div id="sdfswdf">
+          <AceEditor
+            mode="json"
+            theme="monokai"
+            name="editor"
+            maxLines={Infinity}
+            value={JSON.stringify(props.data.params || {}, undefined, 3)}
+            fontSize={14}
+            editorProps={{ $blockScrolling: true }}
+            setOptions={{ useWorker: false }}
+          />
         </div>
+
         <hr />
         <p>Data</p>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" />
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" />
-          </div>
-          <div class="col">
-            <button class="btn btn-md btn-primary">Add</button>
-          </div>
+
+        <div id="sdfswdf">
+          <AceEditor
+            mode="json"
+            theme="monokai"
+            name="editor"
+            maxLines={Infinity}
+            value={JSON.stringify(props.data.data || {}, undefined, 3)}
+            fontSize={14}
+            editorProps={{ $blockScrolling: true }}
+            setOptions={{ useWorker: false }}
+          />
         </div>
         <hr />
       </div>

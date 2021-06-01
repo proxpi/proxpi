@@ -5,10 +5,9 @@ function Home(props) {
     <div>
       <div style={{ width: "50%", margin: "2%" }}>
         <div class="alert alert-primary" role="alert">
-          Your ProxPi URL is https://localhost:8080/{props.Pdata.name}
+          Your ProxPi URL is https://localhost:8080/{props.data.name}
         </div>
       </div>
-      <pre>{JSON.stringify(props.Pdata, undefined, 2)}</pre>
     </div>
   );
 }
