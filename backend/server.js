@@ -11,6 +11,7 @@ const PlanRouter = require("./routes/plans");
 const CreateRouter = require("./routes/new");
 const bodyParser = require("body-parser");
 const ProxPiRouter = require("./routes/get");
+const UpdateDataRouter = require("./routes/settings");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -32,6 +33,7 @@ app.use(jwtCheck);
 app.use("/plan", PlanRouter);
 app.use("/new", CreateRouter);
 app.use("/get", ProxPiRouter);
+app.use("/update", UpdateDataRouter);
 app.listen(port, () => {
   console.log("ons");
 });

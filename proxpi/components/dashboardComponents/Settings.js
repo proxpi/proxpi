@@ -11,8 +11,32 @@ function Settings(props) {
   const [loaded, setLoaded] = useState(false);
   const [access, setAccess] = useState();
   const [method, setMethod] = useState();
-  const { getAccessTokenSilently } = useAuth0();
+  const [key, setkey] = useState();
 
+  const { getAccessTokenSilently } = useAuth0();
+  async function SendDataToServer() {
+    const tokenCPU = await getAccessTokenSilently();
+    await axios
+      .post(
+        "/update/settings",
+        {
+          body: {
+            headerP: head,
+            paramsP: params,
+            bodyP: body,
+            accessP: access,
+            methodP: method,
+            keyP: key,
+          },
+        },
+        { headers: { authorization: `Bearer ${tokenCPU}` } }
+      )
+      .then((resp) => {
+        if (resp.data.data == undefined) {
+          $("#showsuccessmodal").modal("show");
+        }
+      });
+  }
   function handleHeaderAdd() {
     dataHeader = document.getElementById("headeradd").value;
     if (dataHeader) {
@@ -62,11 +86,12 @@ function Settings(props) {
       .then((data) => {
         if (!data.data.success == false) {
         } else {
-          setHead(data.data.proxpidata.headers);
-          setBody(data.data.proxpidata.body);
-          setParams(data.data.proxpidata.params);
-          setMethod(data.data.proxpidata.method);
-          setAccess(data.data.proxpidata.access);
+          setHead(data.data.proxpidata.headers || {});
+          setBody(data.data.proxpidata.body || {});
+          setParams(data.data.proxpidata.params || {});
+          setMethod(data.data.proxpidata.method || {});
+          setAccess(data.data.proxpidata.access || {});
+          setkey(data.data.proxpidata.key);
           setLoaded(true);
         }
       });
@@ -74,11 +99,44 @@ function Settings(props) {
   useEffect(() => {
     getProxpiUser();
   }, []);
-  function somethin() {
-    console.log(head, params, body, method, access);
-  }
+
   return (
     <div style={{ margin: "2% 6%" }}>
+      <div
+        class="modal fade"
+        id="showsuccessmodal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Success
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">Settings Successfully saved...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
@@ -204,16 +262,10 @@ function Settings(props) {
             Object.keys(head).map((data) => {
               return (
                 <div style={{ width: "50%" }} class="input-group">
-                  <input
-                    type="text"
-                    aria-label="First name"
-                    onChange={(e) => {
-                      console.log(e);
-                    }}
-                    name="header"
-                    value={data + "  |  " + head[data]}
-                    class="form-control"
-                  />
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">{data}</li>
+                    <li class="list-group-item">{head[data]}</li>
+                  </ul>
 
                   <div class="input-group-append">
                     <button
@@ -240,7 +292,9 @@ function Settings(props) {
             <p>skdjfbksjdbf</p>
           )}
         </div>
-        <pre>{JSON.stringify({ header: head }, undefined, 3)}</pre>
+        <pre class="brush: json">
+          {JSON.stringify({ header: head }, undefined, 3)}
+        </pre>
         <hr />
         <h5>Body</h5>
         <div class="input-group">
@@ -271,16 +325,10 @@ function Settings(props) {
             Object.keys(body).map((data) => {
               return (
                 <div style={{ width: "50%" }} class="input-group">
-                  <input
-                    type="text"
-                    aria-label="First name"
-                    onChange={(e) => {
-                      console.log(e);
-                    }}
-                    name="header"
-                    value={data + "  |  " + body[data]}
-                    class="form-control"
-                  />
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">{data}</li>
+                    <li class="list-group-item">{body[data]}</li>
+                  </ul>
 
                   <div class="input-group-append">
                     <button
@@ -307,7 +355,7 @@ function Settings(props) {
             <p>skdjfbksjdbf</p>
           )}
         </div>
-        <pre>{JSON.stringify(body, undefined, 3)}</pre>
+        <pre class="brush: json">{JSON.stringify(body, undefined, 3)}</pre>
         <hr />
 
         <h5>Params</h5>
@@ -340,16 +388,10 @@ function Settings(props) {
             Object.keys(params).map((data) => {
               return (
                 <div style={{ width: "50%" }} class="input-group">
-                  <input
-                    type="text"
-                    aria-label="First name"
-                    onChange={(e) => {
-                      console.log(e);
-                    }}
-                    name="header"
-                    value={data + "  |  " + params[data]}
-                    class="form-control"
-                  />
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">{data}</li>
+                    <li class="list-group-item">{params[data]}</li>
+                  </ul>
 
                   <div class="input-group-append">
                     <button
@@ -376,10 +418,14 @@ function Settings(props) {
             <p>skdjfbksjdbf</p>
           )}
         </div>
-        <pre>{JSON.stringify(params, undefined, 3)}</pre>
+        <pre class="brush: json">{JSON.stringify(params, undefined, 3)}</pre>
 
         <hr />
-        <button type="button" class="btn btn-primary btn-lg" onClick={somethin}>
+        <button
+          type="button"
+          class="btn btn-primary btn-lg"
+          onClick={SendDataToServer}
+        >
           {" "}
           Save{" "}
         </button>
