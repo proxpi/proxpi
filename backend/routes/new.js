@@ -23,6 +23,7 @@ router.route("/create").post(async (req, res) => {
     access: req.body.body.access,
     headers: {},
     body: {},
+    data: {},
     params: {},
     site_access: [],
     blocked_site: [],

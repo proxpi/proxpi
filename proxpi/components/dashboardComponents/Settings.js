@@ -1,8 +1,82 @@
-import React from "react";
-import AceEditor from "react-ace";
-import "brace/mode/json";
-import "brace/theme/monokai";
+import React, { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import dotPropImmutable from "dot-prop-immutable";
+import axios from "axios";
+
 function Settings(props) {
+  var arr = [];
+  const [head, setHead] = useState([]);
+  const [params, setParams] = useState([]);
+  const [body, setBody] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+  const [access, setAccess] = useState();
+  const [method, setMethod] = useState();
+  const { getAccessTokenSilently } = useAuth0();
+
+  function handleHeaderAdd() {
+    dataHeader = document.getElementById("headeradd").value;
+    if (dataHeader) {
+      setHead({
+        ...head,
+        [dataHeader.split(",")[0]]: dataHeader.split(",")[1],
+      });
+      console.log(head);
+    } else {
+      console.log("addedno");
+    }
+  }
+  function handleParamsAdd() {
+    dataParams = document.getElementById("paramsadd").value;
+    if (dataParams) {
+      setParams({
+        ...params,
+        [dataParams.split(",")[0]]: dataParams.split(",")[1],
+      });
+    } else {
+      console.log("addedno");
+    }
+  }
+  function handleBodyAdd() {
+    dataBody = document.getElementById("bodyadd").value;
+    if (dataBody) {
+      setBody({
+        ...body,
+        [dataBody.split(",")[0]]: dataBody.split(",")[1],
+      });
+    } else {
+      console.log("addedno");
+    }
+  }
+
+  async function getProxpiUser() {
+    const tokenGPA = await getAccessTokenSilently();
+    //GPA means Get Proxpi analytics
+    await axios
+      .request({
+        method: "GET",
+        url: `/get/proxpianalytics/${window.location.pathname.split("/")[3]}`,
+        headers: {
+          Authorization: `Bearer ${tokenGPA}`,
+        },
+      })
+      .then((data) => {
+        if (!data.data.success == false) {
+        } else {
+          setHead(data.data.proxpidata.headers);
+          setBody(data.data.proxpidata.body);
+          setParams(data.data.proxpidata.params);
+          setMethod(data.data.proxpidata.method);
+          setAccess(data.data.proxpidata.access);
+          setLoaded(true);
+        }
+      });
+  }
+  useEffect(() => {
+    getProxpiUser();
+  }, []);
+  function somethin() {
+    console.log(head, params, body, method, access);
+  }
   return (
     <div style={{ margin: "2% 6%" }}>
       <div>
@@ -41,18 +115,21 @@ function Settings(props) {
             class="custom-select"
             name="method"
             id="inputGroupSelect01"
+            onChange={(e) => {
+              setMethod(e.target.value);
+            }}
           >
             <option selected>Choose the API request Method</option>
-            <option selected={props.data.method === "GET"} value="GET">
+            <option selected={method === "GET"} value="GET">
               GET
             </option>
-            <option selected={props.data.method === "POST"} value="POST">
+            <option selected={method === "POST"} value="POST">
               POST
             </option>
-            <option selected={props.data.method === "PUT"} value="PUT">
+            <option selected={method === "PUT"} value="PUT">
               PUT
             </option>
-            <option selected={props.data.method === "DELETE"} value="DELETE">
+            <option selected={method === "DELETE"} value="DELETE">
               DELETE
             </option>
           </select>
@@ -62,11 +139,14 @@ function Settings(props) {
         <div class="form-check">
           <input
             class="form-check-input"
+            onChange={(e) => {
+              setAccess(e.target.value);
+            }}
             type="radio"
             value="public"
             name="access"
             id="flexRadioDefault1"
-            checked={props.data.access === "public"}
+            checked={access === "public"}
           />
           <label class="form-check-label" for="flexRadioDefault1">
             Public
@@ -75,11 +155,14 @@ function Settings(props) {
         <div class="form-check">
           <input
             class="form-check-input"
+            onChange={(e) => {
+              setAccess(e.target.value);
+            }}
             type="radio"
             value="private"
             name="access"
             id="flexRadioDefault2"
-            checked={props.data.access === "private"}
+            checked={access === "private"}
           />
           <label class="form-check-label" for="flexRadioDefault2">
             Private
@@ -91,70 +174,215 @@ function Settings(props) {
           access to it..
         </small>
         <hr />
-        <p>Headers</p>
 
-        <div id="sdfswdf">
-          <AceEditor
-            mode="json"
-            theme="monokai"
-            name="editor"
-            maxLines={Infinity}
-            value={
-              JSON.stringify(props.data.header, undefined, 3) ||
-              JSON.stringify({ "Content-Type": "text/json" }, undefined, 3)
-            }
-            fontSize={14}
-            editorProps={{ $blockScrolling: true }}
-            setOptions={{ useWorker: false }}
+        <h5>Headers</h5>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Headers</span>
+          </div>
+          <input
+            id="headeradd"
+            placeholder="Content-type , application/json"
+            type="text"
+            aria-label="header"
+            class="form-control"
           />
-        </div>
-        <hr />
-        <p>Body</p>
 
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon2"
+              onClick={handleHeaderAdd}
+            >
+              Add
+            </button>
+          </div>
+        </div>
         <div id="sdfswdf">
-          <AceEditor
-            mode="json"
-            theme="monokai"
-            name="editor"
-            maxLines={Infinity}
-            value={JSON.stringify(props.data.body || {}, undefined, 3)}
-            fontSize={14}
-            editorProps={{ $blockScrolling: true }}
-            setOptions={{ useWorker: false }}
-          />
-        </div>
-        <hr />
-        <p>Params</p>
+          {loaded ? (
+            Object.keys(head).map((data) => {
+              return (
+                <div style={{ width: "50%" }} class="input-group">
+                  <input
+                    type="text"
+                    aria-label="First name"
+                    onChange={(e) => {
+                      console.log(e);
+                    }}
+                    name="header"
+                    value={data + "  |  " + head[data]}
+                    class="form-control"
+                  />
 
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data + "," + head[data]}
+                      onClick={(e) => {
+                        setHead(
+                          dotPropImmutable.delete(
+                            head,
+                            e.target.name.split(",")[0]
+                          )
+                        );
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p>skdjfbksjdbf</p>
+          )}
+        </div>
+        <pre>{JSON.stringify({ header: head }, undefined, 3)}</pre>
+        <hr />
+        <h5>Body</h5>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Body</span>
+          </div>
+          <input
+            id="bodyadd"
+            placeholder="Content-type , application/json"
+            type="text"
+            aria-label="header"
+            class="form-control"
+          />
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon2"
+              onClick={handleBodyAdd}
+            >
+              Add
+            </button>
+          </div>
+        </div>
         <div id="sdfswdf">
-          <AceEditor
-            mode="json"
-            theme="monokai"
-            name="editor"
-            maxLines={Infinity}
-            value={JSON.stringify(props.data.params || {}, undefined, 3)}
-            fontSize={14}
-            editorProps={{ $blockScrolling: true }}
-            setOptions={{ useWorker: false }}
-          />
+          {loaded ? (
+            Object.keys(body).map((data) => {
+              return (
+                <div style={{ width: "50%" }} class="input-group">
+                  <input
+                    type="text"
+                    aria-label="First name"
+                    onChange={(e) => {
+                      console.log(e);
+                    }}
+                    name="header"
+                    value={data + "  |  " + body[data]}
+                    class="form-control"
+                  />
+
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data + "," + body[data]}
+                      onClick={(e) => {
+                        setBody(
+                          dotPropImmutable.delete(
+                            body,
+                            e.target.name.split(",")[0]
+                          )
+                        );
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p>skdjfbksjdbf</p>
+          )}
         </div>
-
+        <pre>{JSON.stringify(body, undefined, 3)}</pre>
         <hr />
-        <p>Data</p>
 
+        <h5>Params</h5>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Params</span>
+          </div>
+          <input
+            id="paramsadd"
+            placeholder="Content-type , application/json"
+            type="text"
+            aria-label="header"
+            class="form-control"
+          />
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon2"
+              onClick={handleParamsAdd}
+            >
+              Add
+            </button>
+          </div>
+        </div>
         <div id="sdfswdf">
-          <AceEditor
-            mode="json"
-            theme="monokai"
-            name="editor"
-            maxLines={Infinity}
-            value={JSON.stringify(props.data.data || {}, undefined, 3)}
-            fontSize={14}
-            editorProps={{ $blockScrolling: true }}
-            setOptions={{ useWorker: false }}
-          />
+          {loaded ? (
+            Object.keys(params).map((data) => {
+              return (
+                <div style={{ width: "50%" }} class="input-group">
+                  <input
+                    type="text"
+                    aria-label="First name"
+                    onChange={(e) => {
+                      console.log(e);
+                    }}
+                    name="header"
+                    value={data + "  |  " + params[data]}
+                    class="form-control"
+                  />
+
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data + "," + params[data]}
+                      onClick={(e) => {
+                        setParams(
+                          dotPropImmutable.delete(
+                            params,
+                            e.target.name.split(",")[0]
+                          )
+                        );
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p>skdjfbksjdbf</p>
+          )}
         </div>
+        <pre>{JSON.stringify(params, undefined, 3)}</pre>
+
         <hr />
+        <button type="button" class="btn btn-primary btn-lg" onClick={somethin}>
+          {" "}
+          Save{" "}
+        </button>
       </div>
     </div>
   );
