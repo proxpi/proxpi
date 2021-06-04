@@ -12,10 +12,12 @@ function Settings(props) {
   const [access, setAccess] = useState();
   const [method, setMethod] = useState();
   const [key, setkey] = useState();
+  const [saved, setSaved] = useState(true);
 
   const { getAccessTokenSilently } = useAuth0();
   async function SendDataToServer() {
     const tokenCPU = await getAccessTokenSilently();
+    setSaved(false);
     await axios
       .post(
         "/update/settings",
@@ -34,6 +36,7 @@ function Settings(props) {
       .then((resp) => {
         if (resp.data.data == undefined) {
           $("#showsuccessmodal").modal("show");
+          setSaved(true);
         }
       });
   }
@@ -42,7 +45,7 @@ function Settings(props) {
     if (dataHeader) {
       setHead({
         ...head,
-        [dataHeader.split(",")[0]]: dataHeader.split(",")[1],
+        [dataHeader.split(",")[0].trim()]: dataHeader.split(",")[1].trim(),
       });
       console.log(head);
     } else {
@@ -54,7 +57,7 @@ function Settings(props) {
     if (dataParams) {
       setParams({
         ...params,
-        [dataParams.split(",")[0]]: dataParams.split(",")[1],
+        [dataParams.split(",")[0].trim()]: dataParams.split(",")[1].trim(),
       });
     } else {
       console.log("addedno");
@@ -65,7 +68,7 @@ function Settings(props) {
     if (dataBody) {
       setBody({
         ...body,
-        [dataBody.split(",")[0]]: dataBody.split(",")[1],
+        [dataBody.split(",")[0].trim()]: dataBody.split(",")[1].trim(),
       });
     } else {
       console.log("addedno");
@@ -421,14 +424,25 @@ function Settings(props) {
         <pre class="brush: json">{JSON.stringify(params, undefined, 3)}</pre>
 
         <hr />
-        <button
-          type="button"
-          class="btn btn-primary btn-lg"
-          onClick={SendDataToServer}
-        >
-          {" "}
-          Save{" "}
-        </button>
+        {saved ? (
+          <button
+            type="button"
+            class="btn btn-primary btn-md"
+            onClick={SendDataToServer}
+          >
+            {" "}
+            Save{" "}
+          </button>
+        ) : (
+          <button class="btn btn-primary" type="button" disabled>
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>{" "}
+            Saving...
+          </button>
+        )}
       </div>
     </div>
   );
