@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import dotPropImmutable from "dot-prop-immutable";
 import axios from "axios";
-
+import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 function Settings(props) {
   var arr = [];
   const [head, setHead] = useState([]);
@@ -49,7 +49,7 @@ function Settings(props) {
       });
       document.getElementById("headeradd").value = "";
     } else {
-      console.log("addedno");
+      new swal("Nothing to add", "", "error");
     }
   }
   function handleParamsAdd() {
@@ -61,7 +61,7 @@ function Settings(props) {
       });
       document.getElementById("paramsadd").value = "";
     } else {
-      console.log("addedno");
+      new swal("Nothing to add", "", "error");
     }
   }
   function handleBodyAdd() {
@@ -73,7 +73,7 @@ function Settings(props) {
       });
       document.getElementById("bodyadd").value = "";
     } else {
-      console.log("addedno");
+      new swal("Nothing to add", "", "error");
     }
   }
 
@@ -114,26 +114,21 @@ function Settings(props) {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Success
-              </h5>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+              ></button>
             </div>
             <div class="modal-body">Settings Successfully saved...</div>
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 data-dismiss="modal"
               >
                 Ok
@@ -262,11 +257,15 @@ function Settings(props) {
             </button>
           </div>
         </div>
-        <div id="sdfswdf">
+        <div
+          style={{ padding: "5px 5px", margin: "1%" }}
+          class="jumbotron"
+          id="sdfswdf"
+        >
           {loaded ? (
             Object.keys(head).map((data) => {
               return (
-                <div style={{ width: "50%" }} class="input-group">
+                <div class="input-group">
                   <ul class="list-group list-group-horizontal">
                     <li class="list-group-item">{data}</li>
                     <li class="list-group-item">{head[data]}</li>
@@ -337,11 +336,15 @@ function Settings(props) {
             </button>
           </div>
         </div>
-        <div id="sdfswdf">
+        <div
+          style={{ padding: "5px 5px", margin: "1%" }}
+          class="jumbotron"
+          id="sdfswdf"
+        >
           {loaded ? (
             Object.keys(body).map((data) => {
               return (
-                <div style={{ width: "50%" }} class="input-group">
+                <div class="input-group">
                   <ul class="list-group list-group-horizontal">
                     <li class="list-group-item">{data}</li>
                     <li class="list-group-item">{body[data]}</li>
@@ -412,11 +415,15 @@ function Settings(props) {
             </button>
           </div>
         </div>
-        <div id="sdfswdf">
+        <div
+          style={{ padding: "5px 5px", margin: "1%" }}
+          class="jumbotron"
+          id="sdfswdf"
+        >
           {loaded ? (
             Object.keys(params).map((data) => {
               return (
-                <div style={{ width: "50%" }} class="input-group">
+                <div class="input-group">
                   <ul class="list-group list-group-horizontal">
                     <li class="list-group-item">{data}</li>
                     <li class="list-group-item">{params[data]}</li>

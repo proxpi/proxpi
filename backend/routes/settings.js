@@ -26,4 +26,13 @@ router.route("/settings").post(async (req, res) => {
   res.send(result);
 });
 
+router.route("/bannedsettings").post(async (req, res) => {
+  const banUpdates = {
+    blocked_ip: req.body.body.blockedipP,
+    blocked_site: req.body.body.blockedsiteP,
+  };
+  const resultBan = await db.update(banUpdates, req.body.body.keyP);
+  res.send(resultBan);
+});
+
 module.exports = router;

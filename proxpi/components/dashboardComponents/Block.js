@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-
+import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 function Block(props) {
   const { getAccessTokenSilently } = useAuth0();
   const [blockedip, setBlockedip] = useState([]);
@@ -9,6 +9,31 @@ function Block(props) {
   const [loaded, setLoaded] = useState(false);
   const [saved, setSaved] = useState(true);
   const [key, setkey] = useState();
+
+  async function sendBanDataToServer() {
+    const tokenBDTS = await getAccessTokenSilently();
+    //CBUI means Banned Data To Server
+    setSaved(false);
+    await axios
+      .post(
+        "/update/bannedsettings",
+        {
+          body: {
+            blockedipP: blockedip,
+            blockedsiteP: blockedsite,
+            keyP: key,
+          },
+        },
+        { headers: { authorization: `Bearer ${tokenBDTS}` } }
+      )
+      .then((resp) => {
+        if (resp.data.data == undefined) {
+          $("#showbansuccessmodal").modal("show");
+          setSaved(true);
+        }
+      });
+  }
+
   function handleBanIpAdd() {
     bannedip = document.getElementById("ipadd").value;
     if (bannedip) {
@@ -19,13 +44,14 @@ function Block(props) {
       ) {
         setBlockedip([...blockedip, bannedip]);
       } else {
-        console.log("wrong ip");
+        new swal("Your IP format is Incorrect", "", "error");
       }
       document.getElementById("ipadd").value = "";
     } else {
-      console.log("addedno");
+      new swal("Nothing to add", "", "error");
     }
   }
+
   function handleURLAdd() {
     bannedurl = document.getElementById("urladd").value;
     var pattern = new RegExp(
@@ -41,14 +67,14 @@ function Block(props) {
       if (pattern.test(bannedurl)) {
         setBlockedsite([...blockedsite, bannedurl]);
       } else {
-        console.log("wrong ip");
+        new swal("Your URL format is wrong", "", "error");
       }
       document.getElementById("urladd").value = "";
     } else {
-      console.log("addedno");
+      new swal("Nothing to add", "", "error");
     }
   }
-  console.log(blockedip);
+
   async function getBlockData() {
     const tokenGPBI = await getAccessTokenSilently();
     //GPA means Get Proxpi Blockedinfo
@@ -71,13 +97,38 @@ function Block(props) {
         }
       });
   }
+
   useEffect(() => {
     getBlockData();
   }, []);
 
   return (
     <div>
-      <h5>Headers</h5>
+      <div
+        class="modal fade model-sm"
+        id="showbansuccessmodal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body">Ban Settings Successfully saved...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-dismiss="modal"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5>Blocked IP's</h5>
+      <hr />
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">Blocked IP's</span>
@@ -101,7 +152,11 @@ function Block(props) {
           </button>
         </div>
       </div>
-      <div id="sdfswdf">
+      <div
+        style={{ padding: "5px 5px", margin: "1%" }}
+        class="jumbotron"
+        id="sdfswdf"
+      >
         {loaded ? (
           blockedip.map((data) => {
             return (
@@ -119,7 +174,7 @@ function Block(props) {
                     onClick={(e) => {
                       setBlockedip(
                         blockedip.filter(function (ips) {
-                          return ips !== e.target.name;
+                          return ips !== data;
                         })
                       );
                     }}
@@ -134,7 +189,9 @@ function Block(props) {
           <p>skdjfbksjdbf</p>
         )}
       </div>
+      <hr />
       <h5>Blocked URL's</h5>
+      <hr />
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">Blocked URL's</span>
@@ -158,7 +215,11 @@ function Block(props) {
           </button>
         </div>
       </div>
-      <div id="sdfswdf">
+      <div
+        style={{ padding: "5px 5px", margin: "1%" }}
+        class="jumbotron"
+        id="sdfswdf"
+      >
         {loaded ? (
           blockedsite.map((dataU) => {
             return (
@@ -176,7 +237,7 @@ function Block(props) {
                     onClick={(e) => {
                       setBlockedsite(
                         blockedsite.filter(function (url) {
-                          return url !== e.target.name;
+                          return url !== dataU;
                         })
                       );
                     }}
@@ -192,7 +253,11 @@ function Block(props) {
         )}
       </div>
       {saved ? (
-        <button type="button" class="btn btn-primary btn-md">
+        <button
+          type="button"
+          onClick={sendBanDataToServer}
+          class="btn btn-primary btn-md"
+        >
           {" "}
           Save{" "}
         </button>
