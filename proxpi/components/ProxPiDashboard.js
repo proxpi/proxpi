@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Home from "../components/dashboardComponents/Home";
 import Settings from "../components/dashboardComponents/Settings";
+import Block from "../components/dashboardComponents/Block";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 function ProxPiDashboard() {
@@ -157,7 +158,7 @@ function ProxPiDashboard() {
           role="tabpanel"
           aria-labelledby="ban-tab"
         >
-          HIIIIIIIIIII
+          <Block data={proxpiData}></Block>
         </div>
         <div
           class="tab-pane fade"

@@ -47,7 +47,7 @@ function Settings(props) {
         ...head,
         [dataHeader.split(",")[0].trim()]: dataHeader.split(",")[1].trim(),
       });
-      console.log(head);
+      document.getElementById("headeradd").value = "";
     } else {
       console.log("addedno");
     }
@@ -59,6 +59,7 @@ function Settings(props) {
         ...params,
         [dataParams.split(",")[0].trim()]: dataParams.split(",")[1].trim(),
       });
+      document.getElementById("paramsadd").value = "";
     } else {
       console.log("addedno");
     }
@@ -70,6 +71,7 @@ function Settings(props) {
         ...body,
         [dataBody.split(",")[0].trim()]: dataBody.split(",")[1].trim(),
       });
+      document.getElementById("bodyadd").value = "";
     } else {
       console.log("addedno");
     }
@@ -81,7 +83,7 @@ function Settings(props) {
     await axios
       .request({
         method: "GET",
-        url: `/get/proxpianalytics/${window.location.pathname.split("/")[3]}`,
+        url: `/get/proxpi/${window.location.pathname.split("/")[3]}`,
         headers: {
           Authorization: `Bearer ${tokenGPA}`,
         },
@@ -285,7 +287,19 @@ function Settings(props) {
                         );
                       }}
                     >
-                      Delete
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data}
+                      onClick={(e) => {
+                        document.getElementById("headeradd").value =
+                          data + "," + head[data];
+                      }}
+                    >
+                      <i class="far fa-edit"></i>
                     </button>
                   </div>
                 </div>
@@ -348,7 +362,19 @@ function Settings(props) {
                         );
                       }}
                     >
-                      Delete
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data}
+                      onClick={(e) => {
+                        document.getElementById("bodyadd").value =
+                          data + "," + body[data];
+                      }}
+                    >
+                      <i class="far fa-edit"></i>
                     </button>
                   </div>
                 </div>
@@ -411,7 +437,19 @@ function Settings(props) {
                         );
                       }}
                     >
-                      Delete
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data}
+                      onClick={(e) => {
+                        document.getElementById("paramsadd").value =
+                          data + "," + params[data];
+                      }}
+                    >
+                      <i class="far fa-edit"></i>
                     </button>
                   </div>
                 </div>
