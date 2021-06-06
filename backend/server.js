@@ -1,41 +1,33 @@
 var express = require("express");
 var app = express();
-var jwt = require("express-jwt");
-var jwks = require("jwks-rsa");
-const { Deta } = require("deta");
+
+//Modules
+const bodyParser = require("body-parser");
 require("dotenv").config();
-const deta = Deta(process.env.DETA_KEY);
-let db = deta.Base("plans");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 const cors = require("cors");
+
+//routes
 const PlanRouter = require("./routes/plans");
 const CreateRouter = require("./routes/new");
-const bodyParser = require("body-parser");
 const ProxPiRouter = require("./routes/get");
 const UpdateDataRouter = require("./routes/settings");
 const ApiRouter = require("./routes/api");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
+//Middleweres
+const ErrorHandler = require("./middleware/ErrorHandler");
+const jwtCheck = require("./middleware/CheckJWT");
 
 var port = process.env.PORT || 8080;
 app.use(cors());
 
-var jwtCheck = jwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: process.env.JWKS_URI,
-  }),
-  audience: process.env.AUDIENCE,
-  issuer: process.env.ISSUER,
-  algorithms: ["RS256"],
-});
-//app.use(jwtCheck);
-app.use("/plan", jwtCheck, PlanRouter);
-app.use("/new", jwtCheck, CreateRouter);
-app.use("/get", jwtCheck, ProxPiRouter);
-app.use("/update", jwtCheck, UpdateDataRouter);
+app.use("/plan", jwtCheck, ErrorHandler, PlanRouter);
+app.use("/new", jwtCheck, ErrorHandler, CreateRouter);
+app.use("/get", jwtCheck, ErrorHandler, ProxPiRouter);
+app.use("/update", jwtCheck, ErrorHandler, UpdateDataRouter);
 app.use("/proxpi", ApiRouter);
+
 app.listen(port, () => {
   console.log("ons");
 });

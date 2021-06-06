@@ -186,7 +186,7 @@ function Block(props) {
             );
           })
         ) : (
-          <p>skdjfbksjdbf</p>
+          <p>Loading.....</p>
         )}
       </div>
       <hr />
@@ -249,7 +249,7 @@ function Block(props) {
             );
           })
         ) : (
-          <p>skdjfbksjdbf</p>
+          <p>Loading.....</p>
         )}
       </div>
       {saved ? (

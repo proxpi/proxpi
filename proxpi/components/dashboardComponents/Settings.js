@@ -278,12 +278,7 @@ function Settings(props) {
                       id="button-addon2"
                       name={data + "," + head[data]}
                       onClick={(e) => {
-                        setHead(
-                          dotPropImmutable.delete(
-                            head,
-                            e.target.name.split(",")[0]
-                          )
-                        );
+                        setHead(dotPropImmutable.delete(head, data));
                       }}
                     >
                       <i class="fas fa-trash-alt"></i>
@@ -305,7 +300,7 @@ function Settings(props) {
               );
             })
           ) : (
-            <p>skdjfbksjdbf</p>
+            <p>Loading.....</p>
           )}
         </div>
         <pre class="brush: json">
@@ -357,12 +352,7 @@ function Settings(props) {
                       id="button-addon2"
                       name={data + "," + body[data]}
                       onClick={(e) => {
-                        setBody(
-                          dotPropImmutable.delete(
-                            body,
-                            e.target.name.split(",")[0]
-                          )
-                        );
+                        setBody(dotPropImmutable.delete(body, data));
                       }}
                     >
                       <i class="fas fa-trash-alt"></i>
@@ -384,7 +374,7 @@ function Settings(props) {
               );
             })
           ) : (
-            <p>skdjfbksjdbf</p>
+            <p>Loading.....</p>
           )}
         </div>
         <pre class="brush: json">{JSON.stringify(body, undefined, 3)}</pre>
@@ -436,12 +426,7 @@ function Settings(props) {
                       id="button-addon2"
                       name={data + "," + params[data]}
                       onClick={(e) => {
-                        setParams(
-                          dotPropImmutable.delete(
-                            params,
-                            e.target.name.split(",")[0]
-                          )
-                        );
+                        setParams(dotPropImmutable.delete(params, data));
                       }}
                     >
                       <i class="fas fa-trash-alt"></i>
@@ -463,7 +448,7 @@ function Settings(props) {
               );
             })
           ) : (
-            <p>skdjfbksjdbf</p>
+            <p>Loading.....</p>
           )}
         </div>
         <pre class="brush: json">{JSON.stringify(params, undefined, 3)}</pre>

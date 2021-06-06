@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 router.route("/proxpi").post(async (req, res) => {
-  const userProxpi = await db.fetch({ email: req.body.body.email }).next();
+  const userProxpi = await db.fetch({ email: "fredysomy@gmail.com" }).next();
   res.send(userProxpi.value);
 });
 router.route("/proxpianalytics/:id").get(async (req, res) => {
