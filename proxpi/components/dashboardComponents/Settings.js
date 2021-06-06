@@ -12,6 +12,7 @@ function Settings(props) {
   const [access, setAccess] = useState();
   const [method, setMethod] = useState();
   const [key, setkey] = useState();
+  const [privateUrl, setPrivateUrl] = useState("");
   const [saved, setSaved] = useState(true);
 
   const { getAccessTokenSilently } = useAuth0();
@@ -29,6 +30,7 @@ function Settings(props) {
             accessP: access,
             methodP: method,
             keyP: key,
+            privateurlP: privateUrl,
           },
         },
         { headers: { authorization: `Bearer ${tokenCPU}` } }
@@ -76,6 +78,28 @@ function Settings(props) {
       new swal("Nothing to add", "", "error");
     }
   }
+  function handlePrivateUrlAdd() {
+    privateurl = document.getElementById("privateurl").value;
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator
+    if (privateurl) {
+      if (pattern.test(privateurl)) {
+        setPrivateUrl(privateurl);
+        new swal("Added the Private Access URL", "", "success");
+      } else {
+        new swal("Your URL format is wrong", "", "error");
+      }
+    } else {
+      new swal("Nothing to add", "", "error");
+    }
+  }
 
   async function getProxpiUser() {
     const tokenGPA = await getAccessTokenSilently();
@@ -96,6 +120,7 @@ function Settings(props) {
           setParams(data.data.proxpidata.params || {});
           setMethod(data.data.proxpidata.method || {});
           setAccess(data.data.proxpidata.access || {});
+          setPrivateUrl(data.data.proxpidata.privateUrl || "");
           setkey(data.data.proxpidata.key);
           setLoaded(true);
         }
@@ -232,7 +257,45 @@ function Settings(props) {
           access to it..
         </small>
         <hr />
+        <h5>Private Access URL</h5>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">
+              Default
+            </span>
+          </div>
+          <input
+            type="text"
+            id="privateurl"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            value={privateUrl || ""}
+            onChange={(e) => {
+              setPrivateUrl(e.target.value);
+            }}
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon2"
+              onClick={handlePrivateUrlAdd}
+            >
+              Add
+            </button>
+          </div>
+        </div>
 
+        <hr />
+        <small id="emailHelp" class="form-text text-muted">
+          {" "}
+          The Private Access URL is the URL which will only have permission to
+          access the Proxy API . If the Access is set to public the permissions
+          shall not apply. The restriction will only be made if the access is
+          Private.
+        </small>
+        <hr />
         <h5>Headers</h5>
         <div class="input-group">
           <div class="input-group-prepend">

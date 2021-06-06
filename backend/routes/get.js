@@ -36,6 +36,7 @@ router.route("/proxpi/:id").get(async (req, res) => {
     access: ProxpiData.access,
     method: ProxpiData.method,
     key: ProxpiData.key,
+    privateUrl: ProxpiData.privateUrl,
   };
   if (req.user.aud[0] == ProxpiData.email) {
     res.json({ proxpidata: datatosend });

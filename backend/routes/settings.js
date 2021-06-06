@@ -21,6 +21,7 @@ router.route("/settings").post(async (req, res) => {
     headers: req.body.body.headerP,
     params: req.body.body.paramsP,
     method: req.body.body.methodP,
+    privateUrl: req.body.body.privateurlP,
   };
   const result = await db.update(updates, req.body.body.keyP);
   res.send(result);

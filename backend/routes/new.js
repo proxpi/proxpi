@@ -21,6 +21,7 @@ router.route("/create").post(async (req, res) => {
     name: req.body.body.name + crypto.randomBytes(2).toString("hex"),
     url: req.body.body.url,
     access: req.body.body.access,
+    privateUrl: "",
     headers: {},
     body: {},
     data: {},
