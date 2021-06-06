@@ -12,6 +12,7 @@ const CreateRouter = require("./routes/new");
 const bodyParser = require("body-parser");
 const ProxPiRouter = require("./routes/get");
 const UpdateDataRouter = require("./routes/settings");
+const ApiRouter = require("./routes/api");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -29,11 +30,12 @@ var jwtCheck = jwt({
   issuer: process.env.ISSUER,
   algorithms: ["RS256"],
 });
-app.use(jwtCheck);
-app.use("/plan", PlanRouter);
-app.use("/new", CreateRouter);
-app.use("/get", ProxPiRouter);
-app.use("/update", UpdateDataRouter);
+//app.use(jwtCheck);
+app.use("/plan", jwtCheck, PlanRouter);
+app.use("/new", jwtCheck, CreateRouter);
+app.use("/get", jwtCheck, ProxPiRouter);
+app.use("/update", jwtCheck, UpdateDataRouter);
+app.use("/proxpi", ApiRouter);
 app.listen(port, () => {
   console.log("ons");
 });
