@@ -18,15 +18,15 @@ const ApiRouter = require("./routes/api");
 //Middleweres
 const ErrorHandler = require("./middleware/ErrorHandler");
 const jwtCheck = require("./middleware/CheckJWT");
-
+const CheckAccess = require("./middleware/checkAccess");
 var port = process.env.PORT || 8080;
 app.use(cors());
-
+app.enable("trust proxy");
 app.use("/plan", jwtCheck, ErrorHandler, PlanRouter);
 app.use("/new", jwtCheck, ErrorHandler, CreateRouter);
 app.use("/get", jwtCheck, ErrorHandler, ProxPiRouter);
 app.use("/update", jwtCheck, ErrorHandler, UpdateDataRouter);
-app.use("/proxpi", ApiRouter);
+app.use("/proxpi", CheckAccess, ApiRouter);
 
 app.listen(port, () => {
   console.log("ons");
