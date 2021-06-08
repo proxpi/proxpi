@@ -22,7 +22,7 @@ router.route("/create").post(async (req, res) => {
     url: req.body.body.url,
     access: req.body.body.access,
     privateUrl: "",
-    headers: {},
+    header: {},
     body: {},
     data: {},
     params: {},

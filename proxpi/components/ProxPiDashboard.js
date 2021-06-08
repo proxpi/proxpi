@@ -3,6 +3,7 @@ import Home from "../components/dashboardComponents/Home";
 import Settings from "../components/dashboardComponents/Settings";
 import Block from "../components/dashboardComponents/Block";
 import axios from "axios";
+import "../assets/navs.css";
 import { useAuth0 } from "@auth0/auth0-react";
 function ProxPiDashboard() {
   const { user, getAccessTokenSilently } = useAuth0();
@@ -119,6 +120,7 @@ function ProxPiDashboard() {
           </a>
         </li>
       </ul>
+
       <div class="tab-content" id="myTabContent">
         <div
           class="tab-pane fade show active"

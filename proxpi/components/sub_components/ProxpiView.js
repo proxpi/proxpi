@@ -6,11 +6,7 @@ import "../../assets/dashboard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spinner from "react-bootstrap/Spinner";
 import "../../assets/main.css";
-import {
-  useAuth0,
-  isAuthenticated,
-  withAuthenticationRequired,
-} from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 function Main() {
   const [proxpi, setProxpi] = useState([]);

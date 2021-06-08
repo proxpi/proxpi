@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  useAuth0,
-  isAuthenticated,
-  withAuthenticationRequired,
-} from "@auth0/auth0-react";
+
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import ProxpiView from "./sub_components/ProxpiView";

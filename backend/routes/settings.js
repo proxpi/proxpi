@@ -18,7 +18,7 @@ router.route("/settings").post(async (req, res) => {
   const updates = {
     access: req.body.body.accessP,
     body: req.body.body.bodyP,
-    headers: req.body.body.headerP,
+    header: req.body.body.headerP,
     params: req.body.body.paramsP,
     method: req.body.body.methodP,
     privateUrl: req.body.body.privateurlP,
