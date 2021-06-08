@@ -13,8 +13,10 @@ const CheckAccess = async (req, res, next) => {
 
   if (x.access == "public") {
     if (
-      !x.blocked_site.includes(req.headers.origin) ||
-      !x.blocked_ip.includes(req.ip)
+      !(
+        x.blocked_site.includes(req.headers.origin) ||
+        x.blocked_ip.includes(req.ip)
+      )
     ) {
       next();
     } else {
