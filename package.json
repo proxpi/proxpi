@@ -13,7 +13,7 @@
     "installdep": "npm run installdep_server && npm run installdep_proxpi",
     "deploy-frontend":"cd proxpi && vercel --prod",
     "deploy-backend":"cd backend && git add . && git commit -m 'added' && git push https://git.heroku.com/proxpiapi.git master",
-    "deploy":"npm run deploy-backend && deploy-frontend"
+    "deploy":"npm run deploy-backend && npm run deploy-frontend"
   },
   "keywords": [],
   "author": "",

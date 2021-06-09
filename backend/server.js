@@ -26,7 +26,7 @@ app.use("/plan", jwtCheck, ErrorHandler, PlanRouter);
 app.use("/new", jwtCheck, ErrorHandler, CreateRouter);
 app.use("/get", jwtCheck, ErrorHandler, ProxPiRouter);
 app.use("/update", jwtCheck, ErrorHandler, UpdateDataRouter);
-app.use("/proxpi", CheckAccess, ApiRouter);
+app.use("/proxpi", ApiRouter);
 
 app.listen(process.env.PORT || 8080, () => {
   console.log("ons");
