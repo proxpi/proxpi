@@ -7,7 +7,7 @@ let db = deta.Base("proxpi");
 
 const CheckAccess = async (req, res, next) => {
   key = req.url.split("/");
-
+  try{
   x = await db.get(key[key.length - 1]);
   req.proxpidata = x;
 
@@ -41,6 +41,11 @@ const CheckAccess = async (req, res, next) => {
   }
 
   next();
+}
+catch{
+  return res.status(404).send({"error":"No API exists"})
+  res.end()
+}
 };
 
 module.exports = CheckAccess;

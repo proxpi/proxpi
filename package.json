@@ -10,7 +10,10 @@
     "clean_server": "cd backend && npx prettier --write .",
     "clean_proxpi": "cd proxpi && npx prettier --write .",
     "cleanall": "npm run clean_server && npm run clean_proxpi",
-    "installdep": "npm run installdep_server && npm run installdep_proxpi"
+    "installdep": "npm run installdep_server && npm run installdep_proxpi",
+    "deploy-frontend":"cd proxpi && vercel --prod",
+    "deploy-backend":"cd backend && git add . && git commit -m 'added' && git push https://git.heroku.com/proxpiapi.git master",
+    "deploy":"npm run deploy-backend && deploy-frontend"
   },
   "keywords": [],
   "author": "",

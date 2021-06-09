@@ -2,13 +2,18 @@ import React, { useState, useEffect } from "react";
 import Home from "../components/dashboardComponents/Home";
 import Settings from "../components/dashboardComponents/Settings";
 import Block from "../components/dashboardComponents/Block";
+import Loading from "../components/Loading"
 import axios from "axios";
 import "../assets/navs.css";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useHistory } from "react-router-dom";
+import "../assets/navs.css";
+import { useAuth0,withAuthenticationRequired } from "@auth0/auth0-react";
+
 function ProxPiDashboard() {
+  const history = useHistory();
   const { user, getAccessTokenSilently } = useAuth0();
   const [proxpiData, setProxpiData] = useState({});
-
+  const [loaded,setLoaded]=useState(false)
   const [error, setError] = useState(false);
   async function getProxpiUser() {
     const tokenGPA = await getAccessTokenSilently();
@@ -22,20 +27,22 @@ function ProxPiDashboard() {
         },
       })
       .then((data) => {
-        if (!data.data.success == false) {
-          setError(ture);
+        if (data.data.success == false) {
+          history.push("/dashboard");
         } else {
           setProxpiData(data.data.proxpidata);
+          setLoaded(true)
         }
       });
   }
   useEffect(() => {
     getProxpiUser();
   }, []);
+  if(loaded){
   return (
     <div style={{ margin: "2.5%" }}>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
+        <li class="nav-item" id="nav-home">
           <a
             class="nav-link active"
             id="home-tab"
@@ -49,7 +56,7 @@ function ProxPiDashboard() {
             <i class="fas fa-home"></i> Home
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-tics">
           <a
             class="nav-link"
             id="analytics-tab"
@@ -63,7 +70,7 @@ function ProxPiDashboard() {
             <i class="far fa-chart-bar"></i> Analytics
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-analytics">
           <a
             class="nav-link"
             id="geospatialanalysis-tab"
@@ -74,10 +81,10 @@ function ProxPiDashboard() {
             aria-selected="false"
           >
             {" "}
-            <i class="fas fa-atlas"></i> Geospatial Analytics
+            <i class="fas fa-atlas"></i> Geo Analytics
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-access">
           <a
             class="nav-link"
             id="access-tab"
@@ -88,10 +95,10 @@ function ProxPiDashboard() {
             aria-selected="false"
           >
             {" "}
-            <i class="fas fa-user-lock"></i> Access Tokens
+            <i class="fas fa-user-lock"></i> Access Keys
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-ban">
           <a
             class="nav-link"
             id="ban-tab"
@@ -105,7 +112,7 @@ function ProxPiDashboard() {
             <i class="fas fa-ban"></i> Block
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-settings">
           <a
             class="nav-link"
             id="settings-tab"
@@ -173,5 +180,14 @@ function ProxPiDashboard() {
       </div>
     </div>
   );
+  }
+  else{
+    return(
+      <Loading/>
+    )
+  }
 }
-export default ProxPiDashboard;
+export default withAuthenticationRequired(ProxPiDashboard, {
+  onRedirecting: () => <Loading />,
+  returnTo:"/",
+});

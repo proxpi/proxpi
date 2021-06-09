@@ -1,5 +1,16 @@
 .nav-tabs {
   display: inline-flex;
-
   flex-direction: row;
+  flex-wrap: nowrap;
+  /* overflow-x: visible; */
+  width: 100%;
+  overflow: scroll;
+}
+.nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+@media all and (max-width: 400px) {
+.nav-link {
+  width: 130px;
+}
 }

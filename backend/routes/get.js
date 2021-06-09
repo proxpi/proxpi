@@ -19,42 +19,54 @@ router.route("/proxpi").post(async (req, res) => {
   res.send(userProxpi.value);
 });
 router.route("/proxpianalytics/:id").get(async (req, res) => {
-  const ProxpiData = await db.get(req.params.id);
+  try {
+    const ProxpiData = await db.get(req.params.id);
 
-  if (req.user.aud[0] == ProxpiData.email) {
-    res.json({ proxpidata: ProxpiData });
-  } else {
+    if (req.user.aud[0] == ProxpiData.email) {
+      res.json({ proxpidata: ProxpiData });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
     res.json({ success: false });
   }
 });
 router.route("/proxpi/:id").get(async (req, res) => {
-  const ProxpiData = await db.get(req.params.id);
-  const datatosend = {
-    headers: ProxpiData.header,
-    params: ProxpiData.params,
-    body: ProxpiData.body,
-    access: ProxpiData.access,
-    method: ProxpiData.method,
-    key: ProxpiData.key,
-    privateUrl: ProxpiData.privateUrl,
-  };
-  if (req.user.aud[0] == ProxpiData.email) {
-    res.json({ proxpidata: datatosend });
-  } else {
+  try {
+    const ProxpiData = await db.get(req.params.id);
+    const datatosend = {
+      headers: ProxpiData.header,
+      params: ProxpiData.params,
+      body: ProxpiData.body,
+      access: ProxpiData.access,
+      method: ProxpiData.method,
+      key: ProxpiData.key,
+      privateUrl: ProxpiData.privateUrl,
+    };
+    if (req.user.aud[0] == ProxpiData.email) {
+      res.json({ proxpidata: datatosend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
     res.json({ success: false });
   }
 });
 
 router.route("/blockers/:id").get(async (req, res) => {
-  const Blockdata = await db.get(req.params.id);
-  const databantosend = {
-    blocked_ip: Blockdata.blocked_ip,
-    key: Blockdata.key,
-    blocked_site: Blockdata.blocked_site,
-  };
-  if (req.user.aud[0] == Blockdata.email) {
-    res.json({ bandata: databantosend });
-  } else {
+  try {
+    const Blockdata = await db.get(req.params.id);
+    const databantosend = {
+      blocked_ip: Blockdata.blocked_ip || [],
+      key: Blockdata.key,
+      blocked_site: Blockdata.blocked_site || [],
+    };
+    if (req.user.aud[0] == Blockdata.email) {
+      res.json({ bandata: databantosend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
     res.json({ success: false });
   }
 });
