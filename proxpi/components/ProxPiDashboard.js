@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import Home from "../components/dashboardComponents/Home";
 import Settings from "../components/dashboardComponents/Settings";
 import Block from "../components/dashboardComponents/Block";
-import Loading from "../components/Loading"
+import Loading from "../components/Loading";
 import axios from "axios";
 import "../assets/navs.css";
 import { useHistory } from "react-router-dom";
 import "../assets/navs.css";
-import { useAuth0,withAuthenticationRequired } from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 function ProxPiDashboard() {
   const history = useHistory();
   const { user, getAccessTokenSilently } = useAuth0();
   const [proxpiData, setProxpiData] = useState({});
-  const [loaded,setLoaded]=useState(false)
+  const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
   async function getProxpiUser() {
     const tokenGPA = await getAccessTokenSilently();
@@ -31,163 +31,160 @@ function ProxPiDashboard() {
           history.push("/dashboard");
         } else {
           setProxpiData(data.data.proxpidata);
-          setLoaded(true)
+          setLoaded(true);
         }
       });
   }
   useEffect(() => {
     getProxpiUser();
   }, []);
-  if(loaded){
-  return (
-    <div style={{ margin: "2.5%" }}>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" id="nav-home">
-          <a
-            class="nav-link active"
-            id="home-tab"
-            data-toggle="tab"
-            href="#home"
-            role="tab"
-            aria-controls="home"
-            aria-selected="true"
-          >
-            {" "}
-            <i class="fas fa-home"></i> Home
-          </a>
-        </li>
-        <li class="nav-item" id="nav-tics">
-          <a
-            class="nav-link"
-            id="analytics-tab"
-            data-toggle="tab"
-            href="#analysis"
-            role="tab"
-            aria-controls="analysis"
-            aria-selected="false"
-          >
-            {" "}
-            <i class="far fa-chart-bar"></i> Analytics
-          </a>
-        </li>
-        <li class="nav-item" id="nav-analytics">
-          <a
-            class="nav-link"
-            id="geospatialanalysis-tab"
-            data-toggle="tab"
-            href="#geoanalysis"
-            role="tab"
-            aria-controls="geoanalysis"
-            aria-selected="false"
-          >
-            {" "}
-            <i class="fas fa-atlas"></i> Geo Analytics
-          </a>
-        </li>
-        <li class="nav-item" id="nav-access">
-          <a
-            class="nav-link"
-            id="access-tab"
-            data-toggle="tab"
-            href="#access"
-            role="tab"
-            aria-controls="access"
-            aria-selected="false"
-          >
-            {" "}
-            <i class="fas fa-user-lock"></i> Access Keys
-          </a>
-        </li>
-        <li class="nav-item" id="nav-ban">
-          <a
-            class="nav-link"
-            id="ban-tab"
-            data-toggle="tab"
-            href="#ban"
-            role="tab"
-            aria-controls="ban"
-            aria-selected="false"
-          >
-            {" "}
-            <i class="fas fa-ban"></i> Block
-          </a>
-        </li>
-        <li class="nav-item" id="nav-settings">
-          <a
-            class="nav-link"
-            id="settings-tab"
-            data-toggle="tab"
-            href="#settings"
-            role="tab"
-            aria-controls="settings"
-            aria-selected="false"
-          >
-            {" "}
-            <i class="fas fa-sliders-h"></i> Settings
-          </a>
-        </li>
-      </ul>
+  if (loaded) {
+    return (
+      <div style={{ margin: "2.5%" }}>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" id="nav-home">
+            <a
+              class="nav-link active"
+              id="home-tab"
+              data-toggle="tab"
+              href="#home"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              {" "}
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li class="nav-item" id="nav-tics">
+            <a
+              class="nav-link"
+              id="analytics-tab"
+              data-toggle="tab"
+              href="#analysis"
+              role="tab"
+              aria-controls="analysis"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="far fa-chart-bar"></i> Analytics
+            </a>
+          </li>
+          <li class="nav-item" id="nav-analytics">
+            <a
+              class="nav-link"
+              id="geospatialanalysis-tab"
+              data-toggle="tab"
+              href="#geoanalysis"
+              role="tab"
+              aria-controls="geoanalysis"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-atlas"></i> Geo Analytics
+            </a>
+          </li>
+          <li class="nav-item" id="nav-access">
+            <a
+              class="nav-link"
+              id="access-tab"
+              data-toggle="tab"
+              href="#access"
+              role="tab"
+              aria-controls="access"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-user-lock"></i> Access Keys
+            </a>
+          </li>
+          <li class="nav-item" id="nav-ban">
+            <a
+              class="nav-link"
+              id="ban-tab"
+              data-toggle="tab"
+              href="#ban"
+              role="tab"
+              aria-controls="ban"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-ban"></i> Block
+            </a>
+          </li>
+          <li class="nav-item" id="nav-settings">
+            <a
+              class="nav-link"
+              id="settings-tab"
+              data-toggle="tab"
+              href="#settings"
+              role="tab"
+              aria-controls="settings"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-sliders-h"></i> Settings
+            </a>
+          </li>
+        </ul>
 
-      <div class="tab-content" id="myTabContent">
-        <div
-          class="tab-pane fade show active"
-          id="home"
-          role="tabpanel"
-          aria-labelledby="home-tab"
-        >
-          <Home data={proxpiData} />
-        </div>
-        <div
-          class="tab-pane fade"
-          id="analysis"
-          role="tabpanel"
-          aria-labelledby="analytics-tab"
-        >
-          HIIIIIIIIIII
-        </div>
-        <div
-          class="tab-pane fade"
-          id="geoanalysis"
-          role="tabpanel"
-          aria-labelledby="geospatialanalysis-tab"
-        >
-          KJSGKUGSsdfsdfsdDKUSGD
-        </div>
-        <div
-          class="tab-pane fade"
-          id="access"
-          role="tabpanel"
-          aria-labelledby="access-tab"
-        >
-          KJSGKUfdfGSDKUSGD
-        </div>
-        <div
-          class="tab-pane fade"
-          id="ban"
-          role="tabpanel"
-          aria-labelledby="ban-tab"
-        >
-          <Block data={proxpiData}></Block>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="settings"
-          role="tabpanel"
-          aria-labelledby="settings-tab"
-        >
-          <Settings data={proxpiData} />
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <Home data={proxpiData} />
+          </div>
+          <div
+            class="tab-pane fade"
+            id="analysis"
+            role="tabpanel"
+            aria-labelledby="analytics-tab"
+          >
+            HIIIIIIIIIII
+          </div>
+          <div
+            class="tab-pane fade"
+            id="geoanalysis"
+            role="tabpanel"
+            aria-labelledby="geospatialanalysis-tab"
+          >
+            KJSGKUGSsdfsdfsdDKUSGD
+          </div>
+          <div
+            class="tab-pane fade"
+            id="access"
+            role="tabpanel"
+            aria-labelledby="access-tab"
+          >
+            KJSGKUfdfGSDKUSGD
+          </div>
+          <div
+            class="tab-pane fade"
+            id="ban"
+            role="tabpanel"
+            aria-labelledby="ban-tab"
+          >
+            <Block data={proxpiData}></Block>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="settings"
+            role="tabpanel"
+            aria-labelledby="settings-tab"
+          >
+            <Settings data={proxpiData} />
+          </div>
         </div>
       </div>
-    </div>
-  );
-  }
-  else{
-    return(
-      <Loading/>
-    )
+    );
+  } else {
+    return <Loading />;
   }
 }
 export default withAuthenticationRequired(ProxPiDashboard, {
   onRedirecting: () => <Loading />,
-  returnTo:"/",
+  returnTo: "/",
 });

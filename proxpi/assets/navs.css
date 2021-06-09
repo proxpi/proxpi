@@ -10,7 +10,7 @@
   display: none;
 }
 @media all and (max-width: 400px) {
-.nav-link {
-  width: 130px;
-}
+  .nav-link {
+    width: 130px;
+  }
 }
