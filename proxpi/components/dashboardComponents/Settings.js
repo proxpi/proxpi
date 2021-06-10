@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import dotPropImmutable from "dot-prop-immutable";
 import axios from "axios";
+import "../../assets/settings.css"
 import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 function Settings(props) {
   var arr = [];
@@ -322,7 +323,7 @@ function Settings(props) {
         </div>
         <div
           style={{ padding: "5px 5px", margin: "1%" }}
-          class="jumbotron"
+          class="jumbotron jumpsettings"
           id="sdfswdf"
         >
           {loaded ? (
@@ -396,7 +397,7 @@ function Settings(props) {
         </div>
         <div
           style={{ padding: "5px 5px", margin: "1%" }}
-          class="jumbotron"
+          class="jumbotron jumpsettings"
           id="sdfswdf"
         >
           {loaded ? (

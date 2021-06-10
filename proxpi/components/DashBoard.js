@@ -93,6 +93,7 @@ function DashBoard() {
               <h6
                 style={{ marginLeft: "4px", color: "#3d9fcf" }}
                 data-toggle="modal"
+                class="activated"
                 data-target=".bd-example-modal-sm"
               >
                 Activated
