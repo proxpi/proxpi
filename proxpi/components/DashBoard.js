@@ -85,7 +85,7 @@ function DashBoard() {
           />
         </div>
         <div>
-          <h3 style={{ marginLeft: "10px" }}>{user.given_name}</h3>
+          <h5 style={{ marginLeft: "10px" }}>{user.email}</h5>
           <h6 style={{ marginLeft: "10px" }}>Plan : {plan.plan}</h6>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <h6 style={{ marginLeft: "10px" }}>Status:</h6>

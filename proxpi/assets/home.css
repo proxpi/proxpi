@@ -1,0 +1,9 @@
+.proxpiurl {
+  width: 50%;
+  margin: 2%;
+}
+@media all and (max-width: 600px) {
+  .proxpiurl {
+    width: 100%;
+  }
+}

@@ -33,6 +33,9 @@ router.route("/api/:id").get(async (req, res) => {
           })
           .then((data) => {
             return res.json(data.data);
+          })
+          .catch((err) => {
+            return res.status(404).send(err);
           });
       } else {
         return res.status(401).send({

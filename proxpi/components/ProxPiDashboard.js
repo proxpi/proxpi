@@ -112,6 +112,20 @@ function ProxPiDashboard() {
               <i class="fas fa-ban"></i> Block
             </a>
           </li>
+          <li class="nav-item" id="nav-reqlog">
+            <a
+              class="nav-link"
+              id="reqlog-tab"
+              data-toggle="tab"
+              href="#reqlog"
+              role="tab"
+              aria-controls="reqlog"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-clipboard-list"></i> Request Log
+            </a>
+          </li>
           <li class="nav-item" id="nav-settings">
             <a
               class="nav-link"
@@ -152,6 +166,14 @@ function ProxPiDashboard() {
             aria-labelledby="geospatialanalysis-tab"
           >
             KJSGKUGSsdfsdfsdDKUSGD
+          </div>
+          <div
+            class="tab-pane fade"
+            id="reqlog"
+            role="tabpanel"
+            aria-labelledby="reqlog-tab"
+          >
+            HIIIIIIIIIII
           </div>
           <div
             class="tab-pane fade"
