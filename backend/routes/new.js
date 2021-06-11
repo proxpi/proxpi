@@ -11,7 +11,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+const { encrypt } = require("../utils/crypt");
 app.use(cors());
 
 router.route("/create").post(async (req, res) => {
@@ -22,7 +22,7 @@ router.route("/create").post(async (req, res) => {
     url: req.body.body.url,
     access: req.body.body.access,
     privateUrl: "",
-    header: {},
+    header: encrypt(JSON.stringify({})),
     body: {},
     data: {},
     params: {},

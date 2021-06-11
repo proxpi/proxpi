@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import dotPropImmutable from "dot-prop-immutable";
 import axios from "axios";
-import "../../assets/settings.css"
+import "../../assets/settings.css";
 import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 function Settings(props) {
   var arr = [];
@@ -114,8 +114,10 @@ function Settings(props) {
         },
       })
       .then((data) => {
+        console.log(data.data);
         if (!data.data.success == false) {
         } else {
+          console.log(data.data);
           setHead(data.data.proxpidata.headers || {});
           setBody(data.data.proxpidata.body || {});
           setParams(data.data.proxpidata.params || {});

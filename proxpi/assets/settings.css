@@ -1,24 +1,26 @@
-.list-group-horizontal>.list-group-item+.list-group-item{
-    border-top-width: 1px;
-    width: 100%;
-    /* max-width: 100%; */
-    border-left-width: 0;
-    overflow: scroll;
+.list-group-horizontal > .list-group-item + .list-group-item {
+  border-top-width: 1px;
+  width: 100%;
+  /* max-width: 100%; */
+  border-left-width: 0;
+  overflow: scroll;
 }
-.list-group-horizontal>.list-group-item+.list-group-item::-webkit-scrollbar {
-    display: none;
-  }
+.list-group-horizontal
+  > .list-group-item
+  + .list-group-item::-webkit-scrollbar {
+  display: none;
+}
 
-.jumbotron{
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background-color: #e9ecef;
-    border-radius: .3rem;
-    display: inline-flex;
-    flex-direction: column;
-    width: 100%;
-    overflow: scroll;
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
 }
 .jumbotron::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}

@@ -12,7 +12,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+const { decrypt } = require("../utils/crypt");
 app.use(cors());
 router.route("/api/:id").get(async (req, res) => {
   console.log(req.headers.origin);
@@ -29,7 +29,7 @@ router.route("/api/:id").get(async (req, res) => {
           .request({
             method: x.method,
             url: x.url,
-            headers: x.header,
+            headers: JSON.parse(decrypt(x.header)),
           })
           .then((data) => {
             return res.json(data.data);
@@ -49,7 +49,7 @@ router.route("/api/:id").get(async (req, res) => {
           .request({
             method: x.method,
             url: x.url,
-            headers: x.header,
+            headers: JSON.parse(decrypt(x.header)),
           })
           .then((data) => {
             return res.json(data.data);
