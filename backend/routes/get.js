@@ -5,7 +5,7 @@ var router = require("express").Router();
 const { Deta } = require("deta");
 const deta = Deta(process.env.DETA_KEY);
 let db = deta.Base("proxpi");
-const { decrypt } = require("../utils/crypt");
+const { decrypt } = require("../core/crypt");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.set("trust proxy", true);

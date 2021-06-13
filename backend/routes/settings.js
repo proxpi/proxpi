@@ -6,7 +6,7 @@ var router = require("express").Router();
 const { Deta } = require("deta");
 const deta = Deta(process.env.DETA_KEY);
 let db = deta.Base("proxpi");
-const { encrypt } = require("../utils/crypt");
+const { encrypt } = require("../core/crypt");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));

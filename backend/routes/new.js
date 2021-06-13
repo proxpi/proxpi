@@ -11,7 +11,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const { encrypt } = require("../utils/crypt");
+const { encrypt } = require("../core/crypt");
 app.use(cors());
 
 router.route("/create").post(async (req, res) => {
@@ -24,12 +24,13 @@ router.route("/create").post(async (req, res) => {
     privateUrl: "",
     header: encrypt(JSON.stringify({})),
     body: {},
+    resp_time: [],
     data: {},
     params: {},
     site_access: [],
     blocked_site: [],
     blocked_ip: [],
-    daily: [],
+    daily: {},
     geo: [],
     status: [],
   });
