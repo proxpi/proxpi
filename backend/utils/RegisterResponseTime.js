@@ -5,7 +5,7 @@ let db = deta.Base("proxpi");
 const moment = require("moment");
 const RegisterResponeTime = async (time, key) => {
   const data = {
-    time: moment().format("LLL"),
+    time: moment().format("l"),
     resp_time: time,
   };
   const updates = {

@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 router.route("/proxpi").post(async (req, res) => {
-  const userProxpi = await db.fetch({ email: req.user.aud[0] }).next();
+  const userProxpi = await db.fetch({ email: req.body.body.email }).next();
   res.send(userProxpi.value);
 });
 router.route("/proxpianalytics/:id").get(async (req, res) => {
@@ -70,4 +70,37 @@ router.route("/blockers/:id").get(async (req, res) => {
     res.json({ success: false });
   }
 });
+
+router.route("/analytics/:id").get(async (req, res) => {
+  try {
+    const analyticsData = await db.get(req.params.id);
+    const AnalyticsDataToSend = {
+      analytics_daily: analyticsData.daily,
+    };
+    if (req.user.aud[0] == analyticsData.email) {
+      res.json({ analyticsdata: AnalyticsDataToSend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
+    res.json({ success: false });
+  }
+});
+
+router.route("/reqlog/:id").get(async (req, res) => {
+  try {
+    const reqLogData = await db.get(req.params.id);
+    const ReqLogDataToSend = {
+      requestlogs: reqLogData.requests_log,
+    };
+    if (req.user.aud[0] == reqLogData.email) {
+      res.json({ reqlog: ReqLogDataToSend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
+    res.json({ success: false });
+  }
+});
+
 module.exports = router;

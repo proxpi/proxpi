@@ -33,6 +33,8 @@ router.route("/create").post(async (req, res) => {
     daily: {},
     geo: [],
     status: [],
+    error_log: [],
+    requests_log: [],
   });
 
   if (createdProxpi) {

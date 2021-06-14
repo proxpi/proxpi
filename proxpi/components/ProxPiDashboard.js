@@ -3,6 +3,8 @@ import Home from "../components/dashboardComponents/Home";
 import Settings from "../components/dashboardComponents/Settings";
 import Block from "../components/dashboardComponents/Block";
 import Loading from "../components/Loading";
+import DailyAnalytics from "../components/dashboardComponents/DailyAnalytics";
+import RequestLogger from "../components/dashboardComponents/RequestLogger";
 import axios from "axios";
 import "../assets/navs.css";
 import { useHistory } from "react-router-dom";
@@ -157,7 +159,7 @@ function ProxPiDashboard() {
             role="tabpanel"
             aria-labelledby="analytics-tab"
           >
-            HIIIIIIIIIII
+            <DailyAnalytics />
           </div>
           <div
             class="tab-pane fade"
@@ -173,7 +175,7 @@ function ProxPiDashboard() {
             role="tabpanel"
             aria-labelledby="reqlog-tab"
           >
-            HIIIIIIIIIII
+            <RequestLogger />
           </div>
           <div
             class="tab-pane fade"
