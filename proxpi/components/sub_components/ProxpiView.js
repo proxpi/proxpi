@@ -30,15 +30,22 @@ function Main() {
   }, []);
   if (loaded) {
     return (
-      <div class="col-sm-12 proxpiview">
+      <div style={{ backgroundColor: "#090c10" }} class="col-sm-12 proxpiview">
         {proxpi.map((data) => {
           return (
             <div class="row" style={{ margin: "2%", padding: "0" }}>
-              <div class="card" style={{ width: "250px" }}>
+              <div
+                class="card"
+                style={{
+                  width: "250px",
+                  backgroundColor: "#1b2029",
+                  border: "0.5px #007bff solid",
+                }}
+              >
                 <div class="card-body">
-                  <h5 class="card-title">{data.name}</h5>
-                  <p>Method :{data.method}</p>
-                  <p>Access :{data.access}</p>
+                  <h5 class="card-title fontclass">{data.name}</h5>
+                  <p class="fontclass">Method : {data.method}</p>
+                  <p class="fontclass">Access : {data.access}</p>
                   <Link to={`/dashboard/home/${data.key}`}>
                     <button class="btn btn-primary">DashBoard</button>
                   </Link>
@@ -55,7 +62,7 @@ function Main() {
         align="center"
         style={{ justifyContent: "center", width: "100%", marginTop: "5%" }}
       >
-        <Spinner animation="border" role="status">
+        <Spinner animation="grow" variant="primary" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
       </div>

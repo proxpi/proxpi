@@ -6,6 +6,13 @@
   width: 100%;
   overflow: scroll;
 }
+.navbar,
+.navbar-expand-lg,
+.navbar-light,
+.bg-light,
+.rounded {
+  background-color: #1b2029 !important;
+}
 .nav-tabs::-webkit-scrollbar {
   display: none;
 }

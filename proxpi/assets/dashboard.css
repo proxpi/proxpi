@@ -1,24 +1,40 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: white;
+}
 .proxpiview {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+.fontclass {
+  font-family: "Raleway", sans-serif;
+}
 .activated {
   margin-left: 4px;
-  color: rgb(61, 159, 207);
-  /* border: blue; */
-  border: solid;
-  border-radius: 15%;
-  padding: 1px;
-  border-color: green;
-  color: green;
+}
+.gLGShy {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5 !important;
+  color: #fff;
+  padding: 5px 6px !important;
+  background: #73cd1f;
+  border-radius: 21px;
 }
 @media all and (max-width: 600px) {
   .proxpiview {
     display: flex;
-    margin: 2%;
+    margin: 1%;
     justify-content: center;
-    width: 90%;
+    width: 98%;
   }
   .proxpihold {
     justify-content: center;

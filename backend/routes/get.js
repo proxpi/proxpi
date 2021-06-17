@@ -103,4 +103,51 @@ router.route("/reqlog/:id").get(async (req, res) => {
   }
 });
 
+router.route("/errlog/:id").get(async (req, res) => {
+  try {
+    const errLogData = await db.get(req.params.id);
+    const errLogDataToSend = {
+      errlogs: errLogData.error_log,
+    };
+    if (req.user.aud[0] == errLogData.email) {
+      res.json({ errlog: errLogDataToSend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
+    res.json({ success: false });
+  }
+});
+router.route("/geoanalytics/:id").get(async (req, res) => {
+  try {
+    const geoAnalyticsData = await db.get(req.params.id);
+    const geoAnalyticsDataToSend = {
+      geoData: geoAnalyticsData.geo,
+    };
+    if (req.user.aud[0] == geoAnalyticsData.email) {
+      res.json({ geoAnalytics: geoAnalyticsDataToSend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
+    res.json({ success: false });
+  }
+});
+
+router.route("/resptime/:id").get(async (req, res) => {
+  try {
+    const respTimeData = await db.get(req.params.id);
+    const respTimeDataToSend = {
+      resp_time_data: respTimeData.resp_time,
+    };
+    if (req.user.aud[0] == respTimeData.email) {
+      res.json({ respTime: respTimeDataToSend });
+    } else {
+      res.json({ success: false });
+    }
+  } catch {
+    res.json({ success: false });
+  }
+});
+
 module.exports = router;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Loading from "./Loading";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import axios from "axios";
+import "../assets/fonts.css";
 import { useHistory } from "react-router-dom";
 function Createnew() {
   let history = useHistory();
@@ -48,9 +49,20 @@ function Createnew() {
   }
   return (
     <div style={{ display: "block", marginLeft: "auto", marginRight: "auto" }}>
-      <main style={{ margin: "auto" }} class="form-signin col-lg-5">
+      <main
+        style={{
+          padding: "12px",
+          margin: "auto",
+          border: "0.5px #007bff solid",
+          borderRadius: "1.8%",
+          backgroundColor: "#1b2029",
+        }}
+        class="form-signin col-lg-5"
+      >
         <form>
-          <h1 class="h3 mb-3 fw-normal">Create a new ProxPi</h1>
+          <h1 class="h3 mb-3 fw-normal fontclassnav" style={{ color: "white" }}>
+            Create a new ProxPi
+          </h1>
           {c_error ? (
             <div class="alert alert-warning" role="alert">
               Error creating Proxpi
@@ -60,6 +72,9 @@ function Createnew() {
           )}
           <hr />
           <div class="form-floating">
+            <h6 class="fontclassnav" style={{ color: "white" }}>
+              Name
+            </h6>
             <input
               onChange={handlePut}
               value={proxpi.name}
@@ -70,9 +85,12 @@ function Createnew() {
               id="floatingInput"
               placeholder="blah_blah_blah"
             />
-            <label for="floatingInput">Name</label>
           </div>
           <hr />
+          <h6 class="fontclassnav" style={{ color: "white" }}>
+            {" "}
+            Your API endpoint to Proxy
+          </h6>
           <div class="form-floating">
             <input
               onChange={handlePut}
@@ -84,9 +102,11 @@ function Createnew() {
               id="floatingInputURL"
               placeholder="https://example.com/api"
             />
-            <label for="floatingInputURL">Your API endpoint to Proxy.</label>
           </div>
           <hr />
+          <h6 class="fontclassnav" style={{ color: "white" }}>
+            Method
+          </h6>
           <div class="form-group">
             <select
               onChange={handlePut}
@@ -102,8 +122,10 @@ function Createnew() {
               <option value="DELETE">DELETE</option>
             </select>
           </div>
-
-          <p>Access</p>
+          <hr />
+          <h6 class="fontclassnav" style={{ color: "white" }}>
+            Access
+          </h6>
           <div class="form-check">
             <input
               onChange={handlePut}
@@ -114,7 +136,11 @@ function Createnew() {
               id="flexRadioDefault1"
               checked={proxpi.access === "public"}
             />
-            <label class="form-check-label" for="flexRadioDefault1">
+            <label
+              style={{ color: "white" }}
+              class="form-check-label"
+              for="flexRadioDefault1"
+            >
               Public
             </label>
           </div>
@@ -128,16 +154,23 @@ function Createnew() {
               id="flexRadioDefault2"
               checked={proxpi.access === "private"}
             />
-            <label class="form-check-label" for="flexRadioDefault2">
+            <label
+              style={{ color: "white" }}
+              class="form-check-label"
+              for="flexRadioDefault2"
+            >
               Private
             </label>
           </div>
           <hr />
-          <p>
+          <p class="fontclassnav" style={{ color: "white" }}>
             If the access is set a private you can set the URL which has access
             in the settings of proxpi.
           </p>
-          <button onClick={handleSubmit} class="w-100 btn btn-lg btn-primary">
+          <button
+            onClick={handleSubmit}
+            class="w-100 btn btn-lg btn-primary fontclassnav"
+          >
             Create
           </button>
           {error ? (

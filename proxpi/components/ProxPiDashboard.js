@@ -5,6 +5,11 @@ import Block from "../components/dashboardComponents/Block";
 import Loading from "../components/Loading";
 import DailyAnalytics from "../components/dashboardComponents/DailyAnalytics";
 import RequestLogger from "../components/dashboardComponents/RequestLogger";
+import ErrorLogger from "./dashboardComponents/ErrorLogger";
+import GeoAnalytics from "../components/dashboardComponents/GeoAnalytics";
+import ResponseTime from "./dashboardComponents/ResponseTime";
+import AccessTokens from "./dashboardComponents/AccessTokens";
+
 import axios from "axios";
 import "../assets/navs.css";
 import { useHistory } from "react-router-dom";
@@ -100,6 +105,20 @@ function ProxPiDashboard() {
               <i class="fas fa-user-lock"></i> Access Keys
             </a>
           </li>
+          <li class="nav-item" id="nav-resptime">
+            <a
+              class="nav-link"
+              id="resptime-tab"
+              data-toggle="tab"
+              href="#resptime"
+              role="tab"
+              aria-controls="resptime"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-history"></i> Response Time
+            </a>
+          </li>
           <li class="nav-item" id="nav-ban">
             <a
               class="nav-link"
@@ -126,6 +145,20 @@ function ProxPiDashboard() {
             >
               {" "}
               <i class="fas fa-clipboard-list"></i> Request Log
+            </a>
+          </li>
+          <li class="nav-item" id="nav-errlog">
+            <a
+              class="nav-link"
+              id="errlog-tab"
+              data-toggle="tab"
+              href="#errlog"
+              role="tab"
+              aria-controls="errlog"
+              aria-selected="false"
+            >
+              {" "}
+              <i class="fas fa-exclamation-circle"></i> Error Log
             </a>
           </li>
           <li class="nav-item" id="nav-settings">
@@ -167,7 +200,15 @@ function ProxPiDashboard() {
             role="tabpanel"
             aria-labelledby="geospatialanalysis-tab"
           >
-            KJSGKUGSsdfsdfsdDKUSGD
+            <GeoAnalytics />
+          </div>
+          <div
+            class="tab-pane fade"
+            id="resptime"
+            role="tabpanel"
+            aria-labelledby="resptime-tab"
+          >
+            <ResponseTime />
           </div>
           <div
             class="tab-pane fade"
@@ -179,11 +220,19 @@ function ProxPiDashboard() {
           </div>
           <div
             class="tab-pane fade"
+            id="errlog"
+            role="tabpanel"
+            aria-labelledby="errlog-tab"
+          >
+            <ErrorLogger />
+          </div>
+          <div
+            class="tab-pane fade"
             id="access"
             role="tabpanel"
             aria-labelledby="access-tab"
           >
-            KJSGKUfdfGSDKUSGD
+            <AccessTokens />
           </div>
           <div
             class="tab-pane fade"

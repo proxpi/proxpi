@@ -6,7 +6,8 @@ function Loading() {
   return (
     <Spinner
       style={{ position: "fixed", top: "50%", left: "50%" }}
-      animation="border"
+      animation="grow"
+      variant="primary"
       role="status"
     >
       <span className="sr-only">Loading...</span>

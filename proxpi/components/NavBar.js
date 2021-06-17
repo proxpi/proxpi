@@ -2,6 +2,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/navbar.css";
+import "../assets/fonts.css";
+import { Button } from "@auth0/cosmos";
 function Btn() {
   const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated } =
     useAuth0();
@@ -16,7 +18,11 @@ function Btn() {
           alt=""
         />
       </a>
-      <a class="navbar-brand" href="#">
+      <a
+        style={{ color: "white", fontSize: "26px", marginTop: "5px" }}
+        class="navbar-brand fontclassnav"
+        href="#"
+      >
         ProxPi
       </a>
       <button
@@ -34,35 +40,50 @@ function Btn() {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a
-              class="nav-link"
+            <Link
+              style={{ textDecoration: "none" }}
+              class="nav-link fontclassnavitems"
               data-bs-toggle="collapse"
+              style={{ color: "white", marginTop: "4px" }}
               data-bs-target=".navbar-collapse.show"
               href="#"
+              to="/"
             >
-              <Link to="/">Home</Link>
-            </a>
+              Home
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <Link to="/pricing">Pricing</Link>
-            </a>
+            <Link
+              style={{ color: "white", marginTop: "4px" }}
+              class="nav-link fontclassnavitems"
+              to="/pricing"
+            >
+              Pricing
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              {isAuthenticated ? <Link to="/dashboard">Dashboard</Link> : ""}
-            </a>
+            {isAuthenticated ? (
+              <Link
+                style={{ color: "white", marginTop: "4px" }}
+                class="nav-link fontclassnavitems"
+                to="/dashboard"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              ""
+            )}
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           {isAuthenticated ? (
-            <button class="btn btn-outline-success" onClick={logout}>
+            <Button appearance="primary" onClick={logout}>
               Logout
-            </button>
+            </Button>
           ) : (
-            <button class="btn btn-outline-success" onClick={loginWithRedirect}>
+            <Button appearance="primary" onClick={loginWithRedirect}>
               Login
-            </button>
+            </Button>
           )}
         </form>
       </div>

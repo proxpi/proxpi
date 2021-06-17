@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@auth0/auth0-react": "^1.5.0",
+    "@auth0/cosmos": "^0.38.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "dot-prop-immutable": "^2.1.0",
