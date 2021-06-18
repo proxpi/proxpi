@@ -29,6 +29,20 @@ p {
   background: #73cd1f;
   border-radius: 21px;
 }
+.iGJoae{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5 !important;
+  color: #fff;
+  padding: 5px 6px !important;
+  background: #73cd1f;
+  border-radius: 21px;
+}
+.userdetails{
+  margin-top: 0.7%;
+}
 @media all and (max-width: 600px) {
   .proxpiview {
     display: flex;
@@ -40,6 +54,9 @@ p {
     justify-content: center;
   }
   .card {
-    width: 320px;
+    width: 275px !important;
+  }
+  .userdetails{
+    margin-top: 4%;
   }
 }

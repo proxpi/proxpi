@@ -3,6 +3,7 @@ import Loading from "./Loading";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import axios from "axios";
 import "../assets/fonts.css";
+
 import { useHistory } from "react-router-dom";
 function Createnew() {
   let history = useHistory();
@@ -57,7 +58,7 @@ function Createnew() {
           borderRadius: "1.8%",
           backgroundColor: "#1b2029",
         }}
-        class="form-signin col-lg-5"
+        class="form-signin col-lg-5 createnewcard"
       >
         <form>
           <h1 class="h3 mb-3 fw-normal fontclassnav" style={{ color: "white" }}>

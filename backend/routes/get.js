@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 app.set("trust proxy", true);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+const routeADD=require("../utils/GetUserEmail")
 
 app.use(cors());
 
@@ -21,8 +22,8 @@ router.route("/proxpi").post(async (req, res) => {
 router.route("/proxpianalytics/:id").get(async (req, res) => {
   try {
     const ProxpiData = await db.get(req.params.id);
-
-    if (req.user.aud[0] == ProxpiData.email) {
+    x=await routeADD(req)
+    if (x == ProxpiData.email) {
       res.json({ proxpidata: ProxpiData });
     } else {
       res.json({ success: false });

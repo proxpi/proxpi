@@ -12,14 +12,14 @@ function Btn() {
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
       <a class="navbar-brand" href="#">
         <img
-          src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-          width="30"
-          height="30"
+          src="https://avatars.githubusercontent.com/u/84428745?s=400&u=4c7cc5b97236c44f0aea44f2b477cdee20e13953&v=4"
+          width="50"
+          height="50"
           alt=""
         />
       </a>
       <a
-        style={{ color: "white", fontSize: "26px", marginTop: "5px" }}
+        style={{ color: "white", fontSize: "26px", marginTop: "0px" }}
         class="navbar-brand fontclassnav"
         href="#"
       >
@@ -44,7 +44,7 @@ function Btn() {
               style={{ textDecoration: "none" }}
               class="nav-link fontclassnavitems"
               data-bs-toggle="collapse"
-              style={{ color: "white", marginTop: "4px" }}
+              style={{ color: "white", marginTop: "0px" }}
               data-bs-target=".navbar-collapse.show"
               href="#"
               to="/"
@@ -54,7 +54,7 @@ function Btn() {
           </li>
           <li class="nav-item">
             <Link
-              style={{ color: "white", marginTop: "4px" }}
+              style={{ color: "white", marginTop: "0px" }}
               class="nav-link fontclassnavitems"
               to="/pricing"
             >
@@ -64,7 +64,7 @@ function Btn() {
           <li class="nav-item">
             {isAuthenticated ? (
               <Link
-                style={{ color: "white", marginTop: "4px" }}
+                style={{ color: "white", marginTop: "0px" }}
                 class="nav-link fontclassnavitems"
                 to="/dashboard"
               >

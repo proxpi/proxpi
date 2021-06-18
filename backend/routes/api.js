@@ -21,6 +21,7 @@ const LogRequests = require("../utils/LogRequests");
 const ErrorLogger = require("../utils/ErrorLogger");
 app.use(cors());
 router.route("/api/:id").get(async (req, res) => {
+  
   try {
     const date = new Date();
     x = await db.get(req.params.id);
