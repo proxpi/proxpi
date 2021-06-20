@@ -3,7 +3,16 @@
 }
 
 .fontclassnavitems {
-  color: white;
+  color: rgb(190, 232, 235);
   font-family: "Poppins", sans-serif;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #212630;
+}
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border: none;
+}

@@ -6,6 +6,7 @@ import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import ProxpiView from "./sub_components/ProxpiView";
 import "../assets/dashboard.css";
+import "../assets/fonts.css";
 function DashBoard() {
   const { user, getAccessTokenSilently } = useAuth0();
   const [activate, setActivated] = useState(false);
@@ -59,11 +60,11 @@ function DashBoard() {
           margin: "2%",
           display: "flex",
           width: "96%",
-         
+
           flexDirection: "row",
           padding: "7px 7px",
           backgroundColor: "#1b2029",
-          boxShadow: "2px 2px 4px #0c0e14, -2px -2px 4px #303852"
+          boxShadow: "2px 2px 4px #0c0e14, -2px -2px 4px #303852",
         }}
         class="jumbotron userdetails"
       >
@@ -113,7 +114,11 @@ function DashBoard() {
               </Badge>
             ) : (
               <h6
-                style={{ marginLeft: "4px", color: "#ff4d4d",marginTop: "5px" }}
+                style={{
+                  marginLeft: "4px",
+                  color: "#ff4d4d",
+                  marginTop: "5px",
+                }}
                 onClick={ActivateUser}
               >
                 Click to Activate

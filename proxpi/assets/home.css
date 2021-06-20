@@ -1,10 +1,35 @@
 .proxpiurl {
-  width: 50%;
+  width: 100%;
   margin: 2%;
 }
+.inputgrp {
+  width: 50%;
+}
+.analytics {
+  width: 240px;
+}
+.clicknavs:hover{
+  text-decoration: underline;
+}
+.colorstuffs{
+  color:rgb(0, 225, 255);
+}
+.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control, .input-group>.form-control-plaintext {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+  color: #00dffc;
+  background-color: #090c10;
+}
 @media all and (max-width: 600px) {
-  .proxpiurl {
+  .inputgrp {
     width: 96%;
     margin: 2%;
+  }
+  .lyticsgrp {
+    justify-content: center;
   }
 }

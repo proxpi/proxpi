@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 app.set("trust proxy", true);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const routeADD=require("../utils/GetUserEmail")
+const routeADD = require("../utils/GetUserEmail");
 
 app.use(cors());
 
@@ -21,10 +21,41 @@ router.route("/proxpi").post(async (req, res) => {
 });
 router.route("/proxpianalytics/:id").get(async (req, res) => {
   try {
+    let totalviews = 0;
+    let totalreq = 0;
+    let totalerr = 0;
+    let resptimeavg = 0;
+    let resptimetotal = 0;
     const ProxpiData = await db.get(req.params.id);
-    x=await routeADD(req)
+
+    //count total views
+    Object.keys(ProxpiData.daily).map((data) => {
+      totalviews += ProxpiData.daily[data] || 0;
+    });
+
+    //count total err req
+    totalerr = ProxpiData.error_log.length || 0;
+
+    //count total err req
+    totalreq = ProxpiData.requests_log.length || 0;
+
+    //get avg resp time
+    ProxpiData.resp_time.map((data) => {
+      resptimetotal += data.resp_time || 0;
+    });
+    resptimeavg = resptimetotal / ProxpiData.resp_time.length || 0;
+
+    x = await routeADD(req);
     if (x == ProxpiData.email) {
-      res.json({ proxpidata: ProxpiData });
+      res.json({
+        proxpidata: ProxpiData,
+        subdata: {
+          totalviews: totalviews,
+          totalreq: totalreq,
+          totalerr: totalerr,
+          resptimeavg: resptimeavg,
+        },
+      });
     } else {
       res.json({ success: false });
     }

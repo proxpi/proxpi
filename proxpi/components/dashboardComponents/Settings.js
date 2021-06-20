@@ -114,10 +114,8 @@ function Settings(props) {
         },
       })
       .then((data) => {
-        console.log(data.data);
         if (!data.data.success == false) {
         } else {
-          console.log(data.data);
           setHead(data.data.proxpidata.headers || {});
           setBody(data.data.proxpidata.body || {});
           setParams(data.data.proxpidata.params || {});

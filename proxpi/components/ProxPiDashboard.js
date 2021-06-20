@@ -12,12 +12,14 @@ import AccessTokens from "./dashboardComponents/AccessTokens";
 
 import axios from "axios";
 import "../assets/navs.css";
+import "../assets/fonts.css";
 import { useHistory } from "react-router-dom";
 import "../assets/navs.css";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 function ProxPiDashboard() {
   const history = useHistory();
+  const [subdata, setSubData] = useState({});
   const { user, getAccessTokenSilently } = useAuth0();
   const [proxpiData, setProxpiData] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +40,7 @@ function ProxPiDashboard() {
           history.push("/dashboard");
         } else {
           setProxpiData(data.data.proxpidata);
+          setSubData(data.data.subdata);
           setLoaded(true);
         }
       });
@@ -48,10 +51,10 @@ function ProxPiDashboard() {
   if (loaded) {
     return (
       <div style={{ margin: "2.5%" }}>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs nav-pills" id="myTab" role="tablist">
           <li class="nav-item" id="nav-home">
             <a
-              class="nav-link active"
+              class="nav-link active fontclassnavitems"
               id="home-tab"
               data-toggle="tab"
               href="#home"
@@ -60,12 +63,12 @@ function ProxPiDashboard() {
               aria-selected="true"
             >
               {" "}
-              <i class="fas fa-home"></i> Home
+              <i class="fas fa-home "></i> Home
             </a>
           </li>
           <li class="nav-item" id="nav-tics">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="analytics-tab"
               data-toggle="tab"
               href="#analysis"
@@ -79,7 +82,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-analytics">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="geospatialanalysis-tab"
               data-toggle="tab"
               href="#geoanalysis"
@@ -93,7 +96,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-access">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="access-tab"
               data-toggle="tab"
               href="#access"
@@ -107,7 +110,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-resptime">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="resptime-tab"
               data-toggle="tab"
               href="#resptime"
@@ -121,7 +124,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-ban">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="ban-tab"
               data-toggle="tab"
               href="#ban"
@@ -135,7 +138,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-reqlog">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="reqlog-tab"
               data-toggle="tab"
               href="#reqlog"
@@ -149,7 +152,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-errlog">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="errlog-tab"
               data-toggle="tab"
               href="#errlog"
@@ -163,7 +166,7 @@ function ProxPiDashboard() {
           </li>
           <li class="nav-item" id="nav-settings">
             <a
-              class="nav-link"
+              class="nav-link fontclassnavitems"
               id="settings-tab"
               data-toggle="tab"
               href="#settings"
@@ -179,12 +182,12 @@ function ProxPiDashboard() {
 
         <div class="tab-content" id="myTabContent">
           <div
-            class="tab-pane fade show active"
+            class="tab-pane fade show active navscomp "
             id="home"
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-            <Home data={proxpiData} />
+            <Home data={proxpiData} briefAnalytics={subdata} />
           </div>
           <div
             class="tab-pane fade"
