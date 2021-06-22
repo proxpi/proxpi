@@ -1,9 +1,10 @@
 import React from "react";
 import "../../assets/home.css";
 import "../../assets/fonts.css";
+import { Icon } from "@auth0/cosmos";
 function Home(props) {
   var BaseUrlProxpi = "https://proxpiapi.herokuapp.com/proxpi/api/";
-  
+
   return (
     <div
       style={{
@@ -17,7 +18,7 @@ function Home(props) {
           <h4 style={{ marginTop: "10px" }} class="fontclassnavitems">
             Your ProxPi URL:
           </h4>
-          <hr/>
+          <hr />
           <div class="input-group inputgrp">
             <input
               type="url"
@@ -70,10 +71,23 @@ function Home(props) {
                     </div>
                   </div>
                 </div>
-                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">{props.briefAnalytics.totalviews}</h1>
+                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">
+                  <Icon
+                    color="rgb(0, 225, 255)"
+                    id="sdf"
+                    size="34"
+                    name="analytics"
+                  ></Icon>{" "}
+                  {props.briefAnalytics.totalviews}
+                </h1>
                 <div class="mb-0">
-                  
-                  <span class="text-muted">Go to <span class="clicknavs" style={{color:"blue"}}>Analytics</span> for more info</span>
+                  <span class="text-muted">
+                    Go to{" "}
+                    <span class="clicknavs" style={{ color: "blue" }}>
+                      Analytics
+                    </span>{" "}
+                    for more info
+                  </span>
                 </div>
               </div>
             </div>
@@ -87,9 +101,11 @@ function Home(props) {
               }}
             >
               <div class="card-body">
-              <div class="row">
+                <div class="row">
                   <div class="col mt-0">
-                    <h5 class="card-title fontclassnavitems">Logged Requests</h5>
+                    <h5 class="card-title fontclassnavitems">
+                      Logged Requests
+                    </h5>
                   </div>
 
                   <div class="col-auto">
@@ -98,10 +114,24 @@ function Home(props) {
                     </div>
                   </div>
                 </div>
-                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">{props.briefAnalytics.totalreq}</h1>
+                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">
+                  <Icon
+                    style={{ marginTop: "-3px" }}
+                    color="rgb(0, 225, 255)"
+                    class="iconsdata"
+                    size="34"
+                    name="clipboard"
+                  ></Icon>{" "}
+                  {props.briefAnalytics.totalreq}
+                </h1>
                 <div class="mb-0">
-                  
-                <span class="text-muted">Go to <span class="clicknavs" style={{color:"blue"}}>Request log</span> tab for more info</span>
+                  <span class="text-muted">
+                    Go to{" "}
+                    <span class="clicknavs" style={{ color: "blue" }}>
+                      Request log
+                    </span>{" "}
+                    tab for more info
+                  </span>
                 </div>
               </div>
             </div>
@@ -115,7 +145,7 @@ function Home(props) {
               }}
             >
               <div class="card-body">
-              <div class="row">
+                <div class="row">
                   <div class="col mt-0">
                     <h5 class="card-title fontclassnavitems">Errors</h5>
                   </div>
@@ -126,10 +156,24 @@ function Home(props) {
                     </div>
                   </div>
                 </div>
-                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">{props.briefAnalytics.totalerr}</h1>
+                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">
+                  <Icon
+                    color="rgb(0, 225, 255)"
+                    id="sdf"
+                    class="iconsdata"
+                    size="35"
+                    name="danger-fill"
+                  ></Icon>{" "}
+                  {props.briefAnalytics.totalerr}
+                </h1>
                 <div class="mb-0">
-                  
-                <span class="text-muted">Go to <span class="clicknavs" style={{color:"blue"}}>Error log</span> tab for more info</span>
+                  <span class="text-muted">
+                    Go to{" "}
+                    <span class="clicknavs" style={{ color: "blue" }}>
+                      Error log
+                    </span>{" "}
+                    tab for more info
+                  </span>
                 </div>
               </div>
             </div>
@@ -143,9 +187,9 @@ function Home(props) {
               }}
             >
               <div class="card-body">
-              <div class="row">
+                <div class="row">
                   <div class="col mt-0">
-                    <h5 class="card-title fontclassnavitems" > Response time</h5>
+                    <h5 class="card-title fontclassnavitems"> Response time</h5>
                   </div>
 
                   <div class="col-auto">
@@ -154,11 +198,23 @@ function Home(props) {
                     </div>
                   </div>
                 </div>
-                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">{props.briefAnalytics.resptimeavg.toFixed(2)+"ms"}</h1>
-                <div  class="mb-0">
-                           
-                  
-                <span class="text-muted">Go to <span class="clicknavs" style={{color:"blue"}}>Response time</span> tab for more info</span>
+                <h1 class="mt-1 mb-3 fontclassnavitems colorstuffs">
+                  <Icon
+                    color="rgb(0, 225, 255)"
+                    class="iconsdata"
+                    size="34"
+                    name="clock"
+                  ></Icon>{" "}
+                  {props.briefAnalytics.resptimeavg.toFixed(0) + "ms"}
+                </h1>
+                <div class="mb-0">
+                  <span class="text-muted">
+                    Go to{" "}
+                    <span class="clicknavs" style={{ color: "blue" }}>
+                      Response time
+                    </span>{" "}
+                    tab for more info
+                  </span>
                 </div>
               </div>
             </div>
