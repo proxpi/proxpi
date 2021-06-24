@@ -62,6 +62,42 @@ function Btn() {
             </Link>
           </li>
           <li class="nav-item">
+            <Link
+              style={{ color: "white", marginTop: "0px" }}
+              class="nav-link fontclassnavitems"
+              to="/pricing"
+            >
+              Docs
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link
+              style={{ color: "white", marginTop: "0px" }}
+              class="nav-link fontclassnavitems"
+              to="/pricing"
+            >
+              Support
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link
+              style={{ color: "white", marginTop: "0px" }}
+              class="nav-link fontclassnavitems"
+              to="/pricing"
+            >
+              Open Source
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link
+              style={{ color: "white", marginTop: "0px" }}
+              class="nav-link fontclassnavitems"
+              to="/pricing"
+            >
+              Help
+            </Link>
+          </li>
+          <li class="nav-item">
             {isAuthenticated ? (
               <Link
                 style={{ color: "white", marginTop: "0px" }}

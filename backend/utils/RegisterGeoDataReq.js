@@ -9,8 +9,10 @@ const RegisterGeoDataReq = async (key, ip) => {
     axios
       .get(`https://ipgeolocatorproxpi.herokuapp.com/api/geolocate/${ip}`)
       .then(async (data) => {
+        x=[]
+        x.push(Object.values(data.data))
         updates = {
-          geo: db.util.append(data.data),
+          geo: db.util.append(x),
         };
         await db.update(updates, key);
       });

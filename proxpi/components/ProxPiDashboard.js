@@ -195,7 +195,7 @@ function ProxPiDashboard() {
             role="tabpanel"
             aria-labelledby="analytics-tab"
           >
-            <DailyAnalytics />
+            <DailyAnalytics briefAnalytics={subdata} />
           </div>
           <div
             class="tab-pane fade"
