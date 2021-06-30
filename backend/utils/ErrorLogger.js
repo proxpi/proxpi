@@ -9,6 +9,7 @@ const ErrorLogger = async (arg) => {
     requrl: arg.request_url,
     ip: arg.ip,
     Errtime: arg.time,
+    ErrLog: arg.errLog,
   };
   const ErrUpdates = {
     error_log: db.util.append(ErrLogs),

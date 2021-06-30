@@ -48,6 +48,7 @@ router.route("/api/:id").get(async (req, res) => {
               ip: req.ip,
               time: moment().format("llll"),
               key: req.params.id,
+              errLog: err,
             });
             return res.status(404).send(err.name);
           });
@@ -58,6 +59,7 @@ router.route("/api/:id").get(async (req, res) => {
           ip: req.ip,
           time: moment().format("llll"),
           key: req.params.id,
+          errLog: {},
         });
         return res.status(401).send({
           message: "LOL you are blocked from using this API",
@@ -82,6 +84,7 @@ router.route("/api/:id").get(async (req, res) => {
           ip: req.ip,
           time: moment().format("llll"),
           key: req.params.id,
+          errLog: {},
         });
         return res.status(401).send({
           message:

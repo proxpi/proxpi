@@ -1,0 +1,32 @@
+<div class="input-group">
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">{data}</li>
+                    <li class="list-group-item">{head[data]}</li>
+                  </ul>
+
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data + "," + head[data]}
+                      onClick={(e) => {
+                        setHead(dotPropImmutable.delete(head, data));
+                      }}
+                    >
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      type="button"
+                      id="button-addon2"
+                      name={data}
+                      onClick={(e) => {
+                        document.getElementById("headeradd").value =
+                          data + "," + head[data];
+                      }}
+                    >
+                      <i class="far fa-edit"></i>
+                    </button>
+                  </div>
+                </div>

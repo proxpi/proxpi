@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import swal from "sweetalert2/dist/sweetalert2.all.min.js";
+import { ResourceList, Button } from "@auth0/cosmos";
+import "../../assets/fonts.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Block(props) {
   const { getAccessTokenSilently } = useAuth0();
   const [blockedip, setBlockedip] = useState([]);
@@ -43,6 +47,15 @@ function Block(props) {
         )
       ) {
         setBlockedip([...blockedip, bannedip]);
+        toast.success("Added IP, dont forget to save", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       } else {
         new swal("Your IP format is Incorrect", "", "error");
       }
@@ -66,6 +79,15 @@ function Block(props) {
     if (bannedurl) {
       if (pattern.test(bannedurl)) {
         setBlockedsite([...blockedsite, bannedurl]);
+        toast.success("Added URL , dont forget to save", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       } else {
         new swal("Your URL format is wrong", "", "error");
       }
@@ -103,73 +125,79 @@ function Block(props) {
   }, []);
 
   return (
-    <div>
+    <>
       <div
-        class="modal fade model-sm"
-        id="showbansuccessmodal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
+        style={{
+          backgroundColor: "#1b2029",
+          padding: "1%",
+          boxShadow: "2px 2px 4px #0c0e14, -2px -2px 4px #303852"
+        }}
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header"></div>
-            <div class="modal-body">Ban Settings Successfully saved...</div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-dismiss="modal"
-              >
-                Ok
-              </button>
+        <div
+          class="modal fade model-sm"
+          id="showbansuccessmodal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header"></div>
+              <div class="modal-body">Ban Settings Successfully saved...</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-dismiss="modal"
+                >
+                  Ok
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <h5>Blocked IP's</h5>
-      <hr />
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Blocked IP's</span>
-        </div>
-        <input
-          id="ipadd"
-          placeholder="Content-type , application/json"
-          type="text"
-          aria-label="header"
-          class="form-control"
-        />
+        <h4 style={{ margin: "10px" }} class="fontclassnavitems">
+          BLocked IP's
+        </h4>
+        <hr />
+        <div style={{ margin: "1%", width: "96%" }} class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">IP Address</span>
+          </div>
+          <input
+            id="ipadd"
+            placeholder="256.256.256.256"
+            type="text"
+            aria-label="header"
+            class="form-control"
+          />
 
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-primary"
-            type="button"
-            id="button-addon2"
-            onClick={handleBanIpAdd}
-          >
-            Add
-          </button>
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon2"
+              onClick={handleBanIpAdd}
+            >
+              Add
+            </button>
+          </div>
         </div>
-      </div>
-      <div
-        style={{ padding: "5px 5px", margin: "1%" }}
-        class="jumbotron"
-        id="sdfswdf"
-      >
+
         {loaded ? (
           blockedip.map((data) => {
             return (
-              <div style={{ width: "50%" }} class="input-group">
-                <ul class="list-group list-group-horizontal">
-                  <li class="list-group-item">{data}</li>
-                </ul>
-
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-primary"
-                    type="button"
-                    id="button-addon2"
+              <ResourceList.Item
+                title={data}
+                style={{
+                  backgroundColor: "#2b303a",
+                  margin: "2%",
+                  color: "white",
+                }}
+                icon="ip-address"
+                actions={[
+                  <Button
+                    icon="delete"
                     name={data}
                     onClick={(e) => {
                       setBlockedip(
@@ -178,61 +206,59 @@ function Block(props) {
                         })
                       );
                     }}
-                  >
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </div>
+                    label="Delete"
+                  />,
+                ]}
+              />
             );
           })
         ) : (
           <p>Loading.....</p>
         )}
-      </div>
-      <hr />
-      <h5>Blocked URL's</h5>
-      <hr />
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Blocked URL's</span>
-        </div>
-        <input
-          id="urladd"
-          placeholder="Content-type , application/json"
-          type="text"
-          aria-label="header"
-          class="form-control"
-        />
 
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-primary"
-            type="button"
-            id="button-addon2"
-            onClick={handleURLAdd}
-          >
-            Add
-          </button>
+        <hr />
+        <h4 style={{ margin: "10px" }} class="fontclassnavitems">
+          BLocked URL's
+        </h4>
+        <hr />
+        <div style={{ margin: "1%", width: "96%" }} class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">URL</span>
+          </div>
+          <input
+            id="urladd"
+            placeholder="https://example.com"
+            type="text"
+            aria-label="header"
+            class="form-control"
+          />
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="button-addon2"
+              onClick={handleURLAdd}
+            >
+              Add
+            </button>
+          </div>
         </div>
-      </div>
-      <div
-        style={{ padding: "5px 5px", margin: "1%" }}
-        class="jumbotron"
-        id="sdfswdf"
-      >
+
         {loaded ? (
           blockedsite.map((dataU) => {
             return (
-              <div style={{ width: "50%" }} class="input-group">
-                <ul class="list-group list-group-horizontal">
-                  <li class="list-group-item">{dataU}</li>
-                </ul>
-
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-primary"
-                    type="button"
-                    id="button-addon2"
+              <ResourceList.Item
+                title={dataU}
+                style={{
+                  backgroundColor: "#2b303a",
+                  margin: "2%",
+                  color: "white",
+                }}
+                icon="link"
+                actions={[
+                  <Button
+                    icon="delete"
                     name={dataU}
                     onClick={(e) => {
                       setBlockedsite(
@@ -241,37 +267,55 @@ function Block(props) {
                         })
                       );
                     }}
-                  >
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </div>
+                    label="Delete"
+                  />,
+                ]}
+              />
             );
           })
         ) : (
           <p>Loading.....</p>
         )}
+
+        {saved ? (
+          <button
+            type="button"
+            onClick={sendBanDataToServer}
+            style={{ marginLeft: "10px" }}
+            class="btn btn-primary btn-lg"
+          >
+            {" "}
+            Save{" "}
+          </button>
+        ) : (
+          <button
+            class="btn btn-primary btn-lg"
+            type="button"
+            style={{ marginLeft: "10px" }}
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-lg"
+              role="status"
+              aria-hidden="true"
+            ></span>{" "}
+            Saving...
+          </button>
+        )}
+        <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       </div>
-      {saved ? (
-        <button
-          type="button"
-          onClick={sendBanDataToServer}
-          class="btn btn-primary btn-md"
-        >
-          {" "}
-          Save{" "}
-        </button>
-      ) : (
-        <button class="btn btn-primary" type="button" disabled>
-          <span
-            class="spinner-border spinner-border-sm"
-            role="status"
-            aria-hidden="true"
-          ></span>{" "}
-          Saving...
-        </button>
-      )}
-    </div>
+      
+    </>
   );
 }
 export default Block;

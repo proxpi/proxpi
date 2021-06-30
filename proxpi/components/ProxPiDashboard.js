@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import Home from "../components/dashboardComponents/Home";
 import Settings from "../components/dashboardComponents/Settings";
 import Block from "../components/dashboardComponents/Block";
@@ -7,7 +8,6 @@ import DailyAnalytics from "../components/dashboardComponents/DailyAnalytics";
 import RequestLogger from "../components/dashboardComponents/RequestLogger";
 import ErrorLogger from "./dashboardComponents/ErrorLogger";
 import GeoAnalytics from "../components/dashboardComponents/GeoAnalytics";
-import ResponseTime from "./dashboardComponents/ResponseTime";
 import AccessTokens from "./dashboardComponents/AccessTokens";
 
 import axios from "axios";
@@ -108,20 +108,7 @@ function ProxPiDashboard() {
               <i class="fas fa-user-lock"></i> Access Keys
             </a>
           </li>
-          <li class="nav-item" id="nav-resptime">
-            <a
-              class="nav-link fontclassnavitems"
-              id="resptime-tab"
-              data-toggle="tab"
-              href="#resptime"
-              role="tab"
-              aria-controls="resptime"
-              aria-selected="false"
-            >
-              {" "}
-              <i class="fas fa-history"></i> Response Time
-            </a>
-          </li>
+
           <li class="nav-item" id="nav-ban">
             <a
               class="nav-link fontclassnavitems"
@@ -205,14 +192,7 @@ function ProxPiDashboard() {
           >
             <GeoAnalytics />
           </div>
-          <div
-            class="tab-pane fade"
-            id="resptime"
-            role="tabpanel"
-            aria-labelledby="resptime-tab"
-          >
-            <ResponseTime />
-          </div>
+
           <div
             class="tab-pane fade"
             id="reqlog"

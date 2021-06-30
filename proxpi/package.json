@@ -24,8 +24,10 @@
     "react-dom": "^16.13.1",
     "react-leaflet": "^3.2.0",
     "react-leaflet-heatmap-layer": "^2.0.0",
+    "react-modal": "^3.14.3",
     "react-router-dom": "^5.2.0",
     "react-simple-maps": "^2.3.0",
+    "react-toastify": "^7.0.4",
     "sweetalert2": "^11.0.16"
   },
   "proxy": "http://localhost:8080",

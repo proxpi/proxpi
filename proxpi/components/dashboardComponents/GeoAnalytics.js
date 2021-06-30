@@ -7,6 +7,7 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
+import { Icon, Tooltip } from "@auth0/cosmos";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -43,10 +44,27 @@ function GeoAnalytics() {
   if (loaded) {
     return (
       <div>
-        <button class="btn btn-primary" onClick={getGeoAnalytics}>
-          Refresh
-        </button>
-        <div style={{ margin: "3%" }}>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
+            GeoSpatial Analytics.
+          </h3>
+          <Tooltip position="right" content="Reload">
+            <Icon
+              onClick={getGeoAnalytics}
+              color="white"
+              style={{ marginTop: "27px", marginLeft: "10px" }}
+              name="reload"
+            ></Icon>
+          </Tooltip>
+        </div>
+        <div
+          style={{
+            margin: "3%",
+            border: "1px blue solid",
+            borderRadius: "1%",
+            backgroundColor: "#1b2029",
+          }}
+        >
           <ComposableMap>
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
@@ -61,7 +79,7 @@ function GeoAnalytics() {
               }
             </Geographies>
             {geoData.map((data) => (
-              <Marker key="das" coordinates={data.reverse()}>
+              <Marker key="das" coordinates={data}>
                 <circle r={10} fill="#F00" stroke="#fff" strokeWidth={2} />
               </Marker>
             ))}

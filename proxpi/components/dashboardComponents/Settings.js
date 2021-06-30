@@ -3,7 +3,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import dotPropImmutable from "dot-prop-immutable";
 import axios from "axios";
 import "../../assets/settings.css";
+import "../../assets/fonts.css";
 import swal from "sweetalert2/dist/sweetalert2.all.min.js";
+import { ResourceList, Button } from "@auth0/cosmos";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Settings(props) {
   var arr = [];
   const [head, setHead] = useState([]);
@@ -51,6 +55,15 @@ function Settings(props) {
         [dataHeader.split(",")[0].trim()]: dataHeader.split(",")[1].trim(),
       });
       document.getElementById("headeradd").value = "";
+      toast.success("Added Headers , dont forget to save", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
       new swal("Nothing to add", "", "error");
     }
@@ -63,6 +76,15 @@ function Settings(props) {
         [dataParams.split(",")[0].trim()]: dataParams.split(",")[1].trim(),
       });
       document.getElementById("paramsadd").value = "";
+      toast.success("Added Params , dont forget to save", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
       new swal("Nothing to add", "", "error");
     }
@@ -75,6 +97,15 @@ function Settings(props) {
         [dataBody.split(",")[0].trim()]: dataBody.split(",")[1].trim(),
       });
       document.getElementById("bodyadd").value = "";
+      toast.success("Added Body , dont forget to save", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
       new swal("Nothing to add", "", "error");
     }
@@ -93,7 +124,15 @@ function Settings(props) {
     if (privateurl) {
       if (pattern.test(privateurl)) {
         setPrivateUrl(privateurl);
-        new swal("Added the Private Access URL", "", "success");
+        toast.success("Added URL , dont forget to save", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       } else {
         new swal("Your URL format is wrong", "", "error");
       }
@@ -132,7 +171,15 @@ function Settings(props) {
   }, []);
 
   return (
-    <div style={{ margin: "2% 6%" }}>
+    <div
+    class="settings-container"
+      style={{
+        boxShadow: "2px 2px 4px #0c0e14, -2px -2px 4px #303852",
+        backgroundColor: "#1b2029",
+        padding: "1.5%",
+        borderRadius: "2%",
+      }}
+    >
       <div
         class="modal fade"
         id="showsuccessmodal"
@@ -164,8 +211,14 @@ function Settings(props) {
         </div>
       </div>
       <div>
+        <h1 style={{textDecoration:"underline"}} class="fontclassnavitems">
+          Settings
+        </h1>
+       
         <div class="form-group">
-          <label for="exampleInputEmail1">Name</label>
+          <h5 class="fontclassnav" style={{ color: "white" }}>
+            Name
+          </h5>
           <input
             type="email"
             class="form-control"
@@ -179,7 +232,9 @@ function Settings(props) {
           </small>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">URL</label>
+          <h5 class="fontclassnav" style={{ color: "white" }}>
+            URL
+          </h5>
           <input
             type="password"
             class="form-control"
@@ -191,7 +246,9 @@ function Settings(props) {
             You cant change it.
           </small>
         </div>
-        <p>Request Method</p>
+        <h5 class="fontclassnav" style={{ color: "white" }}>
+          Request Method
+        </h5>
 
         <div class="form-group">
           <select
@@ -218,8 +275,10 @@ function Settings(props) {
             </option>
           </select>
         </div>
-
-        <p>Access</p>
+<hr/>
+        <h5 class="fontclassnav" style={{ color: "white" }}>
+          Access
+        </h5>
         <div class="form-check">
           <input
             class="form-check-input"
@@ -258,7 +317,9 @@ function Settings(props) {
           access to it..
         </small>
         <hr />
-        <h5>Private Access URL</h5>
+        <h5 class="fontclassnav" style={{ color: "white" }}>
+          Private Access URL
+        </h5>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">
@@ -288,7 +349,7 @@ function Settings(props) {
           </div>
         </div>
 
-        <hr />
+   
         <small id="emailHelp" class="form-text text-muted">
           {" "}
           The Private Access URL is the URL which will only have permission to
@@ -297,7 +358,9 @@ function Settings(props) {
           Private.
         </small>
         <hr />
-        <h5>Headers</h5>
+        <h5 class="fontclassnav" style={{ color: "white" }}>
+          Headers
+        </h5>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">Headers</span>
@@ -321,64 +384,68 @@ function Settings(props) {
             </button>
           </div>
         </div>
-        <div
-          style={{ padding: "5px 5px", margin: "1%" }}
-          class="jumbotron jumpsettings"
-          id="sdfswdf"
-        >
-          {loaded ? (
-            Object.keys(head).map((data) => {
-              return (
-                <div class="input-group">
-                  <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item">{data}</li>
-                    <li class="list-group-item">{head[data]}</li>
-                  </ul>
 
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-outline-primary"
-                      type="button"
-                      id="button-addon2"
-                      name={data + "," + head[data]}
-                      onClick={(e) => {
-                        setHead(dotPropImmutable.delete(head, data));
-                      }}
-                    >
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <button
-                      class="btn btn-outline-primary"
-                      type="button"
-                      id="button-addon2"
-                      name={data}
-                      onClick={(e) => {
-                        document.getElementById("headeradd").value =
-                          data + "," + head[data];
-                      }}
-                    >
-                      <i class="far fa-edit"></i>
-                    </button>
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <p>Loading.....</p>
-          )}
-        </div>
-        <pre class="brush: json">
-          {JSON.stringify({ header: head }, undefined, 3)}
-        </pre>
+        {loaded ? (
+          Object.keys(head).map((data) => {
+            return (
+              <ResourceList.Item
+                title={data}
+                style={{
+                  backgroundColor: "#2b303a",
+                  margin: "2%",
+                  color: "white",
+                  textTransform: "none",
+                }}
+                subtitle="Headers"
+                icon="lock"
+                actions={[
+                  <Button
+                    icon="delete"
+                    name={data + "," + head[data]}
+                    onClick={(e) => {
+                      setHead(dotPropImmutable.delete(head, data));
+                      toast.warn("Deleted Header", {
+                        position: "bottom-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      });
+                    }}
+                    label="Delete"
+                  />,
+                  <Button
+                    icon="pencil"
+                    name={data}
+                    onClick={(e) => {
+                      document.getElementById("headeradd").value =
+                        data + "," + head[data];
+                    }}
+                    label="Edit"
+                  />,
+                ]}
+              >
+                {head[data]}
+              </ResourceList.Item>
+            );
+          })
+        ) : (
+          <p>Loading.....</p>
+        )}
+
         <hr />
-        <h5>Body</h5>
+        <h5 class="fontclassnav" style={{ color: "white" }}>
+          Body
+        </h5>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">Body</span>
           </div>
           <input
             id="bodyadd"
-            placeholder="Content-type , application/json"
+            placeholder="name,proxpi"
             type="text"
             aria-label="header"
             class="form-control"
@@ -395,56 +462,64 @@ function Settings(props) {
             </button>
           </div>
         </div>
-        <div
-          style={{ padding: "5px 5px", margin: "1%" }}
-          class="jumbotron jumpsettings"
-          id="sdfswdf"
-        >
+      
           {loaded ? (
             Object.keys(body).map((data) => {
               return (
-                <div class="input-group">
-                  <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item">{data}</li>
-                    <li class="list-group-item">{body[data]}</li>
-                  </ul>
-
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-outline-primary"
-                      type="button"
-                      id="button-addon2"
-                      name={data + "," + body[data]}
-                      onClick={(e) => {
-                        setBody(dotPropImmutable.delete(body, data));
-                      }}
-                    >
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <button
-                      class="btn btn-outline-primary"
-                      type="button"
-                      id="button-addon2"
-                      name={data}
-                      onClick={(e) => {
-                        document.getElementById("bodyadd").value =
-                          data + "," + body[data];
-                      }}
-                    >
-                      <i class="far fa-edit"></i>
-                    </button>
-                  </div>
-                </div>
+                <ResourceList.Item
+                title={data}
+                style={{
+                  backgroundColor: "#2b303a",
+                  margin: "2%",
+                  color: "white",
+                  textTransform: "none",
+                }}
+                subtitle="Body"
+                icon="lock"
+                actions={[
+                  <Button
+                    icon="delete"
+                    name={data + "," + body[data]}
+                    onClick={(e) => {
+                      setBody(dotPropImmutable.delete(body, data));
+                      toast.warn("Deleted Body", {
+                        position: "bottom-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      });
+                      
+                    }}
+                    label="Delete"
+                  />,
+                  <Button
+                    icon="pencil"
+                    name={data}
+                    onClick={(e) => {
+                      document.getElementById("bodyadd").value =
+                        data + "," + body[data];
+                    }}
+                    label="Edit"
+                  />,
+                ]}
+              >
+                {body[data]}
+              </ResourceList.Item>
               );
             })
           ) : (
             <p>Loading.....</p>
           )}
-        </div>
-        <pre class="brush: json">{JSON.stringify(body, undefined, 3)}</pre>
+   
+
         <hr />
 
-        <h5>Params</h5>
+        <h5 class="fontclassnav" style={{ color: "white" }}>
+          Params
+        </h5>
 
         <div class="input-group">
           <div class="input-group-prepend">
@@ -452,7 +527,7 @@ function Settings(props) {
           </div>
           <input
             id="paramsadd"
-            placeholder="Content-type , application/json"
+            placeholder="awesome,true"
             type="text"
             aria-label="header"
             class="form-control"
@@ -469,75 +544,93 @@ function Settings(props) {
             </button>
           </div>
         </div>
-        <div
-          style={{ padding: "5px 5px", margin: "1%" }}
-          class="jumbotron"
-          id="sdfswdf"
-        >
+       
           {loaded ? (
             Object.keys(params).map((data) => {
               return (
-                <div class="input-group">
-                  <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item">{data}</li>
-                    <li class="list-group-item">{params[data]}</li>
-                  </ul>
-
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-outline-primary"
-                      type="button"
-                      id="button-addon2"
-                      name={data + "," + params[data]}
-                      onClick={(e) => {
-                        setParams(dotPropImmutable.delete(params, data));
-                      }}
-                    >
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <button
-                      class="btn btn-outline-primary"
-                      type="button"
-                      id="button-addon2"
-                      name={data}
-                      onClick={(e) => {
-                        document.getElementById("paramsadd").value =
-                          data + "," + params[data];
-                      }}
-                    >
-                      <i class="far fa-edit"></i>
-                    </button>
-                  </div>
-                </div>
+                <ResourceList.Item
+                title={data}
+                style={{
+                  backgroundColor: "#2b303a",
+                  margin: "2%",
+                  color: "white",
+                  textTransform: "none",
+                }}
+                subtitle="Params"
+                icon="lock"
+                actions={[
+                  <Button
+                    icon="delete"
+                    name={data + "," + params[data]}
+                    onClick={(e) => {
+                      setParams(dotPropImmutable.delete(params, data));
+                      toast.warn("Deleted Params", {
+                        position: "bottom-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      });
+                    }}
+                    label="Delete"
+                  />,
+                  <Button
+                    icon="pencil"
+                    name={data}
+                    onClick={(e) => {
+                      document.getElementById("paramsadd").value =
+                        data + "," + head[data];
+                    }}
+                    label="Edit"
+                  />,
+                ]}
+              >
+                {params[data]}
+              </ResourceList.Item>
               );
             })
           ) : (
             <p>Loading.....</p>
           )}
-        </div>
-        <pre class="brush: json">{JSON.stringify(params, undefined, 3)}</pre>
+     
 
         <hr />
         {saved ? (
           <button
             type="button"
-            class="btn btn-primary btn-md"
+          
             onClick={SendDataToServer}
+            style={{ marginLeft: "10px" }}
+            class="btn btn-primary btn-lg"
           >
             {" "}
             Save{" "}
           </button>
         ) : (
-          <button class="btn btn-primary" type="button" disabled>
+          <button class="btn btn-primary btn-lg" type="button" disabled>
             <span
               class="spinner-border spinner-border-sm"
               role="status"
+              style={{ marginLeft: "10px" }}
               aria-hidden="true"
             ></span>{" "}
             Saving...
           </button>
         )}
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
