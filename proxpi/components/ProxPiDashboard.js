@@ -50,9 +50,9 @@ function ProxPiDashboard() {
   }, []);
   if (loaded) {
     return (
-      <div style={{ margin: "2.5%" }}>
+      <div class="nmorphism-container "style={{ margin: "2.5%" }}>
         <ul class="nav nav-tabs nav-pills" id="myTab" role="tablist">
-          <li class="nav-item" id="nav-home">
+          <li style={{border:'none'}} class="nav-item" id="nav-home">
             <a
               class="nav-link active fontclassnavitems"
               id="home-tab"

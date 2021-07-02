@@ -10,15 +10,12 @@ function Home(props) {
   return (
     <>
       <div
-        style={{
-          backgroundColor: "#1b2029",
-          boxShadow: "2px 2px 4px #0c0e14, -2px -2px 4px #303852",
-        }}
+        class="nmorphism-container mainbody"
       >
         <div class="proxpiurl " style={{ marginTop: "5px" }}>
           <div style={{ marginTop: "1%" }}>
-            <hr />
-            <h4 style={{ marginTop: "10px" }} class="fontclassnavitems">
+            
+            <h4 style={{ marginTop: "3px" }} class="fontclassnavitems">
               Your ProxPi URL
             </h4>
             <hr />
@@ -40,7 +37,7 @@ function Home(props) {
                     );
                     toast.success("Copied to Clipboard", {
                       position: "bottom-right",
-                      autoClose: 5000,
+                      autoClose: 2000,
                       hideProgressBar: false,
                       closeOnClick: true,
                       pauseOnHover: true,
@@ -99,7 +96,7 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "blue" }}>
+                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
                         Analytics
                       </span>{" "}
                       for more info
@@ -141,7 +138,7 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "blue" }}>
+                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
                         Request log
                       </span>{" "}
                       tab for more info
@@ -183,7 +180,7 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "blue" }}>
+                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
                         Error log
                       </span>{" "}
                       tab for more info
@@ -227,7 +224,7 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "blue" }}>
+                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
                         Response time
                       </span>{" "}
                       tab for more info

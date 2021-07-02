@@ -8,6 +8,7 @@ import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 import { ResourceList, Button } from "@auth0/cosmos";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../../assets/home.css"
 function Settings(props) {
   var arr = [];
   const [head, setHead] = useState([]);
@@ -172,13 +173,8 @@ function Settings(props) {
 
   return (
     <div
-    class="settings-container"
-      style={{
-        boxShadow: "2px 2px 4px #0c0e14, -2px -2px 4px #303852",
-        backgroundColor: "#1b2029",
-        padding: "1.5%",
-        borderRadius: "2%",
-      }}
+    class="settings-container mainbody nmorphism-container"
+      
     >
       <div
         class="modal fade"

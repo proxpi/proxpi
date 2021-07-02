@@ -36,7 +36,7 @@ function ErrorLogger() {
   }
   if (l) {
     return (
-      <div class="tab-scroller" style={{overflow:"scroll"}}>
+      <div class="mainbody nmorphism-container tab-scroller"  style={{overflow:"scroll"}}>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
             Request Logs.

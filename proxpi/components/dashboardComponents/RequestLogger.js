@@ -4,6 +4,7 @@ import axios from "axios";
 import { Icon, Tooltip } from "@auth0/cosmos";
 import "../../assets/logger.css";
 import "../../assets/scroller.css"
+import "../../assets/home.css"
 function RequestLogger() {
   const { getAccessTokenSilently } = useAuth0();
   const [ReqLog, setReqLog] = useState();
@@ -32,7 +33,7 @@ function RequestLogger() {
   }, []);
   if (l) {
     return (
-      <div >
+      <div class="mainbody nmorphism-container tab-scroller" style={{overflow:"scroll"}} >
         <div class="tab-scroller" style={{ display: "flex", flexDirection: "row" ,overflow:"scroll"}}>
           <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
             Request Logs.
@@ -46,7 +47,7 @@ function RequestLogger() {
             ></Icon>
           </Tooltip>
         </div>
-        <table id="students">
+        <table style={{ overflow:"scroll"}} id="students">
           <tr>
             <th key="sdf">Ip Adress</th>
             <th key="sdf">Date & Time</th>

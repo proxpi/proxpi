@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import "../../assets/home.css"
 import {
   ComposableMap,
   Geographies,
@@ -43,7 +44,8 @@ function GeoAnalytics() {
 
   if (loaded) {
     return (
-      <div>
+      <div class="mainbody" style={{background: "#090c10",
+      boxShadow:  "7px 7px 14px #050609,-7px -7px 14px #0d1217",margin:"2%",borderRadius:"2%"}}>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
             GeoSpatial Analytics.

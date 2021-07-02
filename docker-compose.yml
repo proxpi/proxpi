@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+    server:
+        container_name: backend-proxpi
+        build: ./backend
+        ports: 
+            - 8080:8080
+        volumes: 
+           - ./backend:/app/
+        command: npm start
+        restart: always    
+    proxpi:
+        container_name: frontend-proxpi
+        build: ./proxpi
+        ports: 
+            - 80:80
+        volumes: 
+            - ./proxpi:/app
+                 

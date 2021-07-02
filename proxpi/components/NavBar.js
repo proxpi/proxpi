@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/navbar.css";
 import "../assets/fonts.css";
-import { Button } from "@auth0/cosmos";
+import { Button ,Icon} from "@auth0/cosmos";
 function Btn() {
   const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated } =
     useAuth0();
@@ -53,6 +53,19 @@ function Btn() {
             </Link>
           </li>
           <li class="nav-item">
+            {isAuthenticated ? (
+              <Link
+                style={{ color: "white", marginTop: "0px" }}
+                class="nav-link fontclassnavitems"
+                to="/dashboard"
+              >
+                Dashboard
+              </Link>
+            ) : (
+              ""
+            )}
+          </li>
+          <li class="nav-item">
             <Link
               style={{ color: "white", marginTop: "0px" }}
               class="nav-link fontclassnavitems"
@@ -70,55 +83,18 @@ function Btn() {
               Docs
             </Link>
           </li>
-          <li class="nav-item">
-            <Link
-              style={{ color: "white", marginTop: "0px" }}
-              class="nav-link fontclassnavitems"
-              to="/pricing"
-            >
-              Support
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link
-              style={{ color: "white", marginTop: "0px" }}
-              class="nav-link fontclassnavitems"
-              to="/pricing"
-            >
-              Open Source
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link
-              style={{ color: "white", marginTop: "0px" }}
-              class="nav-link fontclassnavitems"
-              to="/pricing"
-            >
-              Help
-            </Link>
-          </li>
-          <li class="nav-item">
-            {isAuthenticated ? (
-              <Link
-                style={{ color: "white", marginTop: "0px" }}
-                class="nav-link fontclassnavitems"
-                to="/dashboard"
-              >
-                Dashboard
-              </Link>
-            ) : (
-              ""
-            )}
-          </li>
+          
+          
+          
         </ul>
         <form class="form-inline my-2 my-lg-0">
           {isAuthenticated ? (
-            <Button appearance="primary" onClick={logout}>
-              Logout
+            <Button icon="logout" appearance="primary" onClick={logout}>
+               Logout
             </Button>
           ) : (
-            <Button appearance="primary" onClick={loginWithRedirect}>
-              Login
+            <Button icon="login"appearance="primary" onClick={loginWithRedirect}>
+             Login
             </Button>
           )}
         </form>
