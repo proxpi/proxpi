@@ -170,7 +170,7 @@ function Settings(props) {
   useEffect(() => {
     getProxpiUser();
   }, []);
-
+    
   return (
     <div
     class="settings-container mainbody nmorphism-container"
@@ -206,18 +206,19 @@ function Settings(props) {
           </div>
         </div>
       </div>
-      <div>
-        <h1 style={{textDecoration:"underline"}} class="fontclassnavitems">
+      <div style={{margin:"1%"}}>
+        <h1 class="fontclassnavitems">
           Settings
         </h1>
        
-        <div class="form-group">
+        <div class="form-group formss">
           <h5 class="fontclassnav" style={{ color: "white" }}>
             Name
           </h5>
           <input
+            style={{backgroundColor:"#090c10",color:"white"}}
             type="email"
-            class="form-control"
+            class="form-control "
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             disabled
@@ -227,11 +228,12 @@ function Settings(props) {
             You cant change it.
           </small>
         </div>
-        <div class="form-group">
+        <div class="form-group formss">
           <h5 class="fontclassnav" style={{ color: "white" }}>
             URL
           </h5>
           <input
+            style={{backgroundColor:"#090c10",color:"white"}}
             type="password"
             class="form-control"
             id="exampleInputPassword1"
@@ -248,6 +250,7 @@ function Settings(props) {
 
         <div class="form-group">
           <select
+          style={{backgroundColor:"#090c10",color:"white"}}
             required
             class="custom-select"
             name="method"
@@ -277,6 +280,7 @@ function Settings(props) {
         </h5>
         <div class="form-check">
           <input
+          style={{backgroundColor:"#090c10",color:"white"}}
             class="form-check-input"
             onChange={(e) => {
               setAccess(e.target.value);
@@ -287,12 +291,13 @@ function Settings(props) {
             id="flexRadioDefault1"
             checked={access === "public"}
           />
-          <label class="form-check-label" for="flexRadioDefault1">
+          <label  style={{color:"white"}} class="form-check-label" for="flexRadioDefault1">
             Public
           </label>
         </div>
         <div class="form-check">
           <input
+          style={{backgroundColor:"#090c10",color:"white"}}
             class="form-check-input"
             onChange={(e) => {
               setAccess(e.target.value);
@@ -303,7 +308,7 @@ function Settings(props) {
             id="flexRadioDefault2"
             checked={access === "private"}
           />
-          <label class="form-check-label" for="flexRadioDefault2">
+          <label style={{color:"white"}} class="form-check-label" for="flexRadioDefault2">
             Private
           </label>
         </div>

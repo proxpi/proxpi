@@ -31,6 +31,7 @@ function Main() {
   if (loaded) {
     return (
       <div style={{ backgroundColor: "#090c10" }} class="col-sm-12 proxpiview">
+        
         {proxpi.map((data) => {
           return (
             <div class="row" style={{ margin: "2%", padding: "0" }}>

@@ -43,6 +43,13 @@ p {
 .userdetails {
   margin-top: 0.7%;
 }
+.nmorphism-container{
+  background: #090c10;
+box-shadow:  9px 9px 22px #151b20,
+             -9px -9px 22px #0e131a;
+             border-radius: 2%;
+             border-color: rgb(51, 50, 50);
+}
 @media all and (max-width: 600px) {
   .proxpiview {
     display: flex;

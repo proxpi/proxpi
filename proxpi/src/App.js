@@ -32,6 +32,7 @@ export default () => {
                 <Route path={`${url}/new`} component={Createnew} />
 
                 <Route path={`${url}/home/:id`} component={ProxPiDashboard} />
+              
               </>
             )}
           />

@@ -128,7 +128,9 @@ function DashBoard() {
         </div>
       </div>
       <hr />
+      <div >
       <div
+     
         style={{
           display: "flex",
           flexDirection: "row",
@@ -136,12 +138,12 @@ function DashBoard() {
           backgroundColor: "#090c10",
         }}
       >
-        <h5
+        <h4
           class="fontclass"
           style={{ marginLeft: "2%", marginTop: "5px", marginBottom: "5px" }}
         >
           Your ProxPi's
-        </h5>
+        </h4>
 
         <Link
           style={{ padding: "3px 4px", marginLeft: "2%" }}
@@ -164,6 +166,7 @@ function DashBoard() {
         }}
       >
         <ProxpiView />
+      </div>
       </div>
     </>
   );
