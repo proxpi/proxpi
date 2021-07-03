@@ -22,7 +22,7 @@ export default () => {
           </Route>
           <Route exact path="/pricing">
             <Pricing />
-             <Footer/>
+            
           </Route>
           <Route
             path="/dashboard"

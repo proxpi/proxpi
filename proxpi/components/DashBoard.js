@@ -146,7 +146,7 @@ function DashBoard() {
         </h4>
 
         <Link
-          style={{ padding: "3px 4px", marginLeft: "2%" }}
+          style={{  marginLeft: "2%" }}
           class="btn btn-outline-primary"
           role="button"
           to="/dashboard/new"
