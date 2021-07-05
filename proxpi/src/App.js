@@ -18,7 +18,7 @@ export default () => {
         <Switch>
           <Route exact path="/">
             <Main />
-            <Footer/>
+          
           </Route>
           <Route exact path="/pricing">
             <Pricing />

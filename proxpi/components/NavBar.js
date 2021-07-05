@@ -19,11 +19,11 @@ function Btn() {
         />
       </a>
       <a
-        style={{ color: "white", fontSize: "26px", marginTop: "0px" }}
+        style={{ color: "#54d6b7", fontSize: "26px", marginTop: "0px" }}
         class="navbar-brand fontclassnav"
         href="#"
       >
-        ProxPi
+        <b>ProxPi</b>
       </a>
       <button
         class="navbar-toggler"
@@ -49,7 +49,7 @@ function Btn() {
               href="#"
               to="/"
             >
-              Home
+               <b>Home</b>
             </Link>
           </li>
           <li class="nav-item">
@@ -59,7 +59,7 @@ function Btn() {
                 class="nav-link fontclassnavitems"
                 to="/dashboard"
               >
-                Dashboard
+                <b>Dashboard</b>
               </Link>
             ) : (
               ""
@@ -71,7 +71,7 @@ function Btn() {
               class="nav-link fontclassnavitems"
               to="/pricing"
             >
-              Pricing
+               <b>Pricing</b>
             </Link>
           </li>
           <li class="nav-item">
@@ -80,10 +80,21 @@ function Btn() {
               class="nav-link fontclassnavitems"
               to="/pricing"
             >
-              Docs
+              <b>Docs</b>
             </Link>
           </li>
-          
+          <li class="nav-item dropdown">
+        <a  style={{ color: "white", marginTop: "0px" }} class="nav-link dropdown-toggle fontclassnavitems" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <b>More</b>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Support</a>
+          <a class="dropdown-item" href="#">Open Source</a>
+          <a class="dropdown-item" href="#">Contribute</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Help</a>
+        </div>
+      </li>
           
           
         </ul>

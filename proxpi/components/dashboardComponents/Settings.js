@@ -323,8 +323,8 @@ function Settings(props) {
         </h5>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">
-              Default
+            <span style={{backgroundColor:"#090c10",color:"white"}} class="input-group-text" id="inputGroup-sizing-default">
+              URL
             </span>
           </div>
           <input
@@ -364,7 +364,7 @@ function Settings(props) {
         </h5>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">Headers</span>
+            <span style={{backgroundColor:"#090c10",color:"white"}}class="input-group-text">Headers</span>
           </div>
           <input
             id="headeradd"
@@ -442,7 +442,7 @@ function Settings(props) {
         </h5>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">Body</span>
+            <span  style={{backgroundColor:"#090c10",color:"white"}} class="input-group-text">Body</span>
           </div>
           <input
             id="bodyadd"
@@ -524,7 +524,7 @@ function Settings(props) {
 
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">Params</span>
+            <span style={{backgroundColor:"#090c10",color:"white"}} class="input-group-text">Params</span>
           </div>
           <input
             id="paramsadd"
