@@ -39,7 +39,7 @@ function ErrorLogger() {
       <div class="mainbody nmorphism-container tab-scroller"  style={{overflow:"scroll"}}>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
-            Request Logs.
+            Error Logs.
           </h3>
           <Tooltip position="right" content="Reload">
             <Icon
@@ -69,6 +69,7 @@ function ErrorLogger() {
                   <td>{data.requrl}</td>
                   <td>
                     <button
+                    class="btn btn-primary btn-sm"
                       onClick={() => {
                         add(data.ErrLog);
                       }}
@@ -77,7 +78,7 @@ function ErrorLogger() {
                     </button>
                   </td>
                   <td>
-                    <button>Report</button>
+                    <button class="btn btn-primary btn-sm" >Report</button>
                   </td>
                 </tr>
               );

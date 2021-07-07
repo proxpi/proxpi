@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
 .maincontaier{
     display: flex;
     flex-direction: row;
@@ -54,7 +55,49 @@
     margin-top: 2%;
     list-style: url(./images/check.png);
 }
+.basicbuttons{
+    display: flex;
+    flex-direction: row;
+}
+.features{
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.featuredesc{
+  
+    width: 48%;
+    height: fit-content;
+    margin: 1%;
+}
+.featureimage{
+    align-items: center;
+    vertical-align: middle;
+    width: 48%;
+    height: fit-content;
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+}
+.featureheading{
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(
 
+    -70deg
+    ,#56f6b9,#70b2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-box-decoration-break: clone;
+}
+.descfeature{
+    font-size: 23px;
+    margin-top: 2%;
+    font-family: 'Poppins', sans-serif;
+}
 @media all and (max-width:600px) {
     .maincontaier{
         display: flex;
@@ -78,11 +121,39 @@
     .videocontainer{
         height: 35vh;
         margin:0%;
+        margin-top: 2%;
     }
     .introtext{
         font-family: 'Poppins', sans-serif;
         font-size: 36px;
         margin-top: 1.5%;
         
+    }
+    .features{
+        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .descfeature{
+        font-size: 18px;
+        margin-top: 2%;
+        font-family: 'Poppins', sans-serif;
+    }
+    .featuredesc{
+  
+        width: 98%;
+        height: fit-content;
+        margin: 1%;
+    }
+    .featureimage{
+        align-items: center;
+        vertical-align: middle;
+        width: 98%;
+        height: fit-content;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
     }
 }

@@ -39,7 +39,7 @@ function Btn() {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item active clickable">
             <Link
               style={{ textDecoration: "none" }}
               class="nav-link fontclassnavitems"
@@ -52,7 +52,7 @@ function Btn() {
                <b>Home</b>
             </Link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item clickable">
             {isAuthenticated ? (
               <Link
                 style={{ color: "white", marginTop: "0px" }}
@@ -65,7 +65,7 @@ function Btn() {
               ""
             )}
           </li>
-          <li class="nav-item">
+          <li class="nav-item clickable">
             <Link
               style={{ color: "white", marginTop: "0px" }}
               class="nav-link fontclassnavitems"
@@ -74,7 +74,7 @@ function Btn() {
                <b>Pricing</b>
             </Link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item clickable">
             <Link
               style={{ color: "white", marginTop: "0px" }}
               class="nav-link fontclassnavitems"
@@ -87,12 +87,12 @@ function Btn() {
         <a  style={{ color: "white", marginTop: "0px" }} class="nav-link dropdown-toggle fontclassnavitems" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <b>More</b>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Support</a>
-          <a class="dropdown-item" href="#">Open Source</a>
-          <a class="dropdown-item" href="#">Contribute</a>
+        <div class="dropdown-menu clickable" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item clickable" href="#">Support</a>
+          <a class="dropdown-item clickable" href="#">Open Source</a>
+          <a class="dropdown-item clickable" href="#">Contribute</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Help</a>
+          <a class="dropdown-item clickable" href="#">Help</a>
         </div>
       </li>
           
