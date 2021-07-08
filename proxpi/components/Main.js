@@ -106,7 +106,7 @@ function Main() {
             <img
               width="100%"
               height="80%"
-              src="https://raw.githubusercontent.com/fredysomy/HealthApp/master/img/Untitled_design__2_-removebg-preview.png"
+              src=""
             ></img>
           </div>
         </div>
