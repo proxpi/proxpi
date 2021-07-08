@@ -100,11 +100,11 @@ function Btn() {
         </ul>
         <form class="form-inline my-2 my-lg-0">
           {isAuthenticated ? (
-            <Button icon="logout" appearance="primary" onClick={logout}>
+            <Button icon="logout" style={{ backgroundColor: "#226f6c", border: "none" }} appearance="primary" onClick={logout}>
                Logout
             </Button>
           ) : (
-            <Button icon="login"appearance="primary" onClick={loginWithRedirect}>
+            <Button icon="login" style={{ backgroundColor: "#226f6c", border: "none" }} appearance="primary" onClick={loginWithRedirect}>
              Login
             </Button>
           )}

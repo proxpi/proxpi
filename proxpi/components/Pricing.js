@@ -6,15 +6,14 @@ function Pricing() {
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
         <h1 class="display-4 fw-normal">Pricing</h1>
         <p class="fs-5 text-muted">
-          Quickly build an effective pricing table for your potential customers
-          with this Bootstrap example. It’s built with default Bootstrap
-          components and utilities with little customization.
+         All the basic features of ProxPi are Free for all (max 6 ProxPi's) . For more than 6 ProxPi's a Pro Plan is required and you can pay me whatever amount you can. 
+         
         </p>
       </div>
       <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-          <div align="center"class="col ">
-            <div class="card mb-4 rounded-3 shadow-sm border-primary coloretc nmorphism-container">
+          <div align="center"class="col colorbox">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary coloretc nmorphism-container colorbox">
               <div class="card-header py-3 border-primary">
                 <h4 class="my-0 fw-normal">Free</h4>
               </div>
@@ -31,7 +30,7 @@ function Pricing() {
                 </ul>
                 <button
                   type="button"
-                  class="w-100 btn btn-lg btn-outline-primary"
+                  class="w-100 btn btn-lg btn-outline-primary specialbutton"
                 >
                   Sign up for free
                 </button>

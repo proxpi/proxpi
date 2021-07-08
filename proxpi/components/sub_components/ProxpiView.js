@@ -40,7 +40,7 @@ function Main() {
                 style={{
                   width: "250px",
                   backgroundColor: "#1b2029",
-                  border: "0.5px #007bff solid",
+                  border: "0.5px #226f6c solid",
                 }}
               >
                 <div class="card-body">

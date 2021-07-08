@@ -37,7 +37,7 @@ function Main() {
               }}
               appearance="primary"
               onClick={() => {
-                history.push("/dashboard"); 
+                history.push("/dashboard");
               }}
             >
               Start project
@@ -64,22 +64,19 @@ function Main() {
           ></iframe>
         </div>
       </div>
-      
+
       <div class="maincontaier">
-        
         <div class="features">
-          
           <div class="featuredesc">
             <span class="featureheading">
               <b>Analytics</b>
             </span>
             <p class="descfeature">
               ProxPi provides you detailed analytics of your API. Daily
-              analytics are stored and is visualisable in chart form with couple
-              other data like % increase/decrease from previous day , Maximum
-              requests a day etc. Geo Spatial Analytics gives the user a vague
-              idea from where there endpoint is called and is visualisable in a
-              map. Analytics feature is free for all users
+              analytics is visualisable in chart form. Geo Spatial Analytics
+              gives the user a vague idea from where there endpoint is called
+              and is visualisable in a map. Analytics feature is free for all
+              users
             </p>
           </div>
           <div class="featureimage">
@@ -96,17 +93,36 @@ function Main() {
               <b>Logging</b>
             </span>
             <p class="descfeature">
-             All the incoming API requests are logged and disaplyed in dashboard. They are classified into Request logs and Error logs.
-             request logs store all the success requests with IP adress and URL of origin so you can block them if they find suspicious.
-             Error logs store all errors happen while making requests.It also logs when unauthorized personal try to call the API.
-             Error data in JSON if available can be seen in the log table.
+              All the incoming API requests are logged and disaplyed in
+              dashboard. They are classified into Request logs and Error logs.
+              request logs store all the success requests with IP adress and URL
+              of origin so you can block them if they find suspicious.
             </p>
           </div>
           <div class="featureimage">
             <img
               width="100%"
               height="80%"
-              src=""
+              src="https://raw.githubusercontent.com/fredysomy/HealthApp/master/img/Untitled_design__2_-removebg-preview.png"
+            ></img>
+          </div>
+        </div>
+        <div class="features">
+          
+          <div class="featuredesc">
+            <span class="featureheading">
+              <b>Block IP/URL</b>
+            </span>
+            <p class="descfeature">
+             ProxPi makes it easier to block IP adresses and URL's from accessing your Public API. When a unauthorized req froma blocked IP/URL is made it will 
+             be logged in the Error log tab in dashboard.
+            </p>
+          </div>
+          <div class="featureimage">
+            <img
+              width="100%"
+              height="100%"
+              src="https://raw.githubusercontent.com/fredysomy/HealthApp/master/img/23.54.43.23__1_-removebg.png"
             ></img>
           </div>
         </div>

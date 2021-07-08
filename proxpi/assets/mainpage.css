@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sintony&display=swap');
 .maincontaier{
     display: flex;
     flex-direction: row;
@@ -45,10 +46,10 @@
 .desc{
     font-size: 20px;
     margin-top: 5%;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sintony', sans-serif;
 }
 .listitem{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sintony', sans-serif;
     font-size: 18px;
 }
 .parentlist{
@@ -65,6 +66,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    
 }
 .featuredesc{
   
@@ -95,8 +97,9 @@
 }
 .descfeature{
     font-size: 23px;
-    margin-top: 2%;
-    font-family: 'Poppins', sans-serif;
+    margin-top: 4%;
+    font-family: 'Sintony', sans-serif;
+    vertical-align: middle;
 }
 @media all and (max-width:600px) {
     .maincontaier{
@@ -106,15 +109,19 @@
         width: 96%;
         height: 100%;
     }
+    .desc{
+        font-size: 18px;
+        margin-top: 3%;
+    }
     .intro{
         width: 96%;
-       
+        
         margin: 2%;
         height: fit-content;
     }
     .introvideo{
         width: 94%;
-       
+        
         margin: 2%;
         height: fit-content;
     }
@@ -139,7 +146,7 @@
     .descfeature{
         font-size: 18px;
         margin-top: 2%;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Sintony', sans-serif;
     }
     .featuredesc{
   
