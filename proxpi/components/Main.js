@@ -76,8 +76,23 @@ function Main() {
               analytics is visualisable in chart form. Geo Spatial Analytics
               gives the user a vague idea from where there endpoint is called
               and is visualisable in a map. Analytics feature is free for all
-              users
+              users.
             </p>
+            <Button
+              size="compressed"
+              icon="logs"
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+              onClick={() => {
+                history.push("/dashboard");
+              }}
+            >
+              Learn More
+            </Button>
           </div>
           <div class="featureimage">
             <img
@@ -98,6 +113,21 @@ function Main() {
               request logs store all the success requests with IP adress and URL
               of origin so you can block them if they find suspicious.
             </p>
+            <Button
+              size="compressed"
+              icon="logs"
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+              onClick={() => {
+                history.push("/dashboard");
+              }}
+            >
+              Learn More
+            </Button>
           </div>
           <div class="featureimage">
             <img
@@ -117,6 +147,21 @@ function Main() {
              ProxPi makes it easier to block IP adresses and URL's from accessing your Public API. When a unauthorized req froma blocked IP/URL is made it will 
              be logged in the Error log tab in dashboard.
             </p>
+            <Button
+              size="compressed"
+              icon="logs"
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+              onClick={() => {
+                history.push("/dashboard");
+              }}
+            >
+              Learn More
+            </Button>
           </div>
           <div class="featureimage">
             <img

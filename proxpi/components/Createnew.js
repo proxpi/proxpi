@@ -36,6 +36,7 @@ function Createnew() {
           history.push("/dashboard");
         } else {
           setC_error(true);
+          alert(resp.data.message)
         }
       });
   }

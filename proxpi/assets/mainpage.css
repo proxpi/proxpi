@@ -32,7 +32,7 @@
 }
 .introtext{
     font-family: 'Poppins', sans-serif;
-    font-size: 52px;
+    font-size: 51px;
     -webkit-text-fill-color: transparent;
     background: -webkit-linear-gradient(
 
@@ -44,13 +44,15 @@
         
 }
 .desc{
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 5%;
     font-family: 'Sintony', sans-serif;
+    font-weight: 100;
 }
 .listitem{
     font-family: 'Sintony', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 100;
 }
 .parentlist{
     margin-top: 2%;
@@ -96,10 +98,12 @@
     -webkit-box-decoration-break: clone;
 }
 .descfeature{
-    font-size: 23px;
+    font-size: 21px;
     margin-top: 4%;
     font-family: 'Sintony', sans-serif;
     vertical-align: middle;
+    font-weight: 200;
+
 }
 @media all and (max-width:600px) {
     .maincontaier{
