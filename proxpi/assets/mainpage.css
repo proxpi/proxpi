@@ -44,14 +44,14 @@
         
 }
 .desc{
-    font-size: 22px;
+    font-size: 23px;
     margin-top: 5%;
     font-family: 'Sintony', sans-serif;
     font-weight: 100;
 }
 .listitem{
     font-family: 'Sintony', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 100;
 }
 .parentlist{
@@ -105,7 +105,70 @@
     font-weight: 200;
 
 }
-@media all and (max-width:600px) {
+@media all and (max-width:900px) {
+    .maincontaier{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 96%;
+        height: 100%;
+    }
+    .desc{
+        font-size: 16px;
+        margin-top: 3%;
+    }
+    .intro{
+        width: 96%;
+        
+        margin: 2%;
+        height: fit-content;
+    }
+    .introvideo{
+        width: 94%;
+        
+        margin: 2%;
+        height: fit-content;
+    }
+    .videocontainer{
+        height: 32vh;
+        margin:0%;
+        margin-top: 1%;
+    }
+    .introtext{
+        font-family: 'Poppins', sans-serif;
+        font-size: 33px;
+        margin-top: 1.5%;
+        
+    }
+    .features{
+        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .descfeature{
+        font-size: 13px;
+        margin-top: 2%;
+        font-family: 'Sintony', sans-serif;
+    }
+    .featuredesc{
+  
+        width: 98%;
+        height: fit-content;
+        margin: 1%;
+    }
+    .featureimage{
+        align-items: center;
+        vertical-align: middle;
+        width: 98%;
+        height: fit-content;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media all and (max-width:720px) {
     .maincontaier{
         display: flex;
         flex-direction: column;

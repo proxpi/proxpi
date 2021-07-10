@@ -10,7 +10,7 @@ import axios from "axios";
 import ProxPiDashboard from "../components/ProxPiDashboard";
 
 export default () => {
-  axios.defaults.baseURL = "https://proxpiapp.herokuapp.com";
+  axios.defaults.baseURL = "http://localhost:8080";
   return (
     <Router>
       <div>
