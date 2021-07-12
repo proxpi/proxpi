@@ -87,7 +87,7 @@
 }
 .featureheading{
     font-family: 'Poppins', sans-serif;
-    font-size: 40px;
+    font-size: 36px;
     -webkit-text-fill-color: transparent;
     background: -webkit-linear-gradient(
 
@@ -104,6 +104,51 @@
     vertical-align: middle;
     font-weight: 200;
 
+}
+.card{
+   
+    margin: 2%;
+    width: 295px !important;
+}
+.headofsecfeatures{
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+.fontsbasic{
+    font-family: 'Sintony', sans-serif;
+}
+.communityjoin{
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.headingofadditionalfeatures{
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(
+
+    -70deg
+    ,#56f6b9,#70b2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-box-decoration-break: clone;
+}
+.joincommunitydesc{
+    font-family: 'Sintony', sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+.buttongroup{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    
 }
 @media all and (max-width:900px) {
     .maincontaier{
@@ -229,5 +274,28 @@
         margin: 1%;
         display: flex;
         justify-content: center;
+    }
+    .communityjoin{
+        align-items: center;
+    }
+    .features{
+        align-items: center;
+    }
+    .headingofadditionalfeatures{
+   text-align: center;
+        font-size: 35px;
+       
+    }
+    .buttongroup{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .buttongroup > button{
+        margin: 2%;
+        width: 50%;
+        
     }
 }

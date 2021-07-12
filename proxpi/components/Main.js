@@ -96,8 +96,8 @@ function Main() {
           </div>
           <div class="featureimage">
             <img
-              width="100%"
-              height="100%"
+              width="90%"
+              height="80%"
               src="https://raw.githubusercontent.com/fredysomy/HealthApp/master/img/Untitled_design__1_-removebg.png"
             ></img>
           </div>
@@ -138,14 +138,15 @@ function Main() {
           </div>
         </div>
         <div class="features">
-          
           <div class="featuredesc">
             <span class="featureheading">
               <b>Block IP/URL</b>
             </span>
             <p class="descfeature">
-             ProxPi makes it easier to block IP adresses and URL's from accessing your Public API. When a unauthorized req froma blocked IP/URL is made it will 
-             be logged in the Error log tab in dashboard.
+              ProxPi makes it easier to block IP adresses and URL's from
+              accessing your Public API. When a unauthorized req froma blocked
+              IP/URL is made it will be logged in the Error log tab in
+              dashboard.
             </p>
             <Button
               size="compressed"
@@ -170,6 +171,122 @@ function Main() {
               src="https://raw.githubusercontent.com/fredysomy/HealthApp/master/img/23.54.43.23__1_-removebg.png"
             ></img>
           </div>
+        </div>
+        <hr style={{ borderTop: " 1px dashed red" }} />
+        <div class="communityjoin">
+          <span class="headingofadditionalfeatures">
+            <b>With ProxPi, your API is safe.</b>
+          </span>
+        </div>
+        <div class="features" style={{justifyContent:"center"}} >
+          <div
+            class="card"
+            style={{ width: " 18rem", backgroundColor: "#171c23" }}
+          >
+            <div class="card-body">
+              <h5 class="card-title fontsbasic">
+                <i class="fas fa-key"></i> {"  "}Secure
+              </h5>
+              <p class="card-text">
+                All the headers of your API given is Encrypted with a Secret key and is only decrypted in the Backend for API request and to be shown in frontend
+              </p>
+              <Button
+              size="compressed"
+              icon="external-link"
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+              onClick={() => {
+                history.push("/dashboard");
+              }}
+            >
+              Learn More
+            </Button>
+            </div>
+          </div>
+          <div
+            class="card"
+            style={{ width: "19.5rem", backgroundColor: "#171c23" }}
+          >
+            <div class="card-body">
+              <h5 class="card-title  fontsbasic">
+                <i class="far fa-eye-slash"></i> Public/Private Modes
+              </h5>
+              <p class="card-text">
+               Public mode allows anyone to access your API excluding the Blocked Sources. Private mode only allows a URL specified by you to make requests.
+              </p>
+              <Button
+              size="compressed"
+              icon="external-link"
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+              onClick={() => {
+                history.push("/dashboard");
+              }}
+            >
+              Learn More
+            </Button>
+            </div>
+          </div>
+        </div>
+        <div style={{display:"flex",flexDirection:'column'}} class="communityjoin">
+          <div>
+          <span class="headingofadditionalfeatures">
+            <b>Join the Community</b>
+          </span>
+          </div>
+          <div>
+            <p class="joincommunitydesc">Join a Community of Developers, amazing people and problem solvers</p>
+            <div class="buttongroup">
+            <Button
+              size="large"
+              icon="brand-github"
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+             
+            >
+              Github Discussions
+            </Button>
+            <Button
+              size="large"
+              
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+              
+            >
+            <i class="fab fa-discord"></i>  Discord
+            </Button>
+            <Button
+              size="large"
+              
+              style={{
+                marginRight: "1%",
+                backgroundColor: "#226f6c",
+                border: "none",
+              }}
+              appearance="primary"
+             
+            >
+              <i class="fab fa-telegram-plane"></i>   telegram
+            </Button>
+            </div>
+          </div>
+         
         </div>
       </div>
     </div>
