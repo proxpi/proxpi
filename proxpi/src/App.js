@@ -18,11 +18,11 @@ export default () => {
         <Switch>
           <Route exact path="/">
             <Main />
-          
+            <Footer />
           </Route>
           <Route exact path="/pricing">
             <Pricing />
-            
+            <Footer />
           </Route>
           <Route
             path="/dashboard"
@@ -32,12 +32,10 @@ export default () => {
                 <Route path={`${url}/new`} component={Createnew} />
 
                 <Route path={`${url}/home/:id`} component={ProxPiDashboard} />
-              
               </>
             )}
           />
         </Switch>
-       
       </div>
     </Router>
   );

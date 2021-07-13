@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/navbar.css";
 import "../assets/fonts.css";
-import { Button ,Icon} from "@auth0/cosmos";
+import { Button, Icon } from "@auth0/cosmos";
 function Btn() {
   const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated } =
     useAuth0();
@@ -49,7 +49,7 @@ function Btn() {
               href="#"
               to="/"
             >
-               <b>Home</b>
+              <b>Home</b>
             </Link>
           </li>
           <li class="nav-item clickable">
@@ -71,7 +71,7 @@ function Btn() {
               class="nav-link fontclassnavitems"
               to="/pricing"
             >
-               <b>Pricing</b>
+              <b>Pricing</b>
             </Link>
           </li>
           <li class="nav-item clickable">
@@ -84,28 +84,56 @@ function Btn() {
             </Link>
           </li>
           <li class="nav-item dropdown">
-        <a  style={{ color: "white", marginTop: "0px" }} class="nav-link dropdown-toggle fontclassnavitems" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <b>More</b>
-        </a>
-        <div class="dropdown-menu clickable" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item clickable" href="#">Support</a>
-          <a class="dropdown-item clickable" href="#">Open Source</a>
-          <a class="dropdown-item clickable" href="#">Contribute</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item clickable" href="#">Help</a>
-        </div>
-      </li>
-          
-          
+            <a
+              style={{ color: "white", marginTop: "0px" }}
+              class="nav-link dropdown-toggle fontclassnavitems"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <b>More</b>
+            </a>
+            <div
+              class="dropdown-menu clickable"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item clickable" href="#">
+                Support
+              </a>
+              <a class="dropdown-item clickable" href="#">
+                Open Source
+              </a>
+              <a class="dropdown-item clickable" href="#">
+                Contribute
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item clickable" href="#">
+                Help
+              </a>
+            </div>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           {isAuthenticated ? (
-            <Button icon="logout" style={{ backgroundColor: "#226f6c", border: "none" }} appearance="primary" onClick={logout}>
-               Logout
+            <Button
+              icon="logout"
+              style={{ backgroundColor: "#226f6c", border: "none" }}
+              appearance="primary"
+              onClick={logout}
+            >
+              Logout
             </Button>
           ) : (
-            <Button icon="login" style={{ backgroundColor: "#226f6c", border: "none" }} appearance="primary" onClick={loginWithRedirect}>
-             Login
+            <Button
+              icon="login"
+              style={{ backgroundColor: "#226f6c", border: "none" }}
+              appearance="primary"
+              onClick={loginWithRedirect}
+            >
+              Login
             </Button>
           )}
         </form>

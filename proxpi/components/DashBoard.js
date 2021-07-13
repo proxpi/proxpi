@@ -128,45 +128,44 @@ function DashBoard() {
         </div>
       </div>
       <hr />
-      <div >
-      <div
-     
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          margin: "0.5%",
-          backgroundColor: "#090c10",
-        }}
-      >
-        <h4
-          class="fontclass"
-          style={{ marginLeft: "2%", marginTop: "5px", marginBottom: "5px" }}
+      <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            margin: "0.5%",
+            backgroundColor: "#090c10",
+          }}
         >
-          Your ProxPi's
-        </h4>
+          <h4
+            class="fontclass"
+            style={{ marginLeft: "2%", marginTop: "5px", marginBottom: "5px" }}
+          >
+            Your ProxPi's
+          </h4>
 
-        <Link
-          style={{  marginLeft: "2%" }}
-          class="btn btn-outline-primary"
-          role="button"
-          to="/dashboard/new"
+          <Link
+            style={{ marginLeft: "2%" }}
+            class="btn btn-outline-primary"
+            role="button"
+            to="/dashboard/new"
+          >
+            {" "}
+            <i class="fas fa-plus"></i> Create New
+          </Link>
+        </div>
+        <div
+          class="proxpihold"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+
+            padding: "0",
+          }}
         >
-          {" "}
-          <i class="fas fa-plus"></i> Create New
-        </Link>
-      </div>
-      <div
-        class="proxpihold"
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-
-          padding: "0",
-        }}
-      >
-        <ProxpiView />
-      </div>
+          <ProxpiView />
+        </div>
       </div>
     </>
   );

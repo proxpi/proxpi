@@ -1,18 +1,19 @@
 body {
-  font-family: 'Karla', sans-serif; }
+  font-family: "Karla", sans-serif;
+}
 
-  .coloretc{
-    background-color: #090c10;
-  }
-  .nmorphism-container{
-    background: #090c10;
-    border-color: #54d6b7 !important;
-  }
-  li{
-    color:white;
-  }
-  .border-primary {
-    border-color: #54d6b7 !important;
+.coloretc {
+  background-color: #090c10;
+}
+.nmorphism-container {
+  background: #090c10;
+  border-color: #54d6b7 !important;
+}
+li {
+  color: white;
+}
+.border-primary {
+  border-color: #54d6b7 !important;
 }
 .bg-primary {
   background-color: #226f6c !important;
@@ -23,7 +24,6 @@ body {
 }
 .btn-outline-primary {
   color: #155f5d;
- 
+
   border-color: #226f6c !important;
-  
 }

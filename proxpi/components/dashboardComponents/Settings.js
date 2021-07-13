@@ -8,7 +8,7 @@ import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 import { ResourceList, Button } from "@auth0/cosmos";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../../assets/home.css"
+import "../../assets/home.css";
 function Settings(props) {
   var arr = [];
   const [head, setHead] = useState([]);
@@ -170,12 +170,9 @@ function Settings(props) {
   useEffect(() => {
     getProxpiUser();
   }, []);
-    
+
   return (
-    <div
-    class="settings-container mainbody nmorphism-container"
-      
-    >
+    <div class="settings-container mainbody nmorphism-container">
       <div
         class="modal fade"
         id="showsuccessmodal"
@@ -206,17 +203,15 @@ function Settings(props) {
           </div>
         </div>
       </div>
-      <div style={{margin:"1%"}}>
-        <h1 class="fontclassnavitems">
-          Settings
-        </h1>
-       
+      <div style={{ margin: "1%" }}>
+        <h1 class="fontclassnavitems">Settings</h1>
+
         <div class="form-group formss">
           <h5 class="fontclassnav" style={{ color: "white" }}>
             Name
           </h5>
           <input
-            style={{backgroundColor:"#090c10",color:"white"}}
+            style={{ backgroundColor: "#090c10", color: "white" }}
             type="email"
             class="form-control "
             id="exampleInputEmail1"
@@ -233,7 +228,7 @@ function Settings(props) {
             URL
           </h5>
           <input
-            style={{backgroundColor:"#090c10",color:"white"}}
+            style={{ backgroundColor: "#090c10", color: "white" }}
             type="password"
             class="form-control"
             id="exampleInputPassword1"
@@ -250,7 +245,7 @@ function Settings(props) {
 
         <div class="form-group">
           <select
-          style={{backgroundColor:"#090c10",color:"white"}}
+            style={{ backgroundColor: "#090c10", color: "white" }}
             required
             class="custom-select"
             name="method"
@@ -274,13 +269,13 @@ function Settings(props) {
             </option>
           </select>
         </div>
-<hr/>
+        <hr />
         <h5 class="fontclassnav" style={{ color: "white" }}>
           Access
         </h5>
         <div class="form-check">
           <input
-          style={{backgroundColor:"#090c10",color:"white"}}
+            style={{ backgroundColor: "#090c10", color: "white" }}
             class="form-check-input"
             onChange={(e) => {
               setAccess(e.target.value);
@@ -291,13 +286,17 @@ function Settings(props) {
             id="flexRadioDefault1"
             checked={access === "public"}
           />
-          <label  style={{color:"white"}} class="form-check-label" for="flexRadioDefault1">
+          <label
+            style={{ color: "white" }}
+            class="form-check-label"
+            for="flexRadioDefault1"
+          >
             Public
           </label>
         </div>
         <div class="form-check">
           <input
-          style={{backgroundColor:"#090c10",color:"white"}}
+            style={{ backgroundColor: "#090c10", color: "white" }}
             class="form-check-input"
             onChange={(e) => {
               setAccess(e.target.value);
@@ -308,7 +307,11 @@ function Settings(props) {
             id="flexRadioDefault2"
             checked={access === "private"}
           />
-          <label style={{color:"white"}} class="form-check-label" for="flexRadioDefault2">
+          <label
+            style={{ color: "white" }}
+            class="form-check-label"
+            for="flexRadioDefault2"
+          >
             Private
           </label>
         </div>
@@ -323,7 +326,11 @@ function Settings(props) {
         </h5>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span style={{backgroundColor:"#090c10",color:"white"}} class="input-group-text" id="inputGroup-sizing-default">
+            <span
+              style={{ backgroundColor: "#090c10", color: "white" }}
+              class="input-group-text"
+              id="inputGroup-sizing-default"
+            >
               URL
             </span>
           </div>
@@ -350,7 +357,6 @@ function Settings(props) {
           </div>
         </div>
 
-   
         <small id="emailHelp" class="form-text text-muted">
           {" "}
           The Private Access URL is the URL which will only have permission to
@@ -364,7 +370,12 @@ function Settings(props) {
         </h5>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span style={{backgroundColor:"#090c10",color:"white"}}class="input-group-text">Headers</span>
+            <span
+              style={{ backgroundColor: "#090c10", color: "white" }}
+              class="input-group-text"
+            >
+              Headers
+            </span>
           </div>
           <input
             id="headeradd"
@@ -442,7 +453,12 @@ function Settings(props) {
         </h5>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span  style={{backgroundColor:"#090c10",color:"white"}} class="input-group-text">Body</span>
+            <span
+              style={{ backgroundColor: "#090c10", color: "white" }}
+              class="input-group-text"
+            >
+              Body
+            </span>
           </div>
           <input
             id="bodyadd"
@@ -463,11 +479,11 @@ function Settings(props) {
             </button>
           </div>
         </div>
-      
-          {loaded ? (
-            Object.keys(body).map((data) => {
-              return (
-                <ResourceList.Item
+
+        {loaded ? (
+          Object.keys(body).map((data) => {
+            return (
+              <ResourceList.Item
                 title={data}
                 style={{
                   backgroundColor: "#2b303a",
@@ -492,7 +508,6 @@ function Settings(props) {
                         draggable: true,
                         progress: undefined,
                       });
-                      
                     }}
                     label="Delete"
                   />,
@@ -509,12 +524,11 @@ function Settings(props) {
               >
                 {body[data]}
               </ResourceList.Item>
-              );
-            })
-          ) : (
-            <p>Loading.....</p>
-          )}
-   
+            );
+          })
+        ) : (
+          <p>Loading.....</p>
+        )}
 
         <hr />
 
@@ -524,7 +538,12 @@ function Settings(props) {
 
         <div class="input-group">
           <div class="input-group-prepend">
-            <span style={{backgroundColor:"#090c10",color:"white"}} class="input-group-text">Params</span>
+            <span
+              style={{ backgroundColor: "#090c10", color: "white" }}
+              class="input-group-text"
+            >
+              Params
+            </span>
           </div>
           <input
             id="paramsadd"
@@ -545,11 +564,11 @@ function Settings(props) {
             </button>
           </div>
         </div>
-       
-          {loaded ? (
-            Object.keys(params).map((data) => {
-              return (
-                <ResourceList.Item
+
+        {loaded ? (
+          Object.keys(params).map((data) => {
+            return (
+              <ResourceList.Item
                 title={data}
                 style={{
                   backgroundColor: "#2b303a",
@@ -590,18 +609,16 @@ function Settings(props) {
               >
                 {params[data]}
               </ResourceList.Item>
-              );
-            })
-          ) : (
-            <p>Loading.....</p>
-          )}
-     
+            );
+          })
+        ) : (
+          <p>Loading.....</p>
+        )}
 
         <hr />
         {saved ? (
           <button
             type="button"
-          
             onClick={SendDataToServer}
             style={{ marginLeft: "10px" }}
             class="btn btn-primary btn-lg"

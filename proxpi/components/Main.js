@@ -173,12 +173,14 @@ function Main() {
           </div>
         </div>
         <hr style={{ borderTop: " 1px dashed red" }} />
+      </div>
+      <div style={{ margin: "0%" }} class="maincontaier">
         <div class="communityjoin">
           <span class="headingofadditionalfeatures">
             <b>With ProxPi, your API is safe.</b>
           </span>
         </div>
-        <div class="features" style={{justifyContent:"center"}} >
+        <div class="features" style={{ justifyContent: "center" }}>
           <div
             class="card"
             style={{ width: " 18rem", backgroundColor: "#171c23" }}
@@ -188,23 +190,25 @@ function Main() {
                 <i class="fas fa-key"></i> {"  "}Secure
               </h5>
               <p class="card-text">
-                All the headers of your API given is Encrypted with a Secret key and is only decrypted in the Backend for API request and to be shown in frontend
+                All the headers of your API given is Encrypted with a Secret key
+                and is only decrypted in the Backend for API request and to be
+                shown in frontend
               </p>
               <Button
-              size="compressed"
-              icon="external-link"
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-              onClick={() => {
-                history.push("/dashboard");
-              }}
-            >
-              Learn More
-            </Button>
+                size="compressed"
+                icon="external-link"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+                onClick={() => {
+                  history.push("/dashboard");
+                }}
+              >
+                Learn More
+              </Button>
             </div>
           </div>
           <div
@@ -216,77 +220,78 @@ function Main() {
                 <i class="far fa-eye-slash"></i> Public/Private Modes
               </h5>
               <p class="card-text">
-               Public mode allows anyone to access your API excluding the Blocked Sources. Private mode only allows a URL specified by you to make requests.
+                Public mode allows anyone to access your API excluding the
+                Blocked Sources. Private mode only allows a URL specified by you
+                to make requests.
               </p>
               <Button
-              size="compressed"
-              icon="external-link"
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-              onClick={() => {
-                history.push("/dashboard");
-              }}
-            >
-              Learn More
-            </Button>
+                size="compressed"
+                icon="external-link"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+                onClick={() => {
+                  history.push("/dashboard");
+                }}
+              >
+                Learn More
+              </Button>
             </div>
           </div>
         </div>
-        <div style={{display:"flex",flexDirection:'column'}} class="communityjoin">
+        <div
+          style={{ display: "flex", flexDirection: "column" }}
+          class="communityjoin"
+        >
           <div>
-          <span class="headingofadditionalfeatures">
-            <b>Join the Community</b>
-          </span>
+            <span class="headingofadditionalfeatures">
+              <b>Join the Community</b>
+            </span>
           </div>
-          <div>
-            <p class="joincommunitydesc">Join a Community of Developers, amazing people and problem solvers</p>
+          <div class="communityenclosingdiv">
+            <p class="joincommunitydesc">
+              Join a Community of Developers, amazing people and problem solvers
+            </p>
             <div class="buttongroup">
-            <Button
-              size="large"
-              icon="brand-github"
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-             
-            >
-              Github Discussions
-            </Button>
-            <Button
-              size="large"
-              
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-              
-            >
-            <i class="fab fa-discord"></i>  Discord
-            </Button>
-            <Button
-              size="large"
-              
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-             
-            >
-              <i class="fab fa-telegram-plane"></i>   telegram
-            </Button>
+              <Button
+                size="large"
+                icon="brand-github"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                Github Discussions
+              </Button>
+              <Button
+                size="large"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                <i class="fab fa-discord"></i> Discord
+              </Button>
+              <Button
+                size="large"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                <i class="fab fa-telegram-plane"></i> telegram
+              </Button>
             </div>
           </div>
-         
         </div>
       </div>
     </div>

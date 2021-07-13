@@ -24,15 +24,12 @@
 .jumbotron::-webkit-scrollbar {
   display: none;
 }
-.settings-container{
-  margin:"2% 6%";
-
+.settings-container {
+  margin: "2% 6%";
 }
 
-@media all and (max-width:600px) {
-
-  .settings-container{
-  margin:"1px 1px";
-
-}
+@media all and (max-width: 600px) {
+  .settings-container {
+    margin: "1px 1px";
+  }
 }

@@ -6,7 +6,7 @@ import { ResourceList, Button } from "@auth0/cosmos";
 import "../../assets/fonts.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../../assets/home.css"
+import "../../assets/home.css";
 function Block(props) {
   const { getAccessTokenSilently } = useAuth0();
   const [blockedip, setBlockedip] = useState([]);
@@ -127,10 +127,7 @@ function Block(props) {
 
   return (
     <>
-      <div
-      class="mainbody nmorphism-container"
-        
-      >
+      <div class="mainbody nmorphism-container">
         <div
           class="modal fade model-sm"
           id="showbansuccessmodal"
@@ -301,18 +298,17 @@ function Block(props) {
           </button>
         )}
         <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
-      
     </>
   );
 }

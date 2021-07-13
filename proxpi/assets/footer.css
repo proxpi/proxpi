@@ -1,8 +1,25 @@
 .footer {
-    flex-shrink: 0;
-    text-align: center;
-    background-color: tomato;
-    color: white;
-    margin-bottom: 0px;
-  }
-  
+  flex-shrink: 0;
+  text-align: center;
+  background-color: tomato;
+  color: white;
+  margin-bottom: 0px;
+}
+.socialicons > a {
+  margin-right: 1.5%;
+}
+.socialicons {
+  margin-bottom: 3%;
+}
+.socialicons > a > i {
+  color: #56f6b9;
+}
+li,
+p,
+h5,
+h6,
+a {
+  font-family: "Sintony", sans-serif;
+  text-decoration: none;
+  color: white;
+}

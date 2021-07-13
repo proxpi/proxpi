@@ -19,7 +19,7 @@ router.route("/create").post(async (req, res) => {
   const email = await routeADD(req);
   const plan = await dbPlans.fetch({ email: email }).next();
   const proxpi = await db.fetch({ email: email }).next();
- 
+
   if (plan.value[0].plan == "Free" && proxpi.value.length <= 3) {
     const createdProxpi = await db.put({
       email: req.body.email,
@@ -77,7 +77,10 @@ router.route("/create").post(async (req, res) => {
       res.send({ status: false });
     }
   } else {
-    res.send({ status: false,message:"You have reached the maximum number of free ProxPi" });
+    res.send({
+      status: false,
+      message: "You have reached the maximum number of free ProxPi",
+    });
   }
 });
 

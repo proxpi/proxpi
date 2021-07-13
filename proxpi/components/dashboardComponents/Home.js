@@ -9,12 +9,9 @@ function Home(props) {
 
   return (
     <>
-      <div
-        class="nmorphism-container mainbody"
-      >
+      <div class="nmorphism-container mainbody">
         <div class="proxpiurl " style={{ marginTop: "5px" }}>
           <div style={{ marginTop: "1%" }}>
-            
             <h4 style={{ marginTop: "3px" }} class="fontclassnavitems">
               Your ProxPi URL
             </h4>
@@ -96,7 +93,10 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
+                      <span
+                        class="clicknavs"
+                        style={{ color: "rgb(0, 225, 255)" }}
+                      >
                         Analytics
                       </span>{" "}
                       for more info
@@ -138,7 +138,10 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
+                      <span
+                        class="clicknavs"
+                        style={{ color: "rgb(0, 225, 255)" }}
+                      >
                         Request log
                       </span>{" "}
                       tab for more info
@@ -180,7 +183,10 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
+                      <span
+                        class="clicknavs"
+                        style={{ color: "rgb(0, 225, 255)" }}
+                      >
                         Error log
                       </span>{" "}
                       tab for more info
@@ -224,7 +230,10 @@ function Home(props) {
                   <div class="mb-0">
                     <span class="text-muted">
                       Go to{" "}
-                      <span class="clicknavs" style={{ color: "rgb(0, 225, 255)" }}>
+                      <span
+                        class="clicknavs"
+                        style={{ color: "rgb(0, 225, 255)" }}
+                      >
                         Response time
                       </span>{" "}
                       tab for more info

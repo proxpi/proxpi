@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Icon, Tooltip } from "@auth0/cosmos";
 import swal from "sweetalert2/dist/sweetalert2.all.min.js";
 import axios from "axios";
-import "../../assets/scroller.css"
+import "../../assets/scroller.css";
 function ErrorLogger() {
   const { getAccessTokenSilently } = useAuth0();
   const [ErrLog, setErrLog] = useState();
@@ -36,7 +36,10 @@ function ErrorLogger() {
   }
   if (l) {
     return (
-      <div class="mainbody nmorphism-container tab-scroller"  style={{overflow:"scroll"}}>
+      <div
+        class="mainbody nmorphism-container tab-scroller"
+        style={{ overflow: "scroll" }}
+      >
         <div style={{ display: "flex", flexDirection: "row" }}>
           <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
             Error Logs.
@@ -49,7 +52,7 @@ function ErrorLogger() {
               name="reload"
             ></Icon>
           </Tooltip>
-        </div >
+        </div>
         <table id="students">
           <tr>
             <th key="sdf">Ip Adress</th>
@@ -69,7 +72,7 @@ function ErrorLogger() {
                   <td>{data.requrl}</td>
                   <td>
                     <button
-                    class="btn btn-primary btn-sm"
+                      class="btn btn-primary btn-sm"
                       onClick={() => {
                         add(data.ErrLog);
                       }}
@@ -78,7 +81,7 @@ function ErrorLogger() {
                     </button>
                   </td>
                   <td>
-                    <button class="btn btn-primary btn-sm" >Report</button>
+                    <button class="btn btn-primary btn-sm">Report</button>
                   </td>
                 </tr>
               );

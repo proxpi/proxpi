@@ -3,8 +3,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { Icon, Tooltip } from "@auth0/cosmos";
 import "../../assets/logger.css";
-import "../../assets/scroller.css"
-import "../../assets/home.css"
+import "../../assets/scroller.css";
+import "../../assets/home.css";
 function RequestLogger() {
   const { getAccessTokenSilently } = useAuth0();
   const [ReqLog, setReqLog] = useState();
@@ -33,8 +33,14 @@ function RequestLogger() {
   }, []);
   if (l) {
     return (
-      <div class="mainbody nmorphism-container tab-scroller" style={{overflow:"scroll"}} >
-        <div class="tab-scroller" style={{ display: "flex", flexDirection: "row" ,overflow:"scroll"}}>
+      <div
+        class="mainbody nmorphism-container tab-scroller"
+        style={{ overflow: "scroll" }}
+      >
+        <div
+          class="tab-scroller"
+          style={{ display: "flex", flexDirection: "row", overflow: "scroll" }}
+        >
           <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
             Request Logs.
           </h3>
@@ -47,7 +53,7 @@ function RequestLogger() {
             ></Icon>
           </Tooltip>
         </div>
-        <table style={{ overflow:"scroll"}} id="students">
+        <table style={{ overflow: "scroll" }} id="students">
           <tr>
             <th key="sdf">Ip Adress</th>
             <th key="sdf">Date & Time</th>

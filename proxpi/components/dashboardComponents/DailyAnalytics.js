@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Line } from "react-chartjs-2";
 import { Icon, Tooltip } from "@auth0/cosmos";
 import axios from "axios";
-import "../../assets/home.css"
+import "../../assets/home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spinner from "react-bootstrap/Spinner";
 function DailyAnalytics(props) {
@@ -83,8 +83,15 @@ function DailyAnalytics(props) {
   if (l) {
     return (
       <>
-        <div class="mainbody" style={{background: "#090c10",
-boxShadow:  "7px 7px 14px #050609,-7px -7px 14px #0d1217",margin:"2%",borderRadius:"2%"}}>
+        <div
+          class="mainbody"
+          style={{
+            background: "#090c10",
+            boxShadow: "7px 7px 14px #050609,-7px -7px 14px #0d1217",
+            margin: "2%",
+            borderRadius: "2%",
+          }}
+        >
           <div style={{ display: "flex", flexDirection: "row" }}>
             <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
               Daily Analytics.
