@@ -12,23 +12,21 @@ const Footer = () => (
           height="80"
         />
 
-        <small class="d-block mb-3 text-muted">
-          &copy; 2021–{new Date().getFullYear()} ProxPi
-        </small>
+        <hr></hr>
         <div
           class="socialicons"
           style={{ display: "flex", flexDirection: "row" }}
         >
-          <a>
+          <a href="https://github.com/proxpi">
             <i class="fab fa-github fa-2x"></i>
           </a>
-          <a>
+          <a href="https://instagram.com/proxpi.tech">
             <i class="fab fa-instagram fa-2x"></i>
           </a>
-          <a>
+          <a href="https://twitter.com/proxpi_tech">
             <i class="fab fa-twitter fa-2x"></i>
           </a>
-          <a>
+          <a href="https://linkedin.com/company/proxpi">
             <i class="fab fa-linkedin fa-2x"></i>
           </a>
         </div>
@@ -40,34 +38,15 @@ const Footer = () => (
         <ul class="list-unstyled text-small">
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Cool stuff
+              ProxPi
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Random feature
+              Access Tokens(Comming soon)
             </a>
           </li>
-          <li class="mb-1">
-            <a class="link-secondary text-decoration-none" href="#">
-              Team feature
-            </a>
-          </li>
-          <li class="mb-1">
-            <a class="link-secondary text-decoration-none" href="#">
-              Stuff for developers
-            </a>
-          </li>
-          <li class="mb-1">
-            <a class="link-secondary text-decoration-none" href="#">
-              Another one
-            </a>
-          </li>
-          <li class="mb-1">
-            <a class="link-secondary text-decoration-none" href="#">
-              Last time
-            </a>
-          </li>
+          
         </ul>
       </div>
       <div class="col-6 col-md">
@@ -76,22 +55,22 @@ const Footer = () => (
         <ul class="list-unstyled text-small">
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Resource
+             Documentation
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Resource name
+              Analytics
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Another resource
+              IP/URL Blocking
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Final resource
+              OSS Guide
             </a>
           </li>
         </ul>
@@ -102,27 +81,31 @@ const Footer = () => (
         <ul class="list-unstyled text-small">
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Team
+              Open Source
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Locations
+              Contributors
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Privacy
+              Contributing Guide
             </a>
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-              Terms
+              Code documentation
             </a>
           </li>
         </ul>
       </div>
     </div>
+    <hr></hr>
+    <h6 style={{textAlign:"center"}} class="d-block mb-3 text-muted">
+    <i class="far fa-copyright"></i> 2021–{new Date().getFullYear()} ProxPi
+        </h6>
   </footer>
 );
 export default Footer;
