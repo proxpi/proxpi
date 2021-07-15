@@ -134,6 +134,10 @@
   justify-content: center;
   display: flex;
   flex-direction: row;
+  margin-bottom: 2%;
+}
+.buttongroup > a{
+  margin:2%;
 }
 .communityenclosingdiv {
   background-color: #171c23;

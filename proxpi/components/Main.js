@@ -266,7 +266,7 @@ function Main() {
                 }}
                 appearance="primary"
               >
-                Github Discussions
+                Discussions
               </Button>
               <Button
                 size="large"
@@ -291,6 +291,50 @@ function Main() {
                 <i class="fab fa-telegram-plane"></i> telegram
               </Button>
             </div>
+          </div>
+        </div>
+        <div
+          style={{ display: "flex", flexDirection: "column" }}
+          class="communityjoin"
+        >
+          <div>
+            <span class="headingofadditionalfeatures">
+              <b>Love the Project?</b>
+            </span>
+          </div>
+          <div class="communityenclosingdiv">
+            <p class="joincommunitydesc">
+              It would be great if you can donate anything, to keep the server's
+              running
+            </p>
+            <div class="buttongroup">
+              <a href="https://www.buymeacoffee.com/fredysomy">
+                <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee.&emoji=&slug=fredysomy&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" />
+              </a>
+              <a href="https://liberapay.com/fredysomy">
+                <img
+                  height="50"
+                  src="https://liberapay.com/assets/widgets/donate.svg"
+                />
+              </a>
+            </div>
+            <p class="joincommunitydesc">
+              Or help us by donating code to github repo.
+            </p>
+            <div class="buttongroup">
+            <Button
+                size="large"
+                icon="brand-github"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                Contributors Guide
+              </Button>
+              </div>
           </div>
         </div>
       </div>

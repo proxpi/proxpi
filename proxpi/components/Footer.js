@@ -52,10 +52,15 @@ const Footer = () => (
       <div class="col-6 col-md">
       <hr></hr>
         <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
+        <ul class="list-unstyled text-small"> 
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
              Documentation
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="link-secondary text-decoration-none" href="#">
+              Blog
             </a>
           </li>
           <li class="mb-1">
@@ -104,7 +109,7 @@ const Footer = () => (
     </div>
     <hr></hr>
     <h6 style={{textAlign:"center"}} class="d-block mb-3 text-muted">
-    <i class="far fa-copyright"></i> 2021–{new Date().getFullYear()} ProxPi
+    <i class="far fa-copyright"></i> {new Date().getFullYear()} ProxPi
         </h6>
   </footer>
 );
