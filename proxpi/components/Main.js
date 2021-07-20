@@ -322,7 +322,7 @@ function Main() {
               Or help us by donating code to github repo.
             </p>
             <div class="buttongroup">
-            <Button
+              <Button
                 size="large"
                 icon="brand-github"
                 style={{
@@ -334,7 +334,7 @@ function Main() {
               >
                 Contributors Guide
               </Button>
-              </div>
+            </div>
           </div>
         </div>
       </div>

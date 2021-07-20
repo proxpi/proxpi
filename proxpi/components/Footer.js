@@ -31,9 +31,9 @@ const Footer = () => (
           </a>
         </div>
       </div>
-     
+
       <div class="col-6 col-md">
-      <hr></hr>
+        <hr></hr>
         <h5>Product</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1">
@@ -46,16 +46,15 @@ const Footer = () => (
               Access Tokens(Comming soon)
             </a>
           </li>
-          
         </ul>
       </div>
       <div class="col-6 col-md">
-      <hr></hr>
+        <hr></hr>
         <h5>Resources</h5>
-        <ul class="list-unstyled text-small"> 
+        <ul class="list-unstyled text-small">
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
-             Documentation
+              Documentation
             </a>
           </li>
           <li class="mb-1">
@@ -81,7 +80,7 @@ const Footer = () => (
         </ul>
       </div>
       <div class="col-6 col-md">
-      <hr></hr>
+        <hr></hr>
         <h5>Developers</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1">
@@ -108,9 +107,9 @@ const Footer = () => (
       </div>
     </div>
     <hr></hr>
-    <h6 style={{textAlign:"center"}} class="d-block mb-3 text-muted">
-    <i class="far fa-copyright"></i> {new Date().getFullYear()} ProxPi
-        </h6>
+    <h6 style={{ textAlign: "center" }} class="d-block mb-3 text-muted">
+      <i class="far fa-copyright"></i> {new Date().getFullYear()} ProxPi
+    </h6>
   </footer>
 );
 export default Footer;

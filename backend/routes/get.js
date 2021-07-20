@@ -75,7 +75,8 @@ router.route("/proxpi/:id").get(async (req, res) => {
       key: ProxpiData.key,
       privateUrl: ProxpiData.privateUrl,
     };
-    if (req.user.aud[0] == ProxpiData.email) {
+    x = await routeADD(req);
+    if (x == ProxpiData.email) {
       res.json({ proxpidata: datatosend });
     } else {
       res.json({ success: false });
@@ -93,7 +94,8 @@ router.route("/blockers/:id").get(async (req, res) => {
       key: Blockdata.key,
       blocked_site: Blockdata.blocked_site || [],
     };
-    if (req.user.aud[0] == Blockdata.email) {
+    x = await routeADD(req);
+    if (x == Blockdata.email) {
       res.json({ bandata: databantosend });
     } else {
       res.json({ success: false });
@@ -109,7 +111,8 @@ router.route("/analytics/:id").get(async (req, res) => {
     const AnalyticsDataToSend = {
       analytics_daily: analyticsData.daily,
     };
-    if (req.user.aud[0] == analyticsData.email) {
+    x = await routeADD(req);
+    if (x == analyticsData.email) {
       res.json({ analyticsdata: AnalyticsDataToSend });
     } else {
       res.json({ success: false });
@@ -125,7 +128,8 @@ router.route("/reqlog/:id").get(async (req, res) => {
     const ReqLogDataToSend = {
       requestlogs: reqLogData.requests_log,
     };
-    if (req.user.aud[0] == reqLogData.email) {
+    x = await routeADD(req);
+    if (x == reqLogData.email) {
       res.json({ reqlog: ReqLogDataToSend });
     } else {
       res.json({ success: false });
@@ -141,7 +145,8 @@ router.route("/errlog/:id").get(async (req, res) => {
     const errLogDataToSend = {
       errlogs: errLogData.error_log,
     };
-    if (req.user.aud[0] == errLogData.email) {
+    x = await routeADD(req);
+    if (x == errLogData.email) {
       res.json({ errlog: errLogDataToSend });
     } else {
       res.json({ success: false });
@@ -156,7 +161,8 @@ router.route("/geoanalytics/:id").get(async (req, res) => {
     const geoAnalyticsDataToSend = {
       geoData: geoAnalyticsData.geo,
     };
-    if (req.user.aud[0] == geoAnalyticsData.email) {
+    x = await routeADD(req);
+    if (x == geoAnalyticsData.email) {
       res.json({ geoAnalytics: geoAnalyticsDataToSend });
     } else {
       res.json({ success: false });

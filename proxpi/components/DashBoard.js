@@ -60,7 +60,7 @@ function DashBoard() {
           margin: "2%",
           display: "flex",
           width: "96%",
-          height:"100%",
+          height: "100%",
           flexDirection: "row",
           padding: "7px 7px",
           backgroundColor: "#1b2029",
@@ -167,7 +167,6 @@ function DashBoard() {
           <ProxpiView />
         </div>
       </div>
-     
     </>
   );
 }

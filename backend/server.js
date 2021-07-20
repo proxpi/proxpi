@@ -28,6 +28,6 @@ app.use("/get", jwtCheck, ErrorHandler, ProxPiRouter);
 app.use("/update", jwtCheck, ErrorHandler, UpdateDataRouter);
 app.use("/proxpi", ApiRouter);
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(process.env.PORT || 8081, () => {
   console.log("ons");
 });
