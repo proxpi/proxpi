@@ -21,6 +21,11 @@ const jwtCheck = require("./middleware/CheckJWT");
 const CheckAccess = require("./middleware/checkAccess");
 
 app.use(cors());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.enable("trust proxy");
 app.use("/plan", jwtCheck, ErrorHandler, PlanRouter);
 app.use("/new", jwtCheck, ErrorHandler, CreateRouter);

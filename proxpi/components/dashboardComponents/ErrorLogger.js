@@ -91,7 +91,21 @@ function ErrorLogger() {
       </div>
     );
   } else {
-    return <h1>Loading</h1>;
+    return (
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
+          Error Fetching data.
+        </h3>
+        <Tooltip position="right" content="Reload">
+          <Icon
+            onClick={getErrLog}
+            color="white"
+            style={{ marginTop: "27px", marginLeft: "10px" }}
+            name="reload"
+          ></Icon>
+        </Tooltip>
+      </div>
+    );
   }
 }
 export default ErrorLogger;

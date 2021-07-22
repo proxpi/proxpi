@@ -254,14 +254,29 @@ function DailyAnalytics(props) {
     );
   } else {
     return (
-      <div
-        align="center"
-        style={{ justifyContent: "center", width: "100%", marginTop: "5%" }}
-      >
-        <Spinner animation="grow" variant="primary" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      </div>
+      <>
+        <div
+          align="center"
+          style={{ justifyContent: "center", width: "100%", marginTop: "5%" }}
+        >
+          <Spinner animation="grow" variant="primary" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
+            Error Fetching data.
+          </h3>
+          <Tooltip position="right" content="Reload">
+            <Icon
+              onClick={getAnalytics}
+              color="white"
+              style={{ marginTop: "27px", marginLeft: "10px" }}
+              name="reload"
+            ></Icon>
+          </Tooltip>
+        </div>
+      </>
     );
   }
 }

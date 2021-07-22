@@ -65,6 +65,7 @@ router.route("/proxpianalytics/:id").get(async (req, res) => {
 });
 router.route("/proxpi/:id").get(async (req, res) => {
   try {
+    x = await routeADD(req);
     const ProxpiData = await db.get(req.params.id);
     const datatosend = {
       headers: JSON.parse(decrypt(ProxpiData.header)) || {},
@@ -75,7 +76,7 @@ router.route("/proxpi/:id").get(async (req, res) => {
       key: ProxpiData.key,
       privateUrl: ProxpiData.privateUrl,
     };
-    x = await routeADD(req);
+
     if (x == ProxpiData.email) {
       res.json({ proxpidata: datatosend });
     } else {
@@ -88,13 +89,14 @@ router.route("/proxpi/:id").get(async (req, res) => {
 
 router.route("/blockers/:id").get(async (req, res) => {
   try {
+    x = await routeADD(req);
     const Blockdata = await db.get(req.params.id);
     const databantosend = {
       blocked_ip: Blockdata.blocked_ip || [],
       key: Blockdata.key,
       blocked_site: Blockdata.blocked_site || [],
     };
-    x = await routeADD(req);
+
     if (x == Blockdata.email) {
       res.json({ bandata: databantosend });
     } else {
@@ -107,11 +109,12 @@ router.route("/blockers/:id").get(async (req, res) => {
 
 router.route("/analytics/:id").get(async (req, res) => {
   try {
+    x = await routeADD(req);
     const analyticsData = await db.get(req.params.id);
     const AnalyticsDataToSend = {
       analytics_daily: analyticsData.daily,
     };
-    x = await routeADD(req);
+
     if (x == analyticsData.email) {
       res.json({ analyticsdata: AnalyticsDataToSend });
     } else {
@@ -124,11 +127,12 @@ router.route("/analytics/:id").get(async (req, res) => {
 
 router.route("/reqlog/:id").get(async (req, res) => {
   try {
+    x = await routeADD(req);
     const reqLogData = await db.get(req.params.id);
     const ReqLogDataToSend = {
       requestlogs: reqLogData.requests_log,
     };
-    x = await routeADD(req);
+
     if (x == reqLogData.email) {
       res.json({ reqlog: ReqLogDataToSend });
     } else {
@@ -141,11 +145,12 @@ router.route("/reqlog/:id").get(async (req, res) => {
 
 router.route("/errlog/:id").get(async (req, res) => {
   try {
+    x = await routeADD(req);
     const errLogData = await db.get(req.params.id);
     const errLogDataToSend = {
       errlogs: errLogData.error_log,
     };
-    x = await routeADD(req);
+
     if (x == errLogData.email) {
       res.json({ errlog: errLogDataToSend });
     } else {
@@ -157,11 +162,12 @@ router.route("/errlog/:id").get(async (req, res) => {
 });
 router.route("/geoanalytics/:id").get(async (req, res) => {
   try {
+    x = await routeADD(req);
     const geoAnalyticsData = await db.get(req.params.id);
     const geoAnalyticsDataToSend = {
       geoData: geoAnalyticsData.geo,
     };
-    x = await routeADD(req);
+
     if (x == geoAnalyticsData.email) {
       res.json({ geoAnalytics: geoAnalyticsDataToSend });
     } else {
