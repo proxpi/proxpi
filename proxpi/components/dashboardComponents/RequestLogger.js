@@ -5,6 +5,8 @@ import { Icon, Tooltip } from "@auth0/cosmos";
 import "../../assets/logger.css";
 import "../../assets/scroller.css";
 import "../../assets/home.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Spinner from "react-bootstrap/Spinner";
 function RequestLogger() {
   const { getAccessTokenSilently } = useAuth0();
   const [ReqLog, setReqLog] = useState();
@@ -31,6 +33,7 @@ function RequestLogger() {
   useEffect(() => {
     getReqLog();
   }, []);
+  
   if (l) {
     return (
       <div
@@ -77,18 +80,34 @@ function RequestLogger() {
     );
   } else {
     return (
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <h3 style={{ marginTop: "20px" }} class="fontclassnavitems">
-          Error Fetching data
-        </h3>
-        <Tooltip position="right" content="Reload">
-          <Icon
-            onClick={getReqLog}
-            color="white"
-            style={{ marginTop: "27px", marginLeft: "10px" }}
-            name="reload"
-          ></Icon>
-        </Tooltip>
+      <div
+        align="center"
+        style={{ justifyContent: "center", width: "100%", marginTop: "5%" }}
+      >
+        <Spinner animation="grow" variant="primary" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h5>Failed to load Data</h5>
+          <div
+            style={{ width: "90%", alignContent: "center" }}
+            class="alert alert-danger"
+            role="alert"
+          >
+            This is a known bug which is actively debugged. ProxPi is in Beta
+            stage. None of your data is lost or compromised. Please click the
+            Refresh button a few times.
+          </div>
+          <button class="btn btn-primary" onClick={() => {getReqLog()}}>
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+        </div>
       </div>
     );
   }
