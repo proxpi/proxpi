@@ -29,9 +29,13 @@ export default () => {
             render={({ match: { url } }) => (
               <>
                 <Route path={`${url}/`} component={DashBoard} exact />
-                <Route path={`${url}/new`} component={Createnew} />
+                <Route path={`${url}/new`} component={Createnew} exact />
 
-                <Route path={`${url}/home/:id`} component={ProxPiDashboard} />
+                <Route
+                  path={`${url}/home/:id`}
+                  component={ProxPiDashboard}
+                  exact
+                />
               </>
             )}
           />

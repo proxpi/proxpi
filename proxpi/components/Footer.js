@@ -95,6 +95,11 @@ const Footer = () => (
           </li>
           <li class="mb-1">
             <a class="link-secondary text-decoration-none" href="#">
+              Team
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="link-secondary text-decoration-none" href="#">
               Contributing Guide
             </a>
           </li>

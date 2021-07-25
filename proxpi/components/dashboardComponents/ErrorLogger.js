@@ -33,7 +33,7 @@ function ErrorLogger() {
   useEffect(() => {
     getErrLog();
   }, []);
- 
+
   function add(errdata) {
     new swal("Nothing to add", JSON.stringify(errdata, undefined, 3), "");
   }
@@ -94,9 +94,8 @@ function ErrorLogger() {
       </div>
     );
   } else {
-   
     return (
-<div
+      <div
         align="center"
         style={{ justifyContent: "center", width: "100%", marginTop: "5%" }}
       >
@@ -120,7 +119,12 @@ function ErrorLogger() {
             stage. None of your data is lost or compromised. Please click the
             Refresh button a few times.
           </div>
-          <button class="btn btn-primary" onClick={() => {getErrLog()}}>
+          <button
+            class="btn btn-primary"
+            onClick={() => {
+              getErrLog();
+            }}
+          >
             <i class="fas fa-sync-alt"></i> Refresh
           </button>
         </div>

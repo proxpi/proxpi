@@ -33,7 +33,7 @@ function RequestLogger() {
   useEffect(() => {
     getReqLog();
   }, []);
-  
+
   if (l) {
     return (
       <div
@@ -104,7 +104,12 @@ function RequestLogger() {
             stage. None of your data is lost or compromised. Please click the
             Refresh button a few times.
           </div>
-          <button class="btn btn-primary" onClick={() => {getReqLog()}}>
+          <button
+            class="btn btn-primary"
+            onClick={() => {
+              getReqLog();
+            }}
+          >
             <i class="fas fa-sync-alt"></i> Refresh
           </button>
         </div>

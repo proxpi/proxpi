@@ -23,7 +23,7 @@ function Pricing() {
                   $0<small class="text-muted fw-light">/mo</small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                  <li>6 ProxPi's</li>
+                  <li>4 ProxPi's</li>
                   <li>Analytics</li>
 
                   <li>IP/URL blocking</li>
@@ -65,15 +65,19 @@ function Pricing() {
               </div>
               <div class="card-body">
                 <h1 class="card-title pricing-card-title">
-                  ?<small class="text-muted fw-light">/mo</small>
+                  -<small class="text-muted fw-light">/-</small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
                   <li>Self Host Support</li>
                   <li>Help in hosting</li>
                   <li>Special Discord Server</li>
                 </ul>
-                <button type="button" class="w-100 btn btn-lg btn-primary">
-                  Contact us
+                <button
+                  disabled
+                  type="button"
+                  class="w-100 btn btn-lg btn-primary"
+                >
+                  Comming Soon
                 </button>
               </div>
             </div>

@@ -340,7 +340,12 @@ function Block(props) {
             stage. None of your data is lost or compromised. Please click the
             Refresh button a few times.
           </div>
-          <button class="btn btn-primary" onClick={() => {getBlockData()}}>
+          <button
+            class="btn btn-primary"
+            onClick={() => {
+              getBlockData();
+            }}
+          >
             <i class="fas fa-sync-alt"></i> Refresh
           </button>
         </div>

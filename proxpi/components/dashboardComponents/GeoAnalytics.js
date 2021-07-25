@@ -124,7 +124,12 @@ function GeoAnalytics() {
             stage. None of your data is lost or compromised. Please click the
             Refresh button a few times.
           </div>
-          <button class="btn btn-primary" onClick={() => {getGeoAnalytics()}}>
+          <button
+            class="btn btn-primary"
+            onClick={() => {
+              getGeoAnalytics();
+            }}
+          >
             <i class="fas fa-sync-alt"></i> Refresh
           </button>
         </div>
