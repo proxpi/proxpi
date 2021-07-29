@@ -115,6 +115,8 @@ const Footer = () => (
     <h6 style={{ textAlign: "center" }} class="d-block mb-3 text-muted">
       <i class="far fa-copyright"></i> {new Date().getFullYear()} ProxPi
     </h6>
+    <h6 style={{textAlign:"center"}}>
+    Made with <span style={{color: "#e25555"}}>&#9829;</span> in Kerala,India</h6>
   </footer>
 );
 export default Footer;
