@@ -8,7 +8,7 @@ import Createnew from "../components/Createnew";
 import Footer from "../components/Footer";
 import axios from "axios";
 import ProxPiDashboard from "../components/ProxPiDashboard";
-
+import StatusWidget from "../components/sub_components/StatusWidget";
 export default () => {
   axios.defaults.baseURL = "https://proxpiapi.herokuapp.com";
   return (
@@ -31,11 +31,19 @@ export default () => {
                 <Route path={`${url}/`} component={DashBoard} exact />
                 <Route path={`${url}/new`} component={Createnew} exact />
 
-                <Route
-                  path={`${url}/home/:id`}
-                  component={ProxPiDashboard}
-                  exact
-                />
+                <Route path={`${url}/home/:id`} exact>
+                  <ProxPiDashboard></ProxPiDashboard>
+                  <div
+                    style={{
+                      alignContent: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                      margin: "2%",
+                    }}
+                  >
+                    <StatusWidget />
+                  </div>
+                </Route>
               </>
             )}
           />

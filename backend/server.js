@@ -35,10 +35,11 @@ app.use("/new", jwtCheck, ErrorHandler, CreateRouter);
 app.use("/get", jwtCheck, ErrorHandler, ProxPiRouter);
 app.use("/update", jwtCheck, ErrorHandler, UpdateDataRouter);
 app.use("/proxpi", ApiRouter);
-app.get("/",(req,res)=>{
-  res.status(200).send("Hi,This is server for ProxPi, please visit https://proxpi.tech")
-
-})
+app.get("/", (req, res) => {
+  res
+    .status(200)
+    .send("Hi,This is server for ProxPi, please visit https://proxpi.tech");
+});
 app.listen(process.env.PORT || 8081, () => {
   console.log("Server is UP and Running");
 });

@@ -144,6 +144,9 @@
   border-radius: 2%;
   padding: 2%;
 }
+#buttondisabledecoration {
+  text-decoration: none;
+}
 @media all and (max-width: 900px) {
   .maincontaier {
     display: flex;

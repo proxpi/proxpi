@@ -29,7 +29,7 @@ const Footer = () => {
             <a href="https://instagram.com/proxpi.tech">
               <i class="fab fa-instagram fa-2x"></i>
             </a>
-            <a href="https://twitter.com/proxpi_tech">
+            <a href="https://twitter.com/ProxPi_">
               <i class="fab fa-twitter fa-2x"></i>
             </a>
             <a href="https://linkedin.com/company/proxpi">
@@ -43,7 +43,10 @@ const Footer = () => {
           <h5>Product</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a
+                class="link-secondary text-decoration-none"
+                href="https://proxpi.tech"
+              >
                 ProxPi
               </a>
             </li>
@@ -59,22 +62,34 @@ const Footer = () => {
           <h5>Resources</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a
+                class="link-secondary text-decoration-none"
+                href="https://docs.proxpi.tech"
+              >
                 Documentation
               </a>
             </li>
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a
+                class="link-secondary text-decoration-none"
+                href="https://docs.proxpi.tech/blog"
+              >
                 Blog
               </a>
             </li>
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a
+                class="link-secondary text-decoration-none"
+                href="https://docs.proxpi.tech/docs/proxpi/analytics"
+              >
                 Analytics
               </a>
             </li>
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a
+                class="link-secondary text-decoration-none"
+                href="https://docs.proxpi.tech/docs/proxpi/blocking"
+              >
                 IP/URL Blocking
               </a>
             </li>

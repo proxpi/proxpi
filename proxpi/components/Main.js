@@ -42,14 +42,16 @@ function Main() {
             >
               Start project
             </Button>
-            <Button
-              style={{ backgroundColor: "rgb(27 32 41)", border: "none" }}
-              size="compressed"
-              icon="notes"
-              appearance="primary"
-            >
-              Documentation
-            </Button>
+            <a href="https://docs.proxpi.tech/" target="_blank">
+              <Button
+                style={{ backgroundColor: "rgb(27 32 41)", border: "none" }}
+                size="compressed"
+                icon="notes"
+                appearance="primary"
+              >
+                Documentation
+              </Button>
+            </a>
           </div>
         </div>
         <div class="introvideo">
@@ -78,21 +80,23 @@ function Main() {
               and is visualisable in a map. Analytics feature is free for all
               users.
             </p>
-            <Button
-              size="compressed"
-              icon="logs"
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-              onClick={() => {
-                history.push("/dashboard");
-              }}
+            <a
+              href="https://docs.proxpi.tech/docs/proxpi/analytics"
+              target="_blank"
             >
-              Learn More
-            </Button>
+              <Button
+                size="compressed"
+                icon="logs"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                Learn More
+              </Button>
+            </a>
           </div>
           <div class="featureimage">
             <img
@@ -113,21 +117,23 @@ function Main() {
               request logs store all the success requests with IP adress and URL
               of origin so you can block them if they find suspicious.
             </p>
-            <Button
-              size="compressed"
-              icon="logs"
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-              onClick={() => {
-                history.push("/dashboard");
-              }}
+            <a
+              href="https://docs.proxpi.tech/docs/proxpi/logging"
+              target="_blank"
             >
-              Learn More
-            </Button>
+              <Button
+                size="compressed"
+                icon="logs"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                Learn More
+              </Button>
+            </a>
           </div>
           <div class="featureimage">
             <img
@@ -148,21 +154,23 @@ function Main() {
               IP/URL is made it will be logged in the Error log tab in
               dashboard.
             </p>
-            <Button
-              size="compressed"
-              icon="logs"
-              style={{
-                marginRight: "1%",
-                backgroundColor: "#226f6c",
-                border: "none",
-              }}
-              appearance="primary"
-              onClick={() => {
-                history.push("/dashboard");
-              }}
+            <a
+              href="https://docs.proxpi.tech/docs/proxpi/blocking"
+              target="_blank"
             >
-              Learn More
-            </Button>
+              <Button
+                size="compressed"
+                icon="logs"
+                style={{
+                  marginRight: "1%",
+                  backgroundColor: "#226f6c",
+                  border: "none",
+                }}
+                appearance="primary"
+              >
+                Learn More
+              </Button>
+            </a>
           </div>
           <div class="featureimage">
             <img
@@ -194,21 +202,23 @@ function Main() {
                 and is only decrypted in the Backend for API request and to be
                 shown in frontend
               </p>
-              <Button
-                size="compressed"
-                icon="external-link"
-                style={{
-                  marginRight: "1%",
-                  backgroundColor: "#226f6c",
-                  border: "none",
-                }}
-                appearance="primary"
-                onClick={() => {
-                  history.push("/dashboard");
-                }}
+              <a
+                href="https://docs.proxpi.tech/docs/security/headers"
+                target="_blank"
               >
-                Learn More
-              </Button>
+                <Button
+                  size="compressed"
+                  icon="external-link"
+                  style={{
+                    marginRight: "1%",
+                    backgroundColor: "#226f6c",
+                    border: "none",
+                  }}
+                  appearance="primary"
+                >
+                  Learn More
+                </Button>
+              </a>
             </div>
           </div>
           <div
@@ -224,21 +234,23 @@ function Main() {
                 Blocked Sources. Private mode only allows a URL specified by you
                 to make requests.
               </p>
-              <Button
-                size="compressed"
-                icon="external-link"
-                style={{
-                  marginRight: "1%",
-                  backgroundColor: "#226f6c",
-                  border: "none",
-                }}
-                appearance="primary"
-                onClick={() => {
-                  history.push("/dashboard");
-                }}
+              <a
+                href="https://docs.proxpi.tech/docs/security/modes"
+                target="_blank"
               >
-                Learn More
-              </Button>
+                <Button
+                  size="compressed"
+                  icon="external-link"
+                  style={{
+                    marginRight: "1%",
+                    backgroundColor: "#226f6c",
+                    border: "none",
+                  }}
+                  appearance="primary"
+                >
+                  Learn More
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -256,40 +268,36 @@ function Main() {
               Join a Community of Developers, amazing people and problem solvers
             </p>
             <div class="buttongroup">
-              <Button
-                size="large"
-                icon="brand-github"
-                style={{
-                  marginRight: "1%",
-                  backgroundColor: "#226f6c",
-                  border: "none",
-                }}
-                appearance="primary"
+              <a
+                href="https://github.com/proxpi/proxpi/discussions"
+                target="_blank"
               >
-                Discussions
-              </Button>
-              <Button
-                size="large"
-                style={{
-                  marginRight: "1%",
-                  backgroundColor: "#226f6c",
-                  border: "none",
-                }}
-                appearance="primary"
-              >
-                <i class="fab fa-discord"></i> Discord
-              </Button>
-              <Button
-                size="large"
-                style={{
-                  marginRight: "1%",
-                  backgroundColor: "#226f6c",
-                  border: "none",
-                }}
-                appearance="primary"
-              >
-                <i class="fab fa-telegram-plane"></i> telegram
-              </Button>
+                <Button
+                  size="large"
+                  icon="brand-github"
+                  style={{
+                    marginRight: "1%",
+                    backgroundColor: "#226f6c",
+                    border: "none",
+                  }}
+                  appearance="primary"
+                >
+                  Discussions
+                </Button>
+              </a>
+              <a href="" target="_blank">
+                <Button
+                  size="large"
+                  style={{
+                    marginRight: "1%",
+                    backgroundColor: "#226f6c",
+                    border: "none",
+                  }}
+                  appearance="primary"
+                >
+                  <i class="fab fa-discord"></i> Discord
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -322,18 +330,20 @@ function Main() {
               Or help us by donating code to github repo.
             </p>
             <div class="buttongroup">
-              <Button
-                size="large"
-                icon="brand-github"
-                style={{
-                  marginRight: "1%",
-                  backgroundColor: "#226f6c",
-                  border: "none",
-                }}
-                appearance="primary"
-              >
-                Contributors Guide
-              </Button>
+              <a href="" target="_blank">
+                <Button
+                  size="large"
+                  icon="brand-github"
+                  style={{
+                    marginRight: "1%",
+                    backgroundColor: "#226f6c",
+                    border: "none",
+                  }}
+                  appearance="primary"
+                >
+                  Contributors Guide
+                </Button>
+              </a>
             </div>
           </div>
         </div>

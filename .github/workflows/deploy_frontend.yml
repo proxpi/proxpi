@@ -19,7 +19,6 @@ jobs:
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
-
       - name: "Deploy to Vercel"
         run: |
           cd proxpi

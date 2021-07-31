@@ -74,15 +74,20 @@ function Btn() {
               <b>Pricing</b>
             </Link>
           </li>
-          <li class="nav-item clickable">
-            <Link
-              style={{ color: "white", marginTop: "0px" }}
-              class="nav-link fontclassnavitems"
-              to="/pricing"
-            >
-              <b>Docs</b>
-            </Link>
-          </li>
+          <a
+            id="buttondisabledecoration"
+            href="https://docs.proxpi.tech/"
+            target="_blank"
+          >
+            <li class="nav-item clickable">
+              <b
+                style={{ color: "white", marginTop: "0px" }}
+                class="nav-link fontclassnavitems"
+              >
+                Docs
+              </b>
+            </li>
+          </a>
           <li class="nav-item dropdown">
             <a
               style={{ color: "white", marginTop: "0px" }}

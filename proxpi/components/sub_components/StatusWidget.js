@@ -14,7 +14,6 @@ const StatusWidget = () => {
     return <h6>Loading</h6>;
   } else {
     return (
-     
       <div
         style={{
           display: "flex",
@@ -26,9 +25,9 @@ const StatusWidget = () => {
           backgroundColor: "rgb(23, 28, 35)",
           margin: "2%",
           padding: "1%",
-        }} 
+        }}
       >
-        <h5  style={{ marginBottom: "0px" }} id="amsg">
+        <h5 style={{ marginBottom: "0px" }} id="amsg">
           <img
             width="50px"
             height="50px"
@@ -38,10 +37,11 @@ const StatusWidget = () => {
                 : "https://raw.githubusercontent.com/proxpi/images/main/dangerdot.png"
             }
           ></img>{" "}
-          <a target="_blank" href="https://stats.uptimerobot.com/poBOBizV5q">{data.message}</a>
+          <a target="_blank" href="https://stats.uptimerobot.com/poBOBizV5q">
+            {data.message}
+          </a>
         </h5>
       </div>
-      
     );
   }
 };
