@@ -14,34 +14,16 @@ const StatusWidget = () => {
     return <h6>Loading</h6>;
   } else {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "fit-content",
-          height: "fit-content",
-          color: "aqua",
-          justifyContent: "center",
-          backgroundColor: "rgb(23, 28, 35)",
-          margin: "2%",
-          padding: "1%",
-        }}
-      >
-        <h5 style={{ marginBottom: "0px" }} id="amsg">
-          <img
-            width="50px"
-            height="50px"
-            src={
-              data.state == "success"
-                ? "https://raw.githubusercontent.com/proxpi/images/main/successdot.png"
-                : "https://raw.githubusercontent.com/proxpi/images/main/dangerdot.png"
-            }
-          ></img>{" "}
-          <a target="_blank" href="https://stats.uptimerobot.com/poBOBizV5q">
-            {data.message}
-          </a>
-        </h5>
-      </div>
+      <a href="https://stats.uptimerobot.com/poBOBizV5q" target="_blank">
+        <button
+          style={{ backgroundColor: "#171c23", margin: "2%" }}
+          class="btn btn-secondary"
+        >
+          {" "}
+          <i style={{ color: data.state }} class="fas fa-circle"></i> {}
+          {data.message}
+        </button>
+      </a>
     );
   }
 };
