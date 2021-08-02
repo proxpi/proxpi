@@ -134,7 +134,7 @@ const Footer = () => {
       </div>
       <hr></hr>
       <h6 style={{ textAlign: "center" }} class="d-block mb-3 text-muted">
-        <i class="far fa-copyright"></i> {new Date().getFullYear()} ProxPi
+        Copyright © 2021 ProxPi, All Rights Reserved.
       </h6>
       <h6 style={{ textAlign: "center" }}>
         Made with <span style={{ color: "#e25555" }}>&#9829;</span> in
