@@ -44,9 +44,9 @@ router.route("/proxpianalytics/:id").get(async (req, res) => {
       resptimetotal += data.resp_time || 0;
     });
     resptimeavg = resptimetotal / ProxpiData.resp_time.length || 0;
-
-    x = await routeADD(req);
-    if (x == ProxpiData.email) {
+    console.log(req.user)
+   
+    if (req.user['https://example.com/email'] == ProxpiData.email) {
       res.json({
         proxpidata: ProxpiData,
         subdata: {
@@ -65,7 +65,7 @@ router.route("/proxpianalytics/:id").get(async (req, res) => {
 });
 router.route("/proxpi/:id").get(async (req, res) => {
   try {
-    x = await routeADD(req);
+  
     const ProxpiData = await db.get(req.params.id);
     const datatosend = {
       headers: JSON.parse(decrypt(ProxpiData.header)) || {},
@@ -77,7 +77,7 @@ router.route("/proxpi/:id").get(async (req, res) => {
       privateUrl: ProxpiData.privateUrl,
     };
 
-    if (x == ProxpiData.email) {
+    if (req.user['https://example.com/email'] == ProxpiData.email) {
       res.json({ proxpidata: datatosend });
     } else {
       res.json({ success: false });
@@ -89,7 +89,7 @@ router.route("/proxpi/:id").get(async (req, res) => {
 
 router.route("/blockers/:id").get(async (req, res) => {
   try {
-    x = await routeADD(req);
+    
     const Blockdata = await db.get(req.params.id);
     const databantosend = {
       blocked_ip: Blockdata.blocked_ip || [],
@@ -97,7 +97,7 @@ router.route("/blockers/:id").get(async (req, res) => {
       blocked_site: Blockdata.blocked_site || [],
     };
 
-    if (x == Blockdata.email) {
+    if (req.user['https://example.com/email'] == Blockdata.email) {
       res.json({ bandata: databantosend });
     } else {
       res.json({ success: false });
@@ -109,13 +109,13 @@ router.route("/blockers/:id").get(async (req, res) => {
 
 router.route("/analytics/:id").get(async (req, res) => {
   try {
-    x = await routeADD(req);
+  
     const analyticsData = await db.get(req.params.id);
     const AnalyticsDataToSend = {
       analytics_daily: analyticsData.daily,
     };
 
-    if (x == analyticsData.email) {
+    if (req.user['https://example.com/email']== analyticsData.email) {
       res.json({ analyticsdata: AnalyticsDataToSend });
     } else {
       res.json({ success: false });
@@ -127,13 +127,13 @@ router.route("/analytics/:id").get(async (req, res) => {
 
 router.route("/reqlog/:id").get(async (req, res) => {
   try {
-    x = await routeADD(req);
+   
     const reqLogData = await db.get(req.params.id);
     const ReqLogDataToSend = {
       requestlogs: reqLogData.requests_log,
     };
 
-    if (x == reqLogData.email) {
+    if (req.user['https://example.com/email'] == reqLogData.email) {
       res.json({ reqlog: ReqLogDataToSend });
     } else {
       res.json({ success: false });
@@ -145,13 +145,13 @@ router.route("/reqlog/:id").get(async (req, res) => {
 
 router.route("/errlog/:id").get(async (req, res) => {
   try {
-    x = await routeADD(req);
+  
     const errLogData = await db.get(req.params.id);
     const errLogDataToSend = {
       errlogs: errLogData.error_log,
     };
 
-    if (x == errLogData.email) {
+    if (req.user['https://example.com/email'] == errLogData.email) {
       res.json({ errlog: errLogDataToSend });
     } else {
       res.json({ success: false });
@@ -162,13 +162,13 @@ router.route("/errlog/:id").get(async (req, res) => {
 });
 router.route("/geoanalytics/:id").get(async (req, res) => {
   try {
-    x = await routeADD(req);
+  
     const geoAnalyticsData = await db.get(req.params.id);
     const geoAnalyticsDataToSend = {
       geoData: geoAnalyticsData.geo,
     };
 
-    if (x == geoAnalyticsData.email) {
+    if (req.user['https://example.com/email'] == geoAnalyticsData.email) {
       res.json({ geoAnalytics: geoAnalyticsDataToSend });
     } else {
       res.json({ success: false });
