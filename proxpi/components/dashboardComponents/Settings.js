@@ -260,15 +260,7 @@ function Settings(props) {
               <option selected={method === "GET"} value="GET">
                 GET
               </option>
-              <option selected={method === "POST"} value="POST">
-                POST
-              </option>
-              <option selected={method === "PUT"} value="PUT">
-                PUT
-              </option>
-              <option selected={method === "DELETE"} value="DELETE">
-                DELETE
-              </option>
+              
             </select>
           </div>
           <hr />

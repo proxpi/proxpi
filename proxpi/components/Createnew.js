@@ -16,12 +16,14 @@ function Createnew() {
   });
   const [error, setError] = useState(true);
   const [c_error, setC_error] = useState(false);
+  const [loading,setLoading] = useState(false)
 
   function handlePut(e) {
     setProxpi({ ...proxpi, [e.target.name]: e.target.value });
   }
   async function createproxpi() {
     const tokenCP = await getAccessTokenSilently();
+    setLoading(true)
     await axios
       .post(
         "/new/create",
@@ -33,6 +35,7 @@ function Createnew() {
       )
       .then((resp) => {
         if (resp.data.statusb) {
+          setLoading(false)
           history.push("/dashboard");
         } else {
           setC_error(true);
@@ -107,7 +110,7 @@ function Createnew() {
           </div>
           <hr />
           <h6 class="fontclassnav" style={{ color: "white" }}>
-            Method
+            Request Method
           </h6>
           <div class="form-group">
             <select
@@ -117,11 +120,9 @@ function Createnew() {
               name="method"
               id="inputGroupSelect01"
             >
-              <option selected>Choose the API request Method</option>
+              <option >Choose the API request Method</option>
               <option value="GET">GET</option>
-              <option value="POST">POST</option>
-              <option value="PUT">PUT</option>
-              <option value="DELETE">DELETE</option>
+              
             </select>
           </div>
           <hr />
@@ -173,7 +174,7 @@ function Createnew() {
             onClick={handleSubmit}
             class="w-100 btn btn-lg btn-primary fontclassnav"
           >
-            Create
+            {loading ? "Creating...":"Create"}
           </button>
           {error ? (
             <div class="alert alert-warning" role="alert">

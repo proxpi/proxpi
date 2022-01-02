@@ -25,6 +25,7 @@
     "react-leaflet": "^3.2.0",
     "react-leaflet-heatmap-layer": "^2.0.0",
     "react-modal": "^3.14.3",
+    "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0",
     "react-simple-maps": "^2.3.0",
     "react-toastify": "^7.0.4",

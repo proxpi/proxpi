@@ -10,7 +10,7 @@ function Btn() {
 
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img
           src="https://avatars.githubusercontent.com/u/84428745?s=400&u=4c7cc5b97236c44f0aea44f2b477cdee20e13953&v=4"
           width="50"

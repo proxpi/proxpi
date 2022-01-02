@@ -57,7 +57,7 @@ function Main() {
           <iframe
             width="100%"
             class="videocontainer"
-            src="https://www.youtube.com/embed/LoRpJTD3HFY"
+            src="https://www.youtube.com/embed/duagzRzR1jQ?autoplay=1&cc_load_policy=1"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -65,7 +65,6 @@ function Main() {
           ></iframe>
         </div>
       </div>
-
       <div class="maincontaier">
         <div class="features">
           <div class="featuredesc">
@@ -175,6 +174,19 @@ function Main() {
         </div>
         <hr style={{ borderTop: " 1px dashed red" }} />
       </div>
+      <div style={{display:"flex",justifyContent:"center"}}>
+      <div class="introvideo">
+          <iframe
+            width="100%"
+            class="videocontainer"
+            src="https://www.youtube.com/embed/duagzRzR1jQ?autoplay=1&cc_load_policy=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        </div>
       <div style={{ margin: "0%" }} class="maincontaier">
         <div class="communityjoin">
           <span class="headingofadditionalfeatures">
