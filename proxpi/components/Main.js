@@ -283,7 +283,7 @@ function Main() {
                 Discussions
               </Button>
               </a>
-              <a id="buttondisabledecoration"  href="" target="_blank">
+              <a id="buttondisabledecoration"  href="https://discord.gg/gngj73ewEY" target="_blank">
               <Button
                 size="large"
                 style={{

@@ -105,7 +105,7 @@ const Footer = () => {
           <h5>Developers</h5>
           <ul class="list-unstyled text-small">
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a class="link-secondary text-decoration-none" href="https://github.com/proxpi">
                 Open Source
               </a>
             </li>
@@ -115,12 +115,12 @@ const Footer = () => {
               </a>
             </li>
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a class="link-secondary text-decoration-none" href="https://github.com/orgs/proxpi/teams/core-team">
                 Team
               </a>
             </li>
             <li class="mb-1">
-              <a class="link-secondary text-decoration-none" href="#">
+              <a class="link-secondary text-decoration-none" href="https://github.com/proxpi/proxpi#readme">
                 Contributing Guide
               </a>
             </li>
@@ -134,7 +134,7 @@ const Footer = () => {
       </div>
       <hr></hr>
       <h6 style={{ textAlign: "center" }} class="d-block mb-3 text-muted">
-        Copyright © 2021 ProxPi, All Rights Reserved.
+        Copyright © 2021-2022 ProxPi, All Rights Reserved.
       </h6>
       <h6 style={{ textAlign: "center" }}>
         Made with <span style={{ color: "#e25555" }}>&#9829;</span> in

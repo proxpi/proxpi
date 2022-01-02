@@ -1,6 +1,8 @@
 import React, { Component, useEffect } from "react";
 import "../assets/pricing.css";
+import { useHistory } from "react-router-dom";
 function Pricing() {
+  let history = useHistory();
   return (
     <div className="container py-3">
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -31,6 +33,7 @@ function Pricing() {
                 <button
                   type="button"
                   class="w-100 btn btn-lg btn-outline-primary specialbutton"
+                  onClick={()=>{history.push("/dashboard")}}
                 >
                   Sign up for free
                 </button>
@@ -45,14 +48,14 @@ function Pricing() {
               </div>
               <div class="card-body">
                 <h1 class="card-title pricing-card-title">
-                  $5<small class="text-muted fw-light">/mo</small>
+                  $0<small class="text-muted fw-light">/mo</small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
                   <li>∞ ProxPi's</li>
                   <li>Everything in free plan</li>
                   <li>Dedicated Support</li>
                 </ul>
-                <button type="button" class="w-100 btn btn-lg btn-primary">
+                <button href="javascript: void(0)" onClick={()=>{location.href='mailto:contact@proxpi.tech'}} type="button" class="w-100 btn btn-lg btn-primary">
                   Contact us
                 </button>
               </div>

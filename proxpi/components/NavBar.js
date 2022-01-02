@@ -105,13 +105,13 @@ function Btn() {
               class="dropdown-menu clickable"
               aria-labelledby="navbarDropdown"
             >
-              <a class="dropdown-item clickable" href="#">
+              <a class="dropdown-item clickable" href="https://discord.gg/gngj73ewEY">
                 Support
               </a>
-              <a class="dropdown-item clickable" href="#">
+              <a class="dropdown-item clickable" href="https://github.com/proxpi">
                 Open Source
               </a>
-              <a class="dropdown-item clickable" href="#">
+              <a class="dropdown-item clickable" href="https://github.com/orgs/proxpi/projects/1">
                 Contribute
               </a>
               <div class="dropdown-divider"></div>
