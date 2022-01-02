@@ -57,7 +57,7 @@ function Main() {
           <iframe
             width="100%"
             class="videocontainer"
-            src="https://www.youtube.com/embed/duagzRzR1jQ?autoplay=1&cc_load_policy=1"
+            src="https://www.youtube.com/embed/DD1dq999x0c?autoplay=1&cc_load_policy=1"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -179,7 +179,7 @@ function Main() {
           <iframe
             width="100%"
             class="videocontainer"
-            src="https://www.youtube.com/embed/duagzRzR1jQ?autoplay=1&cc_load_policy=1"
+            src="https://www.youtube.com/embed/nt5GdTS4Zcs?autoplay=1&cc_load_policy=1"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
