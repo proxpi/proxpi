@@ -174,7 +174,7 @@ function Createnew() {
             onClick={handleSubmit}
             class="w-100 btn btn-lg btn-primary fontclassnav"
           >
-            {loading ? "Creating...":"Create"}
+            {loading ? "Creating ProxPi...":"Create"}
           </button>
           {error ? (
             <div class="alert alert-warning" role="alert">
